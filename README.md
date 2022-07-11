@@ -38,7 +38,7 @@ We were asked to create a streaming site (Netflix, Prime Video, Disney+, etc.), 
 - Figma
 - Visual Studio
 - ...
-## Screenshots
+## Enjoy
 
 ![App Screenshot](https://media.giphy.com/media/nwleaG1TObWsE/giphy.gif)
 
