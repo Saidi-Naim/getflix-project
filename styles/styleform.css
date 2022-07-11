@@ -42,71 +42,16 @@
     background-color: #111;
   }
   
-/*Carousselle*/
-.row-2{
-    width: 100%;
-    height: 40vh;
-    background: #222;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-}
-.row-2 > ul {
-    position: relative;
-    width: 800px;
-    height: 200px;
-}
-
-ul[id$="c"] li {
-    width: 25%;
-    list-style-type: none;
-    position: absolute;
-    top: 0;
-    padding: 20px;
-    height: 200px; 
-    opacity: 0;
-    text-align: center;
-    transition: 1s opacity; 
-}
-
-.active {
-    opacity: 1;
-}
-
-p {
-    font-family: sans-serif;
-    font-size: 13px;
-    color: orange;
-    line-height: 1.5em;
-}
-
-strong { 
-    color: orange;
-    font-weight: 700;
-        font-size: 60px; 
-    line-height: 100px; 
-}
-
 
 /*----------------*/
-.row-3, .row-4, .row-5, .row-6{
-    width: 75%;
-    display: inline-flex;
+
+.row-2{
+    display: grid;
     justify-content: center;
 }
-/* Top 10*/
-.col-affichestop10{
-    width: 150px;
-    height: 200px;
-    border: 2px solid orange;
+.forminput{
+    margin-top: 15px;
 }
-.col-recommendation{
-    width: 150px;
-    height: 200px;
-    border: 2px solid orange;
-}
-
 /* Footer*/
 .footer-basic {
     padding:40px 0;
