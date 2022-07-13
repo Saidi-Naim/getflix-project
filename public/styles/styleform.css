@@ -44,7 +44,22 @@
 .navbar >li >a:hover {
     background-color: #111;
   }
-  
+  #searchbox{
+    margin-top: 12px;
+  }
+  #search{
+    background-color: transparent;
+    border-radius: 50px;
+    color: white;
+  }
+  #search:focus{
+    outline: 0;
+    background-color: var(--primary-color);
+  }
+  #search::placeholder{
+    color: rgb(233, 198, 133);
+    text-align: center;
+  }
 
 /*----------------*/
 
