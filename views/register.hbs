@@ -28,14 +28,19 @@
         <div class="col-2">
           <!--Navbar -->
           <ul class="navbar">
-            <li><a href="login">Login</a></li>
+            <li><a href="/login">Login</a></li>
             <li><a href="#">Category</a></li>
             <li><a href="#">Search</a></li>
           </ul>
         </div>
       </div>
+        {{#if message}}
+          <div class="message" style="text-align: center; padding: 20px 0; background-color: #333; color: white;">
+            <h1>{{message}}</h1>
+          </div>
+        {{/if}}
       <div class="row-2">
-        <form action="" method="post">
+        <form action="/auth/register" method="post">
             <div class="forminput">
             <label for="email" class="form-label">Email:</label></br>
             <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" required/>
