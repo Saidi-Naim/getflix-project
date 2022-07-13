@@ -1,10 +1,12 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const path = require("path");
+const cookieParser = require('cookie-parser');
 
 dotenv.config({ path: "./.env" });
 
 const app = express();
+app.use(cookieParser());
 
 const port = process.env.PORT || 5000;
 
@@ -17,10 +19,11 @@ app.use(express.urlencoded({ extended: false }));
 // parse json bodies (as sent by api clients)
 app.use(express.json());
 
-app.set('view engine', 'hbs')
+app.set("view engine", "hbs");
 
- // Define routes
- app.use('/',require('./routes/pages'))
+// Define routes
+app.use("/", require("./routes/pages"));
+app.use('/auth',require('./routes/auth'))
 
 app.listen(port, () => {
   console.log(`server running on port ${port}`);
