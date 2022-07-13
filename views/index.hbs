@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Getflix</title>
+    <link rel="stylesheet" href="public/styles/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .mySlides {
+            display:none;
+        }
+    </style>
+</head>
+    <body>
+        <div class="container">
+            <div class="row-1"> <!--Header -->
+                <div class="col-1"> <!--Logo -->
+                    <img class="logo" src="Images/Getflix.png" href="index.html" alt="logo getflix">
+                </div>
+                <div class="col-2"> <!--Navbar -->
+                    <ul class="navbar">
+                        <li><a href="login">Login</a></li>
+                        <li><a href="#">Category</a></li>
+                        <li>
+                            <form id="searchbox"><input type="search" placeholder="Search" id="search" class="search" name="search"> </form>
+                            <!-- <a href="#">Search</a> -->
+                        </li>
+                      </ul>
+                </div>
+            </div>
+            <div class="row-2"> <!--Nouveautés -->
+                <div class="w3-content w3-display-container">
+                    <img class="mySlides" src="Images/Getflix.png" style="width:100%">
+                    <img class="mySlides" src="Images/2.jpg" style="width:100%;">
+                  
+                    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+                  </div>
+            </div>
+            <div class="row-3"> <!-- -->
+                <h3>Top 10:</h3>
+                
+            </div>
+            <div class="row-4"> <!-- -->
+                <div class="col-affichestop10">
+                    <img src="" alt="movie poster">
+                    <div class="movie-info"><h4 class="titlemovie">Movie Title</h4>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row-5"> <!-- -->
+                <h3>Suggestions:</h3>
+            </div>
+            <div class="row-6"> <!-- -->
+                <div class="col-recommendation">
+                    <img src="" alt="movie poster">
+                    <div class="movie-info"><h4 class="titlemovie">Movie Title</h4>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row-7"> <!--See more -->
+
+            </div>
+            <div class="footer-basic" id="row-8"> <!-- Footer-->
+                <footer>
+                    <div class="social"><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a></div>
+                    <ul class="list-footer">
+                        <li class="list-inline-item"><a href="#">About</a></li>
+                        <li class="list-inline-item"><a href="#">Terms</a></li>
+                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                    </ul>
+                    <p class="copyright">Getflix © 2022</p>
+                </footer>
+            
+            </div>
+        </div>
+        <script>
+            var slideIndex = 1;
+            showDivs(slideIndex);
+            var myIndex = 0;
+            carousel();
+            /*------------------- manuel*/
+            function plusDivs(n) {
+              showDivs(slideIndex += n);
+            }
+            
+            function showDivs(n) {
+              var i;
+              var x = document.getElementsByClassName("mySlides");
+              if (n > x.length) {slideIndex = 1}
+              if (n < 1) {slideIndex = x.length}
+              for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";  
+              }
+              x[slideIndex-1].style.display = "block";  
+            }
+            /*------------------- Automatic*/
+
+            function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";  
+            }
+            myIndex++;
+            if (myIndex > x.length) {myIndex = 1}    
+            x[myIndex-1].style.display = "block";  
+            setTimeout(carousel, 4000); // Change image every 2 seconds
+            }
+            </script>
+            <script src="scripts/apifetch.js"></script>
+    </body>
+</html>
