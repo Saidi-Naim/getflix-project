@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <title>Getflix</title>
-    <link rel="stylesheet" href="public/styles/styleform.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
@@ -11,6 +10,7 @@
       referrerpolicy="no-referrer"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/styles/styleform.css" />
   </head>
   <body>
     <div class="container">
@@ -20,8 +20,8 @@
           <!--Logo -->
           <img
             class="logo"
-            src="Images/Getflix.png"
-            href="index.html"
+            src="/Images/Getflix.png"
+            href="index"
             alt="logo getflix"
           />
         </div>
@@ -42,20 +42,19 @@
             </div>
             <div class="forminput">
             <label for="name" class="form-label">Password</label></br>
-            <input type="password" class="form-control" id="lastname" name="password" required/></br>
-            <label for="name" class="form-label">Confirm Password</label></br>
             <input type="password" class="form-control" id="lastname" name="password" required/>
             </div>
 
             <div class="forminput">
+            <label for="name" class="form-label">Confirm Password</label></br>
+            <input type="password" class="form-control" id="lastname" name="confirmPassword" required/>
+            </div>
+            
+
+            <div class="forminput">
             <button
                 type="submit"
-                class="btn btn-outline-danger position-relative"
-                name="submit">
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                </span>Login</button>
-            
-                <input type="button" href="subscribe" value="Subscribe">
+                name="submit">Create</button>
             </div>
         </form>
       </div>
