@@ -21,7 +21,7 @@ exports.register = (req, res) => {
   const { email, password, confirmPassword } = req.body;
 
   db.query(
-    "SELECT UserEmail FROM Users WHERE UserEmail = ?",
+    "SELECT email FROM user WHERE email = ?",
     [email],
     async (err, result) => {
       if (err) {
@@ -39,8 +39,8 @@ exports.register = (req, res) => {
       let hashedPassword = await bcrypt.hash(password, 8);
 
       db.query(
-        "INSERT INTO Users SET ?",
-        { user_name: email, user_pass: hashedPassword },
+        "INSERT INTO user SET ?",
+        { email: email, password: hashedPassword },
         (err, results) => {
           if (err) {
             console.log(err);
@@ -59,7 +59,7 @@ exports.login = (req, res) => {
   const { email, password } = req.body;
 
   db.query(
-    "SELECT UserEmail, UserPassword FROM Users WHERE UserEmail = ?",
+    "SELECT email, password FROM user WHERE email = ?",
     [email],
     async (err, results) => {
       if (err) {
