@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>Getflix</title>
-    <link rel="stylesheet" href="public/styles/styleform.css" />
+    <link rel="stylesheet" href="/styles/styleform.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
@@ -20,8 +20,8 @@
           <!--Logo -->
           <img
             class="logo"
-            src="Images/Getflix.png"
-            href="index.html"
+            src="/Images/Getflix.png"
+            href="index"
             alt="logo getflix"
           />
         </div>
@@ -53,11 +53,11 @@
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 </span>Login</button>
             
-                <input type="button" href="subscribe.html" value="Subscribe">
+                <a href="register"><input type="button" value="Register"></a>
             </div>
         </form>
     </div>
-      <div class="footer-basic" id="row-8">
+      {{!-- <div class="footer-basic" id="row-8"> --}}
         <!-- Footer-->
         <footer>
           <div class="social">
@@ -73,7 +73,7 @@
           </ul>
           <p class="copyright">Getflix © 2022</p>
         </footer>
-      </div>
+      {{!-- </div> --}}
     </div>
   </body>
 </html>
