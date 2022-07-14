@@ -69,13 +69,13 @@ exports.login = (req, res) => {
       if (results.length === 0) {
         return res.render("login", { message: "password or email incorrect" });
       } else {
-        await bcrypt.compare(password, results[0].user_pass).then((bool) => {
-          if (email != results[0].user_name || !bool) {
+        await bcrypt.compare(password, results[0].password).then((bool) => {
+          if (email != results[0].email || !bool) {
             return res.render("login", {
               message: "password or email incorrect",
             });
           } else {
-            res.cookie("loggedin", results[0].user_name, {
+            res.cookie("loggedin", results[0].email, {
               maxAge: 900000,
               httpOnly: true,
             });
