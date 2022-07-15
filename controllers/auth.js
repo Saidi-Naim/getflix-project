@@ -3,17 +3,17 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 const db = mysql.createConnection({
-  host: process.env.DATABASE_HOST,
-  user: process.env.DATABASE_USER,
-  password: process.env.DATABASE_PASSWORD,
-  database: process.env.DATABASE,
+  host: process.env.RDS_HOSTNAME,
+  user: process.env.RDS_USERNAME,
+  password: process.env.RDS_PASSWORD,
+  database: process.env.RDS_DB_NAME,
 });
 
 db.connect((err) => {
   if (err) {
-    console.log(err)
-  } else {
-    console.log('MYSQL connected...')
+    console.error('Database connection failed: ' + err.stack);
+    } else {
+      console.log('Connected to database.');
   }
 })
 
