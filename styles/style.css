@@ -1,0 +1,134 @@
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box;
+}
+.container{
+    display: grid;
+}
+.logo {
+    max-width: 100px;
+    height: auto;
+}
+.col-1{
+    width: 25%;
+    float: left;
+}
+.col-2{
+    width: 75%;
+    float: right;
+}
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+  }
+.navbar > li {
+    float: right;
+  }
+.navbar > li > a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+.navbar >li >a:hover {
+    background-color: #111;
+  }
+  
+/*Carousselle*/
+.row-2{
+    width: 100%;
+    height: 50vh;
+    background: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+button[class$="w3-display-left"]{
+    float: left;
+}
+/*----------------*/
+.row-3, .row-4, .row-5, .row-6{
+    width: 75%;
+    display: inline-flex;
+    justify-content: center;
+}
+/* Top 10*/
+.col-affichestop10{
+    width: 150px;
+    height: 200px;
+    border: 2px solid orange;
+}
+.col-recommendation{
+    width: 150px;
+    height: 200px;
+    border: 2px solid orange;
+}
+
+/* Footer*/
+.footer-basic {
+    padding:40px 0;
+    background-color:#ffffff;
+    color:#4b4c4d;
+  }
+  
+.list-footer {
+    text-align:center;
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:0;
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+.list-footer > li > a {
+    display: inline-flex;
+    color: gray;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+.list-footer >li >a:hover {
+    background-color: white;
+  }
+.social {
+    text-align:center;
+    padding-bottom:25px;
+  }
+  
+.social > a {
+    font-size:24px;
+    width:40px;
+    height:40px;
+    line-height:40px;
+    display:inline-block;
+    text-align:center;
+    border-radius:50%;
+    border:1px solid #ccc;
+    margin:0 8px;
+    color:inherit;
+    opacity:0.75;
+  }
+  
+.social > a:hover {
+    opacity:0.9;
+  }
+  
+.copyright {
+    margin-top:15px;
+    text-align:center;
+    font-size:13px;
+    color:#aaa;
+    margin-bottom:0;
+  }
