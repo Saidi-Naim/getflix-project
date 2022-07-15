@@ -2,6 +2,11 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   box-sizing: border-box;
 }
+body{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
 .container{
   display: grid;
 }
@@ -26,6 +31,7 @@
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
+  z-index: 99%;
 }
 .navbar > li {
   float: right;
@@ -87,7 +93,80 @@ button[class$="w3-display-left"]{
   height: 200px;
   border: 2px solid orange;
 }
+#trending{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 2px solid red;
+  margin-left: auto;
+  margin-right: auto;
+}
+#movieTop10{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 2px solid red;
+  margin-left: auto;
+  margin-right: auto;
+}
+#latestmovies{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 2px solid red;
+  margin-left: auto;
+  margin-right: auto;
+}
+.movie {
+  width: 250px;
+  margin: 1rem;
+  border-radius: 3px;
+  box-shadow: 0.2px 4px 5px rgba(0,0,0,0.1);
+  background-color: var(--secondary-color);
+  position:relative;
+  overflow: hidden;
+}
+.movie img{
+  width:100%;
+}
+.movie-info{
+  color:#eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1.5rem 1.5rem;
+  letter-spacing: 0.5px;
+  height: fit-content;
+}
 
+.movie-info h3{
+  margin-top: 0;
+  color: black;
+  font-size: 15px;
+}
+
+.movie-info span{
+  background-color: var(--primary-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-weight: bold;
+  color:black;
+}
+.overview{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color: #fff;
+  padding: 1rem;
+  max-height: 100%;
+  transform:translateY(101%);
+  transition:transform 0.3s ease-in;
+}
+
+.movie:hover .overview{
+  transform:translateY(0)
+}
 
 /*Affiches*/
 .movie-info{
