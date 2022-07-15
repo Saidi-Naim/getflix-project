@@ -1,11 +1,13 @@
-//TMDB 
-
 const API_KEY = 'api_key=860299d08527b54489820acbf28e4486';
 const BASE_URL = 'https://api.themoviedb.org/3';
-const API_URL = BASE_URL + '/discover/movie?sort_by=popularity.desc&'+API_KEY;
-const IMG_URL = 'https://image.tmdb.org/t/p/w500';
-const searchURL = BASE_URL + '/search/movie?'+API_KEY;
-
+const API_URLPopular = BASE_URL + '/discover/movie?sort_by=popularity.desc&'+API_KEY;
+const API_URLTopRated = BASE_URL + '/movie/top_rated?'+API_KEY+'&language=en-US';
+const API_URLLatest=BASE_URL + '/tv/airing_today?'+API_KEY;
+const IMG_URL = 'https://image.tmdb.org/t/p/w342';
+const searchURL = BASE_URL + '/search/multi?'+API_KEY+'&query='+'&language=en-US&page=1&include_adult=false';
+const trending=document.getElementById("trending");
+const movieTop10=document.getElementById("movieTop10");
+const latestmovies=document.getElementById("latestmovies");
 const genres = [
     {
       "id": 28,
@@ -85,46 +87,35 @@ const genres = [
     }
   ]
 
-
-getMovies(API_URL);
-
-function getMovies(url) {
+// Search bar:
+function search(url) {
   lastUrl = url;
     fetch(url).then(res => res.json()).then(data => {
         console.log(data.results)
-        if(data.results.length !== 0){
-            showMovies(data.results);
-            currentPage = data.page;
-            nextPage = currentPage + 1;
-            prevPage = currentPage - 1;
-            totalPages = data.total_pages;
+        searchSubmit(data.results);
+    })
 
-            current.innerText = currentPage;
+}
+function searchSubmit(){
 
-            if(currentPage <= 1){
-              prev.classList.add('disabled');
-              next.classList.remove('disabled')
-            }else if(currentPage>= totalPages){
-              prev.classList.remove('disabled');
-              next.classList.add('disabled')
-            }else{
-              prev.classList.remove('disabled');
-              next.classList.remove('disabled')
-            }
+}
 
-            tagsEl.scrollIntoView({behavior : 'smooth'})
+getPopularMovies(API_URLPopular);
+getTopRatedMovies(API_URLTopRated);
+getLatestMovies(API_URLLatest);
 
-        }else{
-            main.innerHTML= `<h1 class="no-results">No Results Found</h1>`
-        }
-       
+function getPopularMovies(url) {
+  lastUrl = url;
+    fetch(url).then(res => res.json()).then(data => {
+        console.log(data.results)
+        showPopularMovies(data.results);
     })
 
 }
 
 
-function showMovies(data) {
-    main.innerHTML = '';
+function showPopularMovies(data) {
+  trending.innerHTML = '';
 
     data.forEach(movie => {
         const {title, poster_path, vote_average, overview, id} = movie;
@@ -133,25 +124,103 @@ function showMovies(data) {
         movieEl.innerHTML = `
              <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}">
             <div class="movie-info">
-                <h3>${title}</h3>
-                <span class="${getColor(vote_average)}">${vote_average}</span>
+                <h3><b>${title}</b></h3>
+                <span class="scoreAverage">${vote_average}</span>
             </div>
             <div class="overview">
                 <h3>Overview</h3>
                 ${overview}
                 <br/> 
-                <button class="know-more" id="${id}">Know More</button
-            </div>
-        
-        `
+                <button class="know-more" id="${id}">Know More</button>
+            </div>`;
 
-        main.appendChild(movieEl);
+            trending.appendChild(movieEl);
 
         document.getElementById(id).addEventListener('click', () => {
-          console.log(id)
-          openNav(movie)
+          console.log(id);
+          openNav(movie);
+        })
+    })
+}
+function getTopRatedMovies(url) {
+  lastUrl = url;
+    fetch(url).then(res => res.json()).then(data => {
+        console.log(data.results)
+        showTopRatedMovies(data.results);
+    })
+
+}
+
+
+function showTopRatedMovies(data) {
+  movieTop10.innerHTML = '';
+
+    data.forEach(movie => {
+        const {title, poster_path, vote_average, overview, id} = movie;
+        
+        const movieEl = document.createElement('div');
+        movieEl.classList.add('movie');
+        movieEl.innerHTML = `
+             <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}">
+            <div class="movie-info">
+                <h3><b>${title}</b></h3>
+                <span class="scoreAverage">${vote_average}</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                ${overview}
+                <br/> 
+                <button class="know-more" id="${id}">Know More</button>
+            </div>`;
+
+            movieTop10.appendChild(movieEl);
+
+        document.getElementById(id).addEventListener('click', () => {
+          console.log(id);
+          openNav(movie);
         })
     })
 }
 
+
+
 //console.log(searchURL);
+function getLatestMovies(url) {
+  lastUrl = url;
+    fetch(url).then(res => res.json()).then(data => {
+        console.log(data.results)
+        showLatestMovies(data.results);
+    })
+
+}
+
+function showLatestMovies(data) {
+  latestmovies.innerHTML = '';
+
+    data.forEach(movie => {
+        const {title, poster_path, vote_average, overview, id} = movie;
+        
+        const movieEl = document.createElement('div');
+        movieEl.classList.add('movie');
+        movieEl.innerHTML = `
+             <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}">
+            <div class="movie-info">
+                <h3><b>${title}</b></h3>
+                <span class="scoreAverage">${vote_average}</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                ${overview}
+                <br/> 
+                <button class="know-more" id="${id}">Know More</button>
+            </div>`;
+
+            latestmovies.appendChild(movieEl);
+
+        document.getElementById(id).addEventListener('click', () => {
+          console.log(id);
+          openNav(movie);
+
+        })
+    })
+}
