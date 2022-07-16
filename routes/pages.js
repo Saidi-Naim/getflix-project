@@ -57,12 +57,10 @@ router.post("/forgot", (req, res, next) => {
       const link = `http://localhost:5000/reset/${results[0].id}/${token}`;
 
       //     // send email with nodemailer
-      const CLIENT_ID =
-        "1072205732103-vu1pti3bdfjn26qoqs6aj100hbhdqdpr.apps.googleusercontent.com";
-      const CLIENT_SECRET = "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";
-      const REDIRECT_URL = "https://developers.google.com/oauthplayground";
-      const REFRESH_TOKEN =
-        "1//04drzmDelQpObCgYIARAAGAQSNwF-L9IrVjnvY64ibUHulk3BWm27d_NAXqxS-la_vXUByQ8D_lUjd4TcqC52zW4v4mSBmXcqqnU";
+      const CLIENT_ID = "";
+      const CLIENT_SECRET = "";
+      const REDIRECT_URL = "";
+      const REFRESH_TOKEN = "";
 
       const oAuth2Client = new google.auth.OAuth2(
         CLIENT_ID,
@@ -78,7 +76,7 @@ router.post("/forgot", (req, res, next) => {
             service: "gmail",
             auth: {
               type: "OAuth2",
-              user: "mexicanobootstrap2@gmail.com",
+              user: "account @gmail.com",
               clientId: CLIENT_ID,
               clientSecret: CLIENT_SECRET,
               refreshToken: REFRESH_TOKEN,
@@ -87,8 +85,8 @@ router.post("/forgot", (req, res, next) => {
           });
 
           const mailOptions = {
-            from: "noreply <mexicanobootstrap2@gmail.com>",
-            to: "elmiri.younes@hotmail.com",
+            from: "noreply <account @gmail.com>",
+            to: email,
             subject: "reset password",
             text: "",
             html: `<h4>Click this <a href='${link}'>link</a> to reset the password.</h4>`,
