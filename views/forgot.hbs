@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <title>Getflix</title>
+    <link rel="stylesheet" href="/styles/styleform.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
@@ -10,7 +11,6 @@
       referrerpolicy="no-referrer"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/styles/styleform.css" />
   </head>
   <body>
     <div class="container">
@@ -25,45 +25,40 @@
             alt="logo getflix"
           />
         </div>
-        <div class="col-2">
-          <!--Navbar -->
-          <ul class="navbar">
-            <li><a href="/login">Login</a></li>
-            <li><a href="#">Category</a></li>
-            <li><a href="#">Search</a></li>
-          </ul>
+        <div class="col-2"> <!--Navbar -->
+            <ul class="navbar">
+                <li><a href="/login">Login</a></li>
+                <li><a href="#">Category</a></li>
+                <li>
+                    <form id="searchbox"><input type="search" placeholder="Search" id="search" class="search" name="search"> </form>
+                    <!-- <a href="#">Search</a> -->
+                </li>
+              </ul>
         </div>
       </div>
-        {{#if message}}
+      {{#if message}}
           <div class="message" style="text-align: center; padding: 20px 0; background-color: #333; color: white;">
             <h1>{{message}}</h1>
           </div>
-        {{/if}}
+      {{/if}}
       <div class="row-2">
-        <form action="/auth/register" method="post">
+        <form action="/forgot" method="post">
             <div class="forminput">
             <label for="email" class="form-label">Email:</label></br>
             <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" required/>
             </div>
-            
-            <div class="forminput">
-            <label for="name" class="form-label">Password</label></br>
-            <input type="password" class="form-control" id="lastname" name="password" required/>
-            </div>
-
-            <div class="forminput">
-            <label for="name" class="form-label">Confirm Password</label></br>
-            <input type="password" class="form-control" id="lastname" name="confirmPassword" required/>
-            </div>
-            
 
             <div class="forminput">
             <button
                 type="submit"
-                name="submit">Create</button>
+                class="btn btn-outline-danger position-relative"
+                name="submit">
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                </span>Reset password
+                </button>
             </div>
         </form>
-      </div>
+    </div>
       {{!-- <div class="footer-basic" id="row-8"> --}}
         <!-- Footer-->
         <footer>
@@ -82,5 +77,6 @@
         </footer>
       {{!-- </div> --}}
     </div>
+    <script src="scripts/apifetch.js"></script>
   </body>
 </html>
