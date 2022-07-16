@@ -108,7 +108,7 @@ const genres = [
       "name": "War & Politics"
     }
   ]
-
+//
 const movieCard = document.getElementById('movieCard');
 const form =  document.getElementById('form');
 const search = document.getElementById('search');
