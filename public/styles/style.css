@@ -109,7 +109,7 @@ button[class$="w3-display-left"]{
   margin-left: auto;
   margin-right: auto;
 }
-#latestmovies{
+#airingShows{
   display:flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -118,7 +118,7 @@ button[class$="w3-display-left"]{
   margin-right: auto;
 }
 .movie {
-  width: 250px;
+  width: 200px;
   margin: 1rem;
   border-radius: 3px;
   box-shadow: 0.2px 4px 5px rgba(0,0,0,0.1);
@@ -240,3 +240,4 @@ button[class$="w3-display-left"]{
   color:#aaa;
   margin-bottom:0;
 }
+
