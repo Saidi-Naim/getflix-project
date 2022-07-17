@@ -137,9 +137,16 @@ button[class$="w3-display-left"]{
   width: 100%;
   display: inline-flex;
   justify-content: center;
-  font-weight: 600;
+}
+.row-31 h3, .row-3 h3, .row-5 h3{
+  font-weight: 900;
   font-size: xx-large;
 }
+/* .red{
+  color: #b00000;
+  font-weight: 900;
+  font-size: xx-large;
+} */
 /* Top 10*/
 .col-affichestop10{
   width: 150px;
