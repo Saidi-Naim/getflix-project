@@ -39,6 +39,7 @@ header{
   padding: 0;
   overflow: hidden;
   background-color: none;
+  
 }
 .navbar > li {
   float: right;
@@ -162,7 +163,7 @@ button[class$="w3-display-left"]{
   display:flex;
   flex-wrap: wrap;
   justify-content: center;
-  border: 2px solid red;
+  
   border-radius: 5px;
   margin-left: 10px;
   margin-right: 10px;
@@ -171,7 +172,7 @@ button[class$="w3-display-left"]{
   display:flex;
   flex-wrap: wrap;
   justify-content: center;
-  border: 2px solid red;
+  
   border-radius: 5px;
   margin-left: 10px;
   margin-right: 10px;
@@ -180,7 +181,7 @@ button[class$="w3-display-left"]{
   display:flex;
   flex-wrap: wrap;
   justify-content: center;
-  border: 2px solid red;
+  
   border-radius: 5px;
   margin-left: 10px;
   margin-right: 10px;
