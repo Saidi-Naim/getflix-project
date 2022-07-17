@@ -9,7 +9,7 @@
     [![Link](https://img.shields.io/badge/Link-NodeFlix-green?labelColor=Green&style=flat&link=https://github.com/Saidi-Naim)](https://github.com/Saidi-Naim)
 
     ## 🍿 NodeFlix
-    ![Screenshot](/public/Images/ScreenNodeFlix.png)
+    ![Screenshot](https://github.com/Saidi-Naim/getflix-project/blob/design/public/Images/ScreenNodeFlix.png)
 
     ## 🚀 Appendix
 
@@ -39,6 +39,7 @@
     - Figma
     - Visual Studio
     - ...
+    
     ## Enjoy
 
     ![App Screenshot](https://media.giphy.com/media/nwleaG1TObWsE/giphy.gif)
