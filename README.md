@@ -9,7 +9,7 @@ We were asked to create a streaming site (Netflix, Prime Video, Disney+, etc.), 
 [![Link](https://img.shields.io/badge/Link-NodeFlix-green?labelColor=Green&style=flat&link=https://github.com/Saidi-Naim)](https://github.com/Saidi-Naim)
 
 ## 🍿 NodeFlix
-![Screenshot](/public/Images/ScreenNodeFlix.png/Images/ScreenNodeFlix.png)
+![Screenshot](/Images/ScreenNodeFlix.png)
 
 ## 🚀 Appendix
 
