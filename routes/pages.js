@@ -15,8 +15,7 @@ const db = mysql.createConnection({
 });
 
 router.get("/", (req, res) => {
-  // res.render("index", { logged: req.cookies.loggedin });
-  res.render("index", { logged: 'hello' });
+  res.render("index", { logged: req.cookies.loggedin });
 });
 
 router.get("/login", (req, res) => {
