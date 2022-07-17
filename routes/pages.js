@@ -54,13 +54,13 @@ router.post("/forgot", (req, res, next) => {
         id: results[0].id,
       };
       const token = jwt.sign(payload, secret, { expiresIn: "15m" });
-      const link = `http://localhost:5000/reset/${results[0].id}/${token}`;
+      const link = `https://gettflix-staging.herokuapp.com/reset/${results[0].id}/${token}`;
 
       //     // send email with nodemailer
-      const CLIENT_ID = "";
-      const CLIENT_SECRET = "";
-      const REDIRECT_URL = "";
-      const REFRESH_TOKEN = "";
+      const CLIENT_ID = process.env.CLIENT_ID;
+      const CLIENT_SECRET = process.env.CLIENT_SECRET;
+      const REDIRECT_URL = process.env.REDIRECT_URL;
+      const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
 
       const oAuth2Client = new google.auth.OAuth2(
         CLIENT_ID,
@@ -76,7 +76,7 @@ router.post("/forgot", (req, res, next) => {
             service: "gmail",
             auth: {
               type: "OAuth2",
-              user: "account @gmail.com",
+              user: "nodeflix.pw.recovery@gmail.com",
               clientId: CLIENT_ID,
               clientSecret: CLIENT_SECRET,
               refreshToken: REFRESH_TOKEN,
@@ -85,7 +85,7 @@ router.post("/forgot", (req, res, next) => {
           });
 
           const mailOptions = {
-            from: "noreply <account @gmail.com>",
+            from: "nodeflix - noreply <nodeflix.pw.recovery@gmail.com>",
             to: email,
             subject: "reset password",
             text: "",
