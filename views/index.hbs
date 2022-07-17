@@ -16,100 +16,54 @@
     </style>
 </head>
     <body>
-        <div class="container">
-            <div class="row-1"> <!--Header -->
-                <div class="col-1"> <!--Logo -->
-                    <img class="logo" src="Images/Getflix.png" href="index" alt="logo getflix">
-                </div>
-                <div class="col-2"> <!--Navbar -->
-                    <ul class="navbar">
-                        <li><a href="login">Login</a></li>
-                        <li><a href="#">Category</a></li>
-                        <li>
-                            <form id="searchbox"><input type="search" placeholder="Search" id="search" class="search" name="search"> </form>
-                            <!-- <a href="#">Search</a> -->
-                        </li>
-                      </ul>
-                </div>
-            </div>
-            <div class="row-2"> <!--Nouveautés -->
-                <div class="w3-content w3-display-container">
-                    <img class="mySlides" src="Images/Getflix.png" style="width:100%">
-                    <img class="mySlides" src="Images/2.jpg" style="width:100%;">
-                  
-                    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-                    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-                  </div>
-            </div>
-            <div class="row-3"> <!-- -->
-                <h3>Top 10:</h3>
-                
-            </div>
-            <div class="row-4"> <!-- -->
-                <div class="col-affichestop10">
-                    <img src="" alt="movie poster">
-                    <div class="movie-info"><h4 class="titlemovie">Movie Title</h4>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="row-5"> <!-- -->
-                <h3>Suggestions:</h3>
-            </div>
-            <div class="row-6"> <!-- -->
-                <div class="col-recommendation">
-                    <img src="" alt="movie poster">
-                    <div class="movie-info"><h4 class="titlemovie">Movie Title</h4>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="row-7"> <!--See more -->
+        <header>
+          <div class="col-1">
+            <!--Logo -->
+            <img
+              class="logo"
+              src="/Images/logoNoBg.png"
+              href="index"
+              alt="logo getflix"
+            />
+          </div>
+          <div class="col-2">
+            <!--Navbar -->
+            <ul class="navbar">
+              {{#if logged}}
+              <li>
+                <form action="/auth/logout" method="post" style="margin-left: 20px; display:flex; color: white">
+                  <h4>
+                    Hi, {{logged}}
+                  </h4>
+                    <button
+                      type="submit"
+                      style="padding: 0 20px; background: none; margin: 5px 10px; border: 1px solid white;  border-radius: 10px; color: white; cursor: pointer">Logout
+                    </button>
+                </form></li>
 
-            </div>
-            <div class="footer-basic" id="row-8"> <!-- Footer-->
-                <footer>
-                    <div class="social"><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a></div>
-                    <ul class="list-footer">
-                        <li class="list-inline-item"><a href="#">About</a></li>
-                        <li class="list-inline-item"><a href="#">Terms</a></li>
-                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-                    </ul>
-                    <p class="copyright">Getflix © 2022</p>
-                </footer>
-            
-            </div>
-        </div>
-        <div class="col-2">
-          <!--Navbar -->
-          <ul class="navbar">
-            {{#if logged}}
-            <li>
-              <form action="/auth/logout" method="post" style="margin-left: 20px; display:flex; color: white">
-              <h4>Hi, {{logged}}</h4>
-                <button
-                  type="submit"
-                  style="padding: 0 20px; background: none; margin: 5px 10px; border: 1px solid white; border-radius: 10px; color: white; cursor: pointer"
-                >Logout</button>
-              </form></li>
-            {{else}}
-              <li><a href="login">Login</a></li>
-            {{/if}}
-            <li><a href="#">Category</a></li>
-            <li>
-              <form id="searchbox"><input
-                  type="search"
-                  placeholder="Search"
-                  id="search"
-                  class="search"
-                  name="search"
-                />
-              </form>
-              <!-- <a href="#">Search</a> -->
-            </li>
-          </ul>
-        </div>
-      </div>
+                {{else}}
+              <li>
+                <a href="login">Login</a>
+              </li>
+                {{/if}}
+              <li>
+                <a href="#">Category</a>
+              </li>
+              <li>
+                <form id="searchbox">
+                  <input
+                    type="search"
+                    placeholder="Search"
+                    id="search"
+                    class="search"
+                    name="search"
+                  />
+                </form>
+                <!-- <a href="#">Search</a> -->
+              </li>
+            </ul>
+          </div>
+      </header>
       <div class="row-2"> <!--Nouveautés 
                 <div class="w3-content w3-display-container">
                     <img class="mySlides" src="Images/Getflix.png" style="width:100%">
@@ -118,6 +72,13 @@
                     <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
                     <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
                 </div>-->
+                {{!-- <img src="/Images/doctor-strange-1256x826.webp"> --}}
+                <div class="hero">
+                <h2>Doctor Strange 2: In The Multiverse Of Madness</h2>
+                <p>Doctor Stephen Strange continues his research on the Time Stone. However, an old friend-turned-enemy attempts to destroy all the wizards on Earth, which disrupts Strange's plan.</p>
+
+                <button>Know More</button>
+                </div>
             </div>
             <div class="row-31"> <!-- -->
                 <h3>Top rated:</h3>
@@ -143,17 +104,17 @@
         <!--See more -->
 
       </div>
-      <div class="footer-basic" id="row-8">
+      {{!-- <div class="footer-basic" id="row-8"> --}}
         <!-- Footer-->
         <footer>
           <div class="social"><a href="#"><i
-                class="fa fa-github"
+                class="fa fa-twitter"
                 aria-hidden="true"
               ></i></a><a href="#"><i
-                class="fa fa-github"
+                class="fa fa-facebook"
                 aria-hidden="true"
               ></i></a><a href="#"><i
-                class="fa fa-github"
+                class="fa fa-instagram"
                 aria-hidden="true"
               ></i></a><a href="#"><i
                 class="fa fa-github"
@@ -168,7 +129,7 @@
         </footer>
 
       </div>
-    </div>
+    {{!-- </div> --}}
     <script>
       var slideIndex = 1; showDivs(slideIndex); var myIndex = 0; carousel();
       /*------------------- manuel*/ function plusDivs(n) { showDivs(slideIndex
@@ -177,7 +138,7 @@
       = 1} if (n < 1) {slideIndex = x.length} for (i = 0; i < x.length; i++) {
       x[i].style.display = "none"; } x[slideIndex-1].style.display = "block"; }
       /*------------------- Automatic*/ function carousel() { var i; var x =
-      document.getElementsByClassName("mySlides"); for (i = 0; i < x.length;
+      document.getElementsByClassName("mySlides");} for (i = 0; i < x.length;
       i++) { x[i].style.display = "none"; } myIndex++; if (myIndex > x.length)
       {myIndex = 1} x[myIndex-1].style.display = "block"; setTimeout(carousel,
       4000); // Change image every 2 seconds }
