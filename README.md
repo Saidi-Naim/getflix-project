@@ -6,9 +6,11 @@ We were asked to create a streaming site (Netflix, Prime Video, Disney+, etc.), 
 
 
 ## 🔗 Links
-[![Link](https://img.shields.io/badge/Link-GetFlix-green?labelColor=Green&style=flat&link=https://github.com/Saidi-Naim)](https://github.com/Saidi-Naim)
+[![Link](https://img.shields.io/badge/Link-NodeFlix-green?labelColor=Green&style=flat&link=https://github.com/Saidi-Naim)](https://github.com/Saidi-Naim)
 
+## NodeFlix
 
+![Screenshot](https://github.com/Saidi-Naim/getflix-project/blob/design/public/Images/ScreenNodeFlix.png)
 
 ## 🚀 Appendix
 
@@ -23,7 +25,7 @@ We were asked to create a streaming site (Netflix, Prime Video, Disney+, etc.), 
 ## 🛠 Skills
 **Client:** HTML, CSS, Javascript
 
-**Server:** Node, Express, MySql WorkBench
+**Server:** Node, Express, MySql WorkBench, TMDB API
 
 
 ## 👯‍♀️ Authors
@@ -37,7 +39,7 @@ We were asked to create a streaming site (Netflix, Prime Video, Disney+, etc.), 
 
 - Figma
 - Visual Studio
-- ...
+- Trello
 ## Enjoy
 
 ![App Screenshot](https://media.giphy.com/media/nwleaG1TObWsE/giphy.gif)
