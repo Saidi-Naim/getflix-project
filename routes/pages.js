@@ -15,5 +15,7 @@ router.get("/register", (req, res) => {
 router.get("/search", (req, res) => {
   res.render("search");
 });
-
+router.get("/searchShow", (req, res) => {
+  res.render("searchShow");
+});
 module.exports = router;

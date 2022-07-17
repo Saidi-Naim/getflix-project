@@ -1,19 +1,11 @@
 //https://www.geeksforgeeks.org/how-to-display-search-result-of-another-page-on-same-page-using-ajax-in-jsp/
 const API_KEY = 'api_key=860299d08527b54489820acbf28e4486';
 const BASE_URL = 'https://api.themoviedb.org/3';
-const ApiUrlMovies = BASE_URL + '/discover/movie?sort_by=popularity.desc&'+API_KEY+'&include_adult=false';
+const ApiUrlShows = BASE_URL + '/discover/tv?sort_by=popularity.desc&'+API_KEY+'&include_adult=false';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 const searchURL = BASE_URL + '/search/multi?'+API_KEY;
 
 const genres = [
-    {
-      "id": 28,
-      "name": "Action"
-    },
-    {
-      "id": 12,
-      "name": "Adventure"
-    },
     {
       "id": 16,
       "name": "Animation"
@@ -39,48 +31,48 @@ const genres = [
       "name": "Family"
     },
     {
-      "id": 14,
-      "name": "Fantasy"
-    },
-    {
       "id": 36,
       "name": "History"
-    },
-    {
-      "id": 27,
-      "name": "Horror"
-    },
-    {
-      "id": 10402,
-      "name": "Music"
     },
     {
       "id": 9648,
       "name": "Mystery"
     },
     {
+        "id": 10763,
+        "name": "News"
+      },
+    {
       "id": 10749,
       "name": "Romance"
     },
     {
-      "id": 878,
-      "name": "Science Fiction"
-    },
-    {
-      "id": 10770,
-      "name": "TV Movie"
-    },
-    {
-      "id": 53,
-      "name": "Thriller"
-    },
-    {
-      "id": 10752,
-      "name": "War"
-    },
-    {
       "id": 37,
       "name": "Western"
+    },
+    {
+      "id": 10759,
+      "name": "Action & Adventure"
+    },
+    {
+      "id": 10762,
+      "name": "Kids"
+    },
+    {
+      "id": 10765,
+      "name": "Sci-Fi & Fantasy"
+    },
+    {
+      "id": 10766,
+      "name": "Soap"
+    },
+    {
+      "id": 10767,
+      "name": "Talk"
+    },
+    {
+      "id": 10768,
+      "name": "War & Politics"
     }
   ]
 //
@@ -123,7 +115,7 @@ function setGenre() {
                 }
             }
             console.log(selectedGenre);
-            getMovies(ApiUrlMovies + '&with_genres='+encodeURI(selectedGenre.join(',')));
+            getMovies(ApiUrlShows + '&with_genres='+encodeURI(selectedGenre.join(',')));
             highlightSelection();
         })
         GenreBtnEl.append(t);
@@ -158,21 +150,21 @@ function clearBtn(){
         clear.addEventListener('click', () => {
             selectedGenre = [];
             setGenre();            
-            getMovies(ApiUrlMovies);
+            getMovies(ApiUrlShows);
         })
         GenreBtnEl.append(clear);
     }
     
 }
 
-getMovies(ApiUrlMovies);
+getMovies(ApiUrlShows);
 
 function getMovies(url) {
   lastUrl = url;
     fetch(url).then(res => res.json()).then(data => {
         console.log(data.results)
         if(data.results.length !== 0){
-            showMovies(data.results);
+            ShowsCard(data.results);
             currentPage = data.page;
             nextPage = currentPage + 1;
             prevPage = currentPage - 1;
@@ -200,29 +192,29 @@ function getMovies(url) {
     })
 
 }
-function showMovies(data) {
-    movieCard.innerHTML = '';
 
-    data.forEach(movie => {
-        const {title, poster_path, vote_average, id} = movie;
-        const movieEl = document.createElement('div');
-        movieEl.classList.add('movie');
-        movieEl.innerHTML = `
-             <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}">
+function ShowsCard(data) {
+  movieCard.innerHTML = '';
 
-            <div class="movie-info">
-                <h3>${title}</h3>
-                <span class="rate">${vote_average}</span>
-            </div>
-            <div class="overview">
+  data.forEach(movie => {
+      const {name, poster_path, vote_average, id} = movie;
+      const movieEl = document.createElement('div');
+      movieEl.classList.add('movie');
+      movieEl.innerHTML = `
+           <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${name}">
+
+          <div class="movie-info">
+              <h3>${name}</h3>
+              <span class="rate">${vote_average}</span>
+          </div>
+          <div class="overview">
                 <button class="know-more" id="${id}">Know More</button>
             </div>`
 
-        movieCard.appendChild(movieEl);
-        
-    })
+      movieCard.appendChild(movieEl);
+      
+  })
 }
-
 
 
 form.addEventListener('submit', (e) => {
@@ -234,7 +226,7 @@ form.addEventListener('submit', (e) => {
     if(searchTerm) {
         getMovies(searchURL+'&query='+searchTerm)
     }else{
-        getMovies(ApiUrlMovies);
+        getMovies(ApiUrlShows);
     }
 
 })

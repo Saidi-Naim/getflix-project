@@ -103,7 +103,7 @@ function showTopRatedMovies(data) {
   movieTop10.innerHTML = '';
 
     data.forEach(movie => {
-        const {title, poster_path, vote_average, overview, id} = movie;
+        const {title, poster_path, vote_average, id} = movie;
         
         const movieEl = document.createElement('div');
         movieEl.classList.add('movie');
@@ -113,10 +113,7 @@ function showTopRatedMovies(data) {
                 <h3><b>${title}</b></h3>
                 <span class="scoreAverage">${vote_average}</span>
             </div>
-            <div class="overview">
-                <h3>Overview</h3>
-                ${overview}
-                <br/> 
+            <div class="overview"> 
                 <button class="know-more" id="${id}">Know More</button>
             </div>`;
 
@@ -145,7 +142,7 @@ function showairingShows(data) {
   airingShows.innerHTML = '';
 
     data.forEach(movie => {
-        const {name, poster_path, vote_average, overview, id} = movie;
+        const {name, poster_path, vote_average, id} = movie;
         
         const movieEl = document.createElement('div');
         movieEl.classList.add('movie');
@@ -155,10 +152,7 @@ function showairingShows(data) {
                 <h3><b>${name}</b></h3>
                 <span class="scoreAverage">${vote_average}</span>
             </div>
-            <div class="overview">
-                <h3>Overview</h3>
-                ${overview}
-                <br/> 
+            <div class="overview"> 
                 <button class="know-more" id="${id}">Know More</button>
             </div>`;
 
