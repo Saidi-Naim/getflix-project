@@ -72,7 +72,7 @@ header{
 .navbar >li >a:hover {
   background-color: rgb(213, 3, 3);
 }
-li a, .dropbtn , #LiSecondlevel{
+/*li a, .dropbtn , #LiSecondlevel{
   display: inline-block;
   color: white;
   text-align: center;
@@ -109,40 +109,66 @@ li.dropdown {
 
 .dropdown:hover .sub_menu {
   display: block;
+}*/
+#arrowDropdown{
+  vertical-align: middle; 
+  width: 15px;
+}
+a #arrowDropdown{ 
+  border: 0;
 }
 /* 
-	LEVEL ONE
+	LEVEL ONE*/
 
-.dropdown                         { position: relative; width: 100%; }
-.dropdown li                      { font-weight: bold; float: left; width: 180px; background: #ccc; position: relative; }
-.dropdown a:hover		            { color: #000; }
-.dropdown li a                    { display: block; padding: 20px 8px; color: #222; position: relative; z-index: 2000; }
-.dropdown li a:hover,
-.dropdown li a.hover              { background: #F3D673; position: relative; }
-*/
+.navbar { 
+  position: relative; 
+  width: 100%; }
+.navbar .dropdown{ 
+  font-weight: bold;
+  width: 150px;  
+  position: relative; }
+.dropdown .dropbtn:hover	{ 
+  color: white; }
+.dropdown .dropbtn{ 
+  display: block; 
+  padding: 20px 8px; 
+  color: white; 
+  position: relative; 
+  z-index: 2000; }
+.dropbtn:hover{ 
+  background: #f9f9f9; 
+  position: relative; }
+.dropbtn.hover{
+  position: relative;
+  background: rgb(213, 3, 3);
+}
 
 /* 
-	LEVEL TWO
+	LEVEL TWO*/
 
-.dropdown ul { 
+.sub_menu { 
   display: none; 
   position: absolute; 
   top: 0; 
   left: 0; 
-  width: 180px; 
+  width: 150px; 
   z-index: 1000; }
-.dropdown ul li { 
+.sub_menu li { 
   font-weight: normal; 
   background: #f6f6f6; 
   color: #000; 
-  border-bottom: 1px solid #ccc; }
-.dropdown ul li a	{ 
+}
+.sub_menu li a	{ 
   display: block; 
-  background: #eee !important; } 
-.dropdown ul li a:hover{ 
+  background: #eee !important; 
+  text-decoration: none;
+  padding-left: 5px;
+} 
+.sub_menu li a:hover{ 
   display: block; 
-  background: #F3D673 !important; } */
-
+  background: gray !important; } 
+  
+/*Searchbar*/
 #searchbox{
   margin-top: 12px;
   margin-right: 10px;
