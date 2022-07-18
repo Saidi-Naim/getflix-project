@@ -8,7 +8,32 @@ const trending=document.getElementById("trending");
 const movieTop10=document.getElementById("movieTop10");
 const latestmovies=document.getElementById("latestmovies");
 const searchbox=document.getElementById("searchbox");
+const ApiUrlMovies = BASE_URL + '/genre/movie/list?'+API_KEY+'&include_adult=false';
+const GenreDropdown=document.getElementById("sub_menu");
 
+//Genre Dropdown menu:
+fetchGenres(ApiUrlMovies); //https://stackoverflow.com/questions/45974412/is-it-possible-to-create-a-drop-down-with-multiple-columns-like-mega-menu-usin
+function fetchGenres(url) {
+    lastUrl = url;
+      fetch(url).then(res => res.json()).then(data => {
+          console.log(data.genres)
+          listGenres(data.genres);
+      })
+  
+}
+function listGenres(data) {
+    GenreDropdown.innerHTML = '';
+  
+      data.forEach(genre => {
+          const {id, name} = genre;
+          const genreEl = document.createElement('li');
+          genreEl.setAttribute('id', "LiSecondlevel")
+          genreEl.innerHTML = `<a href="" id="${name}">${name}</a>`;
+        
+        GenreDropdown.appendChild(genreEl);
+          
+      })
+  }
 //Search:
 searchbox.addEventListener('submit', (e) => {
   window.location.href="/search";

@@ -72,7 +72,7 @@ header{
 .navbar >li >a:hover {
   background-color: rgb(213, 3, 3);
 }
-li a, .dropbtn {
+li a, .dropbtn , #LiSecondlevel{
   display: inline-block;
   color: white;
   text-align: center;
@@ -88,7 +88,7 @@ li.dropdown {
   display: inline-block;
 }
 
-.dropdown-content {
+.sub_menu {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
@@ -97,7 +97,7 @@ li.dropdown {
   z-index: 1;
 }
 
-.dropdown-content a {
+.sub_menu li a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
@@ -105,11 +105,43 @@ li.dropdown {
   text-align: left;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1;}
+.sub_menu li a:hover {background-color: #f1f1f1;}
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .sub_menu {
   display: block;
 }
+/* 
+	LEVEL ONE
+
+.dropdown                         { position: relative; width: 100%; }
+.dropdown li                      { font-weight: bold; float: left; width: 180px; background: #ccc; position: relative; }
+.dropdown a:hover		            { color: #000; }
+.dropdown li a                    { display: block; padding: 20px 8px; color: #222; position: relative; z-index: 2000; }
+.dropdown li a:hover,
+.dropdown li a.hover              { background: #F3D673; position: relative; }
+*/
+
+/* 
+	LEVEL TWO
+
+.dropdown ul { 
+  display: none; 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 180px; 
+  z-index: 1000; }
+.dropdown ul li { 
+  font-weight: normal; 
+  background: #f6f6f6; 
+  color: #000; 
+  border-bottom: 1px solid #ccc; }
+.dropdown ul li a	{ 
+  display: block; 
+  background: #eee !important; } 
+.dropdown ul li a:hover{ 
+  display: block; 
+  background: #F3D673 !important; } */
 
 #searchbox{
   margin-top: 12px;
