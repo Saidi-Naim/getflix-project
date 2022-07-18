@@ -26,6 +26,14 @@ header{
   height: auto;
   background: none;
 }
+
+.message {
+  text-align: center; 
+  padding: 20px 0; 
+  background-color: #000; 
+  color: white;
+}
+
 .col-1{
   float: left;
 }
@@ -56,6 +64,7 @@ header{
 .navbar >li >a:hover {
   background-color: rgb(213, 3, 3);
 }
+
 #searchbox{
   margin-top: 12px;
   margin-right: 10px;
