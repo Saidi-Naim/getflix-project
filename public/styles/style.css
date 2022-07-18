@@ -27,6 +27,11 @@ header{
   background: none;
 }
 
+.form-control {
+  color: #000;
+  background-color: #d1d1d1;
+}
+
 .message {
   text-align: center; 
   padding: 20px 0; 
