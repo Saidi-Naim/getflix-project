@@ -239,7 +239,7 @@ form.addEventListener('submit', (e) => {
         getMovies(ApiUrlMovies);
     }
 
-})
+}) 
 
 prev.addEventListener('click', () => {
   if(prevPage > 0){

@@ -7,6 +7,22 @@ const IMG_URL = 'https://image.tmdb.org/t/p/w342';
 const trending=document.getElementById("trending");
 const movieTop10=document.getElementById("movieTop10");
 const latestmovies=document.getElementById("latestmovies");
+const searchbox=document.getElementById("searchbox");
+
+//Search:
+searchbox.addEventListener('submit', (e) => {
+  window.location.href="/search";
+  e.preventDefault();
+  const searchTerm = search.value;
+  selectedGenre=[];
+  setGenre();
+  if(searchTerm) {
+      getMovies(searchURL+'&query='+searchTerm)
+  }else{
+      getMovies(ApiUrlMovies);
+  }
+
+}) 
 
 //scroll:
 const setupScrolling = () => {
