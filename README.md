@@ -24,8 +24,8 @@ We were tasked to create a streaming site (Netflix, Prime Video, Disney+, etc.).
 ## 🔗 Links
 [![Link](https://img.shields.io/badge/Link-NodeFlix-green?labelColor=Green&style=flat&link=https://github.com/Saidi-Naim)](https://github.com/Saidi-Naim)
 
-**Staging Site:**[https://nodeflix-staging.herokuapp.com](https://nodeflix-staging.herokuapp.com/)
-**Original brief:**[here](https://github.com/becodeorg/Swartz-6/blob/main/2.The-Hill/2.PHP/GetflixProject.md/)
+- Staging site: [https://nodeflix-staging.herokuapp.com](https://nodeflix-staging.herokuapp.com/)
+- [Original brief](https://github.com/becodeorg/Swartz-6/blob/main/2.The-Hill/2.PHP/GetflixProject.md/)
 
 
 ## 🛠 Tools & Skills
