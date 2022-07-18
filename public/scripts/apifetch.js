@@ -128,7 +128,7 @@ function showPopularMovies(data) {
                 <span class="scoreAverage">Rated: ${vote_average}</span>
                 
                 <br/> 
-                <button class="know-more" id="${id}">Know More</button>
+                <button class="know-more" id="${id}">More Info</button>
             </div>`;
 
             trending.appendChild(movieEl);
@@ -163,7 +163,7 @@ function showTopRatedMovies(data) {
                 <h3><b>${title}</b></h3>
                 <span class="scoreAverage">Rated: ${vote_average}</span>
                 <br/> 
-                <button class="know-more" id="${id}">Know More</button>
+                <button class="know-more" id="${id}">More Info</button>
             </div>`;
 
             movieTop10.appendChild(movieEl);
@@ -202,7 +202,7 @@ function showLatestMovies(data) {
                 <h3><b>${title}</b></h3>
                 <span class="scoreAverage">Rated: ${vote_average}</span>
                 <br/> 
-                <button class="know-more" id="${id}">Know More</button>
+                <button class="know-more" id="${id}">More Info</button>
             </div>`;
 
             latestmovies.appendChild(movieEl);
