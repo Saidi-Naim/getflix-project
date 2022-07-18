@@ -27,21 +27,25 @@
           <!--Navbar -->
           <ul class="navbar">
             {{#if logged}}
-            <li>
-              <form action="/auth/logout" method="post" style="margin-left: 20px; display:flex; color: white">
+        <li>
+          <form action="/auth/logout" method="post" style="margin-left: 20px; display:flex; color: white">
+            <h4>
               <h4>Hi, {{logged}}</h4>
-                <button
-                  type="submit"
-                  style="padding: 0 20px; background: none; margin: 5px 10px; border: 1px solid white; border-radius: 10px; color: white; cursor: pointer"
-                >Logout</button>
-              </form></li>
-            {{else}}
-              <li><a href="login">Login</a></li>
-            {{/if}}
-            <li><a href="#">Category</a></li>
+              <button type="submit"
+                style="padding: 0 20px; background: none; margin: 5px 10px; border: 1px solid white;  border-radius: 10px; color: white; cursor: pointer">Logout
+              </button>
+          </form>
+        </li>
+
+        {{else}}
+        <li>
+          <a href="login">Sign In</a>
+        </li>
+        {{/if}}
+            
             <li>
               <form  id="form">
-            <input type="text" placeholder="Search movie/TV show" id="search" class="search">
+            <input type="text" placeholder="Search a Movie" id="search" class="search">
         </form>
               <!-- <a href="#">Search</a> -->
             </li>
