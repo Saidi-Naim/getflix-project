@@ -80,7 +80,11 @@ function showPopularMovies(data) {
             </div>`;
 
             trending.appendChild(movieEl);
-
+            /*if(movie == data.length - 1){
+              setTimeout(() => {
+                  setupScrolling();
+              }, 100);
+          } */
         document.getElementById(id).addEventListener('click', () => {
           console.log(id);
           openNav(movie);
