@@ -32,8 +32,8 @@
                     <form action="/auth/logout" method="post" style="margin-left: 20px; display:flex; color: white">
                         <h4>
                             <h4>Hi, {{logged}}</h4>
-                            <button class="form-button" type="submit">
-                              Logout
+                            <button type="submit"
+                                style="padding: 0 20px; background: none; margin: 5px 10px; border: 1px solid white;  border-radius: 10px; color: white; cursor: pointer">Logout
                             </button>
                     </form>
                 </li>
@@ -59,46 +59,29 @@
     
 
 
-        {{#if message}}
+      {{#if message}}
           <div class="message">
             <h1>{{message}}</h1>
           </div>
-        {{/if}}
+      {{/if}}
       <div class="row-2">
-        <form action="/auth/register" method="post">
+        <form action="/forgot" method="post">
             <div class="forminput">
             <label for="email" class="form-label">Email:</label></br>
             <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" required/>
             </div>
-            
-            <div class="forminput">
-            <label for="name" class="form-label">Password</label></br>
-            <input type="password" class="form-control" id="lastname" name="password" required/>
-            </div>
 
             <div class="forminput">
-            <label for="name" class="form-label">Confirm Password</label></br>
-            <input type="password" class="form-control" id="lastname" name="confirmPassword" required/>
-            </div>
-
-            
-            <label for="name" class="form-label">Subscription</label></br>
-            <div>
-              <input type="radio" id="Free" name="typeSubs">
-              <label for="freeSubs">Free</label>
-            
-              <input type="radio" id="premium" name="typeSubs">
-              <label for="premiumSubs">Premium</label>
-            </div>
-            
-
-            <div class="forminput">
-            <button class="form-button"
+            <button
                 type="submit"
-                name="submit">Create your account</button>
+                class="form-button"
+                name="submit">
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                </span>Reset password
+                </button>
             </div>
-        </div>
         </form>
+    </div>
 
 
 

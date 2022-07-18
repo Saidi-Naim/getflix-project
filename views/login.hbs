@@ -1,43 +1,65 @@
-<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Getflix</title>
-    <link rel="stylesheet" href="/styles/styleform.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
-      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+
+<head>
+    <title>NodeFlix</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="Images/logoTab.png">
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="row-1">
-        <!--Header -->
+    <style>
+        .mySlides {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
         <div class="col-1">
-          <!--Logo -->
-          <img
-            class="logo"
-            src="/Images/Getflix.png"
-            href="index"
-            alt="logo getflix"
-          />
+            <!--Logo -->
+            <a href="/">
+              <img class="logo" src="/Images/logo.png" href="index" alt="logo getflix" />
+            </a>
         </div>
-        <div class="col-2"> <!--Navbar -->
+        <div class="col-2">
+            <!--Navbar -->
             <ul class="navbar">
-                <li><a href="/login">Login</a></li>
-                <li><a href="#">Category</a></li>
+                {{#if logged}}
                 <li>
-                    <form id="searchbox"><input type="search" placeholder="Search" id="search" class="search" name="search"> </form>
+                    <form action="/auth/logout" method="post" style="margin-left: 20px; display:flex; color: white">
+                        <h4>
+                            <h4>Hi, {{logged}}</h4>
+                            <button type="submit"
+                                style="padding: 0 20px; background: none; margin: 5px 10px; border: 1px solid white;  border-radius: 10px; color: white; cursor: pointer">Logout
+                            </button>
+                    </form>
+                </li>
+
+                {{else}}
+                <li>
+                    <a href="login">Sign In</a>
+                </li>
+                {{/if}}
+                <li>
+                    <a href="#">Category</a>
+                </li>
+                <li>
+                    <form id="searchbox">
+                        <input type="search" placeholder="Search" id="search" class="search" name="search" />
+                    </form>
                     <!-- <a href="#">Search</a> -->
                 </li>
-              </ul>
+            </ul>
         </div>
-      </div>
-      {{#if message}}
-          <div class="message" style="text-align: center; padding: 20px 0; background-color: #333; color: white;">
+    </header>
+    
+    
+
+{{#if message}}
+          <div class="message">
             <h1>{{message}}</h1>
           </div>
       {{/if}}
@@ -53,35 +75,61 @@
             </div>
 
             <div class="forminput">
-            <button
+              <a href="/forgot">forgot password</a>
+            </div>
+
+            <div class="forminput">
+            <button class="form-button"
                 type="submit"
                 class="btn btn-outline-danger position-relative"
                 name="submit">
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                </span>Login</button>
+                </span>Sign In</button>
             
-                <a href="/register"><input type="button" value="Register"></a>
+                <a href="/register"><input class="form-button" type="button" value="Register"></a>
             </div>
         </form>
     </div>
-      {{!-- <div class="footer-basic" id="row-8"> --}}
-        <!-- Footer-->
-        <footer>
-          <div class="social">
-            <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a
-            ><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a
-            ><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a
-            ><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>
-          </div>
-          <ul class="list-footer">
+
+
+
+
+    <!-- Footer-->
+    <footer>
+        <div class="social"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a><a href="#"><i
+                    class="fa fa-facebook" aria-hidden="true"></i></a><a href="#"><i class="fa fa-instagram"
+                    aria-hidden="true"></i></a><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a></div>
+        <ul class="list-footer">
             <li class="list-inline-item"><a href="#">About</a></li>
             <li class="list-inline-item"><a href="#">Terms</a></li>
             <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-          </ul>
-          <p class="copyright">Getflix © 2022</p>
-        </footer>
-      {{!-- </div> --}}
-    </div>
+        </ul>
+        <p class="copyright">Getflix © 2022</p>
+    </footer>
+
+
+    <script>
+        var slideIndex = 1; showDivs(slideIndex); var myIndex = 0; carousel();
+      /*------------------- manuel*/ function plusDivs(n) {
+            showDivs(slideIndex
+                += n);
+        } function showDivs(n) {
+            var i; var x =
+                document.getElementsByClassName("mySlides"); if (n > x.length) {
+                    slideIndex
+                        = 1
+                } if (n < 1) { slideIndex = x.length } for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                } x[slideIndex - 1].style.display = "block";
+        }
+      /*------------------- Automatic*/ function carousel() {
+            var i; var x =
+                document.getElementsByClassName("mySlides");
+        } for (i = 0; i < x.length;
+            i++) { x[i].style.display = "none"; } myIndex++; if (myIndex > x.length) { myIndex = 1 } x[myIndex - 1].style.display = "block"; setTimeout(carousel,
+                4000); // Change image every 2 seconds }
+    </script>
     <script src="scripts/apifetch.js"></script>
-  </body>
+</body>
+
 </html>
