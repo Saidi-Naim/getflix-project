@@ -146,7 +146,7 @@ function showLatestMovies(data) {
         movieEl.innerHTML = `
              <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/150x150" }" alt="${title}">
           
-            <div class="overview" style="background-color:#ffbe01;">
+            <div class="overview">
                 <h3><b>${title}</b></h3>
                 <span class="scoreAverage">Rated: ${vote_average}</span>
                 <br/> 

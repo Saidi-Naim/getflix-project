@@ -208,17 +208,20 @@ function showMovies(data) {
         const movieEl = document.createElement('div');
         movieEl.classList.add('movie');
         movieEl.innerHTML = `
-             <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}">
-            <div class="movie-info">
-                <h3>${title}</h3>
-                <span class="rate">${vote_average}</span>
-            </div>
+             <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/150x150" }" alt="${title}">
             <div class="overview">
-                <button class="know-more" id="${id}">Know More</button>
-            </div>`
+                <h3><b>${title}</b></h3>
+                <span class="scoreAverage">Rated: ${vote_average}</span>
+                
+                <br/> 
+                <button class="know-more" id="${id}">More Info</button>
+            </div>`;
 
         movieCard.appendChild(movieEl);
-        
+        document.getElementById(id).addEventListener('click', () => {
+          console.log(id);
+          openNav(movie);
+        })
     })
 }
 

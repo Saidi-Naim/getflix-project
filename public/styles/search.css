@@ -15,18 +15,30 @@
     --secondary-color: rgb(66, 63, 63);
 }
 header{
-    padding:1rem;
-    display:flex;
-    justify-content: flex-end;
-    background-color: var(--secondary-color);
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  z-index: 99;
 }
 
   .container{
     display: grid;
   }
   .logo {
-    max-width: 100px;
+    width: 150px;
     height: auto;
+    background: none;
+  }
+  .form-control {
+    color: #000;
+    background-color: #d1d1d1;
+  }
+  
+  .message {
+    text-align: center; 
+    padding: 20px 0; 
+    background-color: #000; 
+    color: white;
   }
   .col-1{
     width: 25%;
@@ -37,15 +49,12 @@ header{
     float: right;
   }
   .navbar {
+    margin-top: 20px;
     list-style-type: none;
-    margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
-    position: -webkit-sticky; /* Safari */
-    position: sticky;
-    top: 0;
-    z-index: 99%;
+    background-color: none;
+    
   }
   .navbar > li {
     float: right;
@@ -56,15 +65,39 @@ header{
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    transition: all .2s ease-in-out;
   }
   
-.navbar >li >a:hover {
-    background-color: #111;
+  .navbar >li >a:hover {
+    background-color: rgb(213, 3, 3);
   }
-  #searchMovie a, #searchShow a{
+  
+  #searchbox{
+    margin-top: 12px;
+    margin-right: 10px;
+  }
+  #searchbox input{
+    text-align: center;
+    color: #fff;
+  }
+  #search{
+    background-color: transparent;
+    border-radius: 50px;
+    color: white;
+    width: 100px;
+  }
+  #search:focus{
+    outline: 0;
+    background-color: var(--primary-color);
+  }
+  #search::placeholder{
+    color: #fff;
+    padding-left: 20px;
+  }
+  #searchMovie a{
     text-decoration: none;
   }
-  #searchMovie , #searchShow{
+  #searchMovie {
     color:white;
     padding:7px 17px;
     background-color: rgb(21, 133, 21);
@@ -136,20 +169,30 @@ header{
     font-weight: bold;
 }
 .overview{
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:0;
-    background-color: #fff;
-    padding: 1rem;
-    max-height: 100%;
-    transform:translateY(101%);
-    transition:transform 0.3s ease-in;
-  }
-  
-  .movie:hover .overview{
-    transform:translateY(0)
-  }
+  position:absolute;
+  /* visibility: hidden; */
+  left:0;
+  right:0;
+  bottom:0;
+  background:rgba(115, 116, 116, 0.689);
+  color: #fff;
+  padding: 1rem;
+  height: 100%;
+  font-size: small;
+  transform:translateY(101%);
+  transition:transform 0.3s ease-in;
+}
+.movie:hover .overview{
+  transform:translateY(0)
+}
+.know-more{
+  background-color: #b00000;
+  color: #fff;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  cursor:pointer;
+}
 
 #GenreBtn{
     width:80%;
@@ -198,7 +241,7 @@ header{
 .current{
     padding: 5px 15px;
     border-radius: 20px;
-    border: 5px solid rgb(21, 133, 21);
+    border: 5px solid red;
     font-size: 20px;
     font-weight: 600;
 }
