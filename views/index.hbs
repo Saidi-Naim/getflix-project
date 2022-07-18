@@ -45,11 +45,11 @@
         </li>
         {{/if}}
         <li>
-          <a href="#">Category</a>
+          <button id="searchMovie"><a href="/search">Search</a></button>
         </li>
         <li>
           <form id="searchbox">
-            <input type="search" placeholder="Search" id="search" class="search" name="search" />
+            <input type="search" placeholder="Search a Movie" id="search" class="search" name="search" />
           </form>
           <!-- <a href="#">Search</a> -->
         </li>
@@ -57,14 +57,7 @@
     </div>
   </header>
   <div class="row-2">
-    <!--Nouveautés 
-                <div class="w3-content w3-display-container">
-                    <img class="mySlides" src="Images/Getflix.png" style="width:100%">
-                    <img class="mySlides" src="Images/2.jpg" style="width:100%;">
-                  
-                    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-                    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-                </div>-->
+    <!--Hero -->
     {{!-- <img src="/Images/doctor-strange-1256x826.webp"> --}}
     <div class="hero">
       <h2>Doctor Strange 2: In The Multiverse Of Madness</h2>
@@ -76,7 +69,9 @@
   </div>
   <div class="row-31">
     <!-- -->
+    <button class="pre-btn"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></button>
     <h3>Top rated</h3>
+    <button class="nxt-btn"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
 
   </div>
   <div class="row-41" id="movieTop10">
@@ -85,7 +80,9 @@
   </div>
   <div class="row-3">
     <!-- -->
+    <button class="pre-btn"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></button>
     <h3>Trending</h3>
+    <button class="nxt-btn"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
 
   </div>
   <div class="row-4" id="trending">
@@ -94,7 +91,7 @@
   </div>
   <div class="row-5">
     <!-- -->
-    <h3>Top-rated series</h3>
+    <h3>Now Playing in theatre</h3>
   </div>
   <div class="row-6" id="latestmovies">
     <!-- -->
@@ -120,27 +117,7 @@
 
   </div>
   {{!-- </div> --}}
-  <script>
-    var slideIndex = 1; showDivs(slideIndex); var myIndex = 0; carousel();
-      /*------------------- manuel*/ function plusDivs(n) {
-      showDivs(slideIndex
-        += n);
-    } function showDivs(n) {
-      var i; var x =
-        document.getElementsByClassName("mySlides"); if (n > x.length) {
-          slideIndex
-          = 1
-        } if (n < 1) { slideIndex = x.length } for (i = 0; i < x.length; i++) {
-          x[i].style.display = "none";
-        } x[slideIndex - 1].style.display = "block";
-    }
-      /*------------------- Automatic*/ function carousel() {
-      var i; var x =
-        document.getElementsByClassName("mySlides");
-    } for (i = 0; i < x.length;
-      i++) { x[i].style.display = "none"; } myIndex++; if (myIndex > x.length) { myIndex = 1 } x[myIndex - 1].style.display = "block"; setTimeout(carousel,
-        4000); // Change image every 2 seconds }
-  </script>
+  
   <script src="scripts/apifetch.js"></script>
 </body>
 

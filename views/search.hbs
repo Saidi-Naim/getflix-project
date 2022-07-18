@@ -1,0 +1,81 @@
+<html lang="en">
+  <head>
+    <title>Search...</title>
+    <link rel="stylesheet" href="/styles/search.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+  </head>
+  <body>
+    <div class="container">
+      <div class="row-1">
+        <!--Header -->
+        <div class="col-1">
+          <!--Logo -->
+          <a href="/">
+        <img class="logo" src="/Images/logo.png" href="index" alt="logo getflix" />
+      </a>
+        </div>
+        <div class="col-2">
+          <!--Navbar -->
+          <ul class="navbar">
+            {{#if logged}}
+            <li>
+              <form action="/auth/logout" method="post" style="margin-left: 20px; display:flex; color: white">
+              <h4>Hi, {{logged}}</h4>
+                <button
+                  type="submit"
+                  style="padding: 0 20px; background: none; margin: 5px 10px; border: 1px solid white; border-radius: 10px; color: white; cursor: pointer"
+                >Logout</button>
+              </form></li>
+            {{else}}
+              <li><a href="login">Login</a></li>
+            {{/if}}
+            <li><a href="#">Category</a></li>
+            <li>
+              <form  id="form">
+            <input type="text" placeholder="Search movie/TV show" id="search" class="search">
+        </form>
+              <!-- <a href="#">Search</a> -->
+            </li>
+            
+              
+          </ul>
+        </div>
+      
+      </div>
+      <div id="GenreBtn"></div>
+      <main id="movieCard"></main>
+    <div class="pagination">
+        <div class="page" id="prev">Previous Page</div>
+        <div class="current" id="current">1</div>
+        <div class="page" id="next">Next Page</div>
+
+    </div>
+    
+      <div class="footer-basic" id="row-8">
+        <!-- Footer-->
+        <footer>
+      <div class="social"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a><a href="#"><i
+            class="fa fa-facebook" aria-hidden="true"></i></a><a href="#"><i class="fa fa-instagram"
+            aria-hidden="true"></i></a><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a></div>
+      <ul class="list-footer">
+        <li class="list-inline-item"><a href="#">About</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+      </ul>
+      <p class="copyright">Getflix © 2022</p>
+    </footer>
+
+      </div>
+    </div>
+    <script src="scripts/search.js"></script>
+  </body>
+</html>

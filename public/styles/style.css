@@ -92,6 +92,19 @@ header{
   color: #fff;
   padding-left: 20px;
 }
+#searchMovie a, #searchShow a{
+  text-decoration: none;
+}
+#searchMovie, #searchShow {
+  color:white;
+  padding:5px 15px;
+  background-color: red;
+  border-radius: 15px;
+  margin:0 5px 0 5px;
+  display:inline-block;
+  cursor: pointer;
+  margin-top: 10px;
+}
 /*Carousselle*/
 .row-2{
   position: relative;
@@ -172,45 +185,27 @@ button[class$="w3-display-left"]{
   font-weight: 900;
   font-size: xx-large;
 } */
-/* Top 10*/
-.col-affichestop10{
-  width: 150px;
-  height: 200px;
-  border: 2px solid orange;
-}
-.col-recommendation{
-  width: 150px;
-  height: 200px;
-  border: 2px solid orange;
-}
-#trending{
-  display:flex;
-  flex-wrap: wrap;
+.row-41, .row-4, .row-6{
+  width: 75%;
+  display: inline-flex;
   justify-content: center;
-  
-  border-radius: 5px;
-  margin-left: 10px;
-  margin-right: 10px;
 }
-#movieTop10{
+#trending, #movieTop10, #latestmovies{
   display:flex;
-  flex-wrap: wrap;
   justify-content: center;
-  
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 5px;
-  margin-left: 10px;
-  margin-right: 10px;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
 }
-#latestmovies{
-  display:flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  
-  border-radius: 5px;
-  margin-left: 10px;
-  margin-right: 10px;
+
+#trending::-webkit-scrollbar, #movieTop10::-webkit-scrollbar, #latestmovies::-webkit-scrollbar {
+  display: none;
 }
 .movie {
+  flex: 0 0 auto;
   width: 150px;
   margin: 1rem;
   border-radius: 3px;
@@ -218,6 +213,7 @@ button[class$="w3-display-left"]{
   background-color: var(--secondary-color);
   position:relative;
   overflow: hidden;
+  cursor: pointer;
 }
 .movie img{
   width:100%;
@@ -283,6 +279,34 @@ button[class$="w3-display-left"]{
   font-size: medium;
   align-self: flex-start;
 }
+
+/* Scroll: */
+  
+.pre-btn,
+.nxt-btn{
+    position: absolute;
+    height: 200px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2.5vw;
+    background: #181818;
+    border: none;
+    outline: none;
+    opacity: 0;
+}
+
+.pre-btn{
+    left: -2.5vw;
+}
+
+.nxt-btn{
+    right: -2.5vw;
+}
+.nxt-btn:hover,
+.pre-btn:hover{
+    opacity: 1;
+}
+
 /* Footer*/
 footer{
   display: flex;
@@ -350,3 +374,4 @@ footer{
     color:#aaa;
     margin-bottom:0;
   }
+
