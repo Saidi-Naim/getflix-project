@@ -118,20 +118,17 @@ function showPopularMovies(data) {
   trending.innerHTML = '';
 
     data.forEach(movie => {
-        const {title, poster_path, vote_average, overview, id} = movie;
+        const {title, poster_path, vote_average, id} = movie;
         const movieEl = document.createElement('div');
         movieEl.classList.add('movie');
         movieEl.innerHTML = `
-             <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}">
-            <div class="movie-info">
-                <h3><b>${title}</b></h3>
-                <span class="scoreAverage">${vote_average}</span>
-            </div>
+             <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/150x150" }" alt="${title}">
             <div class="overview">
-                <h3>Overview</h3>
-                ${overview}
+                <h3><b>${title}</b></h3>
+                <span class="scoreAverage">Rated: ${vote_average}</span>
+                
                 <br/> 
-                <button class="know-more" id="${id}">Know More</button>
+                <button class="know-more" id="${id}">More Info</button>
             </div>`;
 
             trending.appendChild(movieEl);
@@ -156,21 +153,17 @@ function showTopRatedMovies(data) {
   movieTop10.innerHTML = '';
 
     data.forEach(movie => {
-        const {title, poster_path, vote_average, overview, id} = movie;
+        const {title, poster_path, vote_average, id} = movie;
         
         const movieEl = document.createElement('div');
         movieEl.classList.add('movie');
         movieEl.innerHTML = `
-             <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}">
-            <div class="movie-info">
-                <h3><b>${title}</b></h3>
-                <span class="scoreAverage">${vote_average}</span>
-            </div>
+             <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/150x150" }" alt="${title}">
             <div class="overview">
-                <h3>Overview</h3>
-                ${overview}
+                <h3><b>${title}</b></h3>
+                <span class="scoreAverage">Rated: ${vote_average}</span>
                 <br/> 
-                <button class="know-more" id="${id}">Know More</button>
+                <button class="know-more" id="${id}">More Info</button>
             </div>`;
 
             movieTop10.appendChild(movieEl);
@@ -198,21 +191,18 @@ function showLatestMovies(data) {
   latestmovies.innerHTML = '';
 
     data.forEach(movie => {
-        const {title, poster_path, vote_average, overview, id} = movie;
+        const {title, poster_path, vote_average, id} = movie;
         
         const movieEl = document.createElement('div');
         movieEl.classList.add('movie');
         movieEl.innerHTML = `
-             <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}">
-            <div class="movie-info">
+             <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/150x150" }" alt="${title}">
+          
+            <div class="overview" style="background-color:#ffbe01;">
                 <h3><b>${title}</b></h3>
-                <span class="scoreAverage">${vote_average}</span>
-            </div>
-            <div class="overview">
-                <h3>Overview</h3>
-                ${overview}
+                <span class="scoreAverage">Rated: ${vote_average}</span>
                 <br/> 
-                <button class="know-more" id="${id}">Know More</button>
+                <button class="know-more" id="${id}">More Info</button>
             </div>`;
 
             latestmovies.appendChild(movieEl);
