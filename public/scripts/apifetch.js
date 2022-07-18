@@ -50,19 +50,19 @@ searchbox.addEventListener('submit', (e) => {
 }) 
 
 //scroll:
-const setupScrolling = () => {
-  trending.forEach((item) => {
-      let containerDimensions = item.getBoundingClientRect();
+/*const setupScrolling = () => {
+  
+      let containerDimensions = trending.getBoundingClientRect();
       let containerWidth = containerDimensions.width;
 
       nxtBtn.addEventListener('click', () => {
-          item.scrollLeft += containerWidth;
+        trending.scrollLeft += containerWidth;
       })
 
       preBtn.addEventListener('click', () => {
-          item.scrollLeft -= containerWidth;
+        trending.scrollLeft -= containerWidth;
       })
-  })
+  
   movieTop10.forEach((item) => {
     let containerDimensions = item.getBoundingClientRect();
     let containerWidth = containerDimensions.width;
@@ -87,7 +87,7 @@ airingShows.forEach((item) => {
       item.scrollLeft -= containerWidth;
   })
 })
-}
+}*/
 
 getPopularMovies(API_URLPopular);
 getTopRatedMovies(API_URLTopRated);
