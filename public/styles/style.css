@@ -136,6 +136,16 @@ header{
 button[class$="w3-display-left"]{
   float: left;
 }
+
+.form-button {
+  padding: 0 10px; 
+  background: none; 
+  margin: 10px 1px; 
+  border: none; 
+  border-radius: 5px; 
+  color: white; 
+  background-color: #b00000;
+}
 /*----------------*/
 .row-3, .row-4, .row-5{
   width: 100%;

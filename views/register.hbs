@@ -32,15 +32,15 @@
                     <form action="/auth/logout" method="post" style="margin-left: 20px; display:flex; color: white">
                         <h4>
                             <h4>Hi, {{logged}}</h4>
-                            <button type="submit"
-                                style="padding: 0 20px; background: none; margin: 5px 10px; border: 1px solid white;  border-radius: 10px; color: white; cursor: pointer">Logout
+                            <button class="form-button" type="submit">
+                              Logout
                             </button>
                     </form>
                 </li>
 
                 {{else}}
                 <li>
-                    <a href="login">Login</a>
+                    <a href="login">Sign In</a>
                 </li>
                 {{/if}}
                 <li>
@@ -91,9 +91,9 @@
             
 
             <div class="forminput">
-            <button
+            <button class="form-button"
                 type="submit"
-                name="submit">Create</button>
+                name="submit">Create your account</button>
             </div>
         </div>
         </form>
