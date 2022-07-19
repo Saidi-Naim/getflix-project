@@ -34,21 +34,6 @@ function listGenres(data) {
           
       })
   }
-//Search:
-searchbox.addEventListener('submit', (e) => {
-  window.location.href="/search";
-  e.preventDefault();
-  const searchTerm = search.value;
-  selectedGenre=[];
-  setGenre();
-  if(searchTerm) {
-      getMovies(searchURL+'&query='+searchTerm)
-  }else{
-      getMovies(ApiUrlMovies);
-  }
-
-}) 
-
 //scroll:
 /*const setupScrolling = () => {
   
@@ -169,8 +154,6 @@ function showTopRatedMovies(data) {
 }
 
 
-
-//console.log(searchURL);
 function getLatestMovies(url) {
   lastUrl = url;
     fetch(url).then(res => res.json()).then(data => {

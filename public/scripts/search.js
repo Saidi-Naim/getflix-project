@@ -1,8 +1,8 @@
 //https://www.geeksforgeeks.org/how-to-display-search-result-of-another-page-on-same-page-using-ajax-in-jsp/
 const API_KEY = 'api_key=860299d08527b54489820acbf28e4486';
 const BASE_URL = 'https://api.themoviedb.org/3';
-const ApiUrlMovies = BASE_URL + '/discover/movie?sort_by=popularity.desc&'+API_KEY+'&include_adult=false';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
+const ApiUrlMovies = BASE_URL + '/discover/movie?sort_by=popularity.desc&'+API_KEY+'&include_adult=false';
 const searchURL = BASE_URL + '/search/movie?'+API_KEY+'&language=en-US&include_adult=false';
 
 const genres = [

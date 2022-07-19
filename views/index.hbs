@@ -119,6 +119,16 @@
   {{!-- </div> --}}
   <script type="text/javascript" language="javascript" src="scripts/GenreDropdown.js"></script>
   <script src="scripts/apifetch.js"></script>
+  <script>
+    //Search:
+searchbox.addEventListener('submit', (e) => {
+  window.location.href="/search";
+  e.preventDefault();
+  
+  const searchTerm = document.getElementById("search").value;
+  console.log('searchTerm')
+}) 
+  </script>
 </body>
 
 </html>
