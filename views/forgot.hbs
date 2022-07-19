@@ -9,7 +9,11 @@
         integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js?ver=3.6.0'></script>
+    <style>
+        .mySlides {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -36,14 +40,11 @@
 
                 {{else}}
                 <li>
-                    <a href="#">Sign In</a>
+                    <a href="login">Sign In</a>
                 </li>
                 {{/if}}
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">Genres</a>
-                        <ul class="sub_menu" id="sub_menu">
-                                
-                        </ul>      
+                <li>
+                    <a href="#">Category</a>
                 </li>
                 <li>
                     <form id="searchbox">
@@ -57,39 +58,30 @@
     
     
 
-{{#if message}}
+
+      {{#if message}}
           <div class="message">
             <h1>{{message}}</h1>
           </div>
       {{/if}}
       <div class="row-2">
-        <form action="/auth/login" method="post">
+        <form action="/forgot" method="post">
             <div class="forminput">
             <label for="email" class="form-label">Email:</label></br>
             <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" required/>
             </div>
-            <div class="forminput">
-            <label for="name" class="form-label">Password</label></br>
-            <input type="password" class="form-control" id="lastname" name="password" required/>
-            </div>
 
             <div class="forminput">
-              <a href="/forgot">forgot password</a>
-            </div>
-
-            <div class="forminput">
-            <button class="form-button"
+            <button
                 type="submit"
-                class="btn btn-outline-danger position-relative"
+                class="form-button"
                 name="submit">
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                </span>Sign In</button>
-            
-                <a href="/register"><input class="form-button" type="button" value="Register"></a>
+                </span>Reset password
+                </button>
             </div>
         </form>
     </div>
-
 
 
 
@@ -107,7 +99,27 @@
     </footer>
 
 
-    <script type="text/javascript" language="javascript" src="scripts/GenreDropdown.js"></script>
+    <script>
+        var slideIndex = 1; showDivs(slideIndex); var myIndex = 0; carousel();
+      /*------------------- manuel*/ function plusDivs(n) {
+            showDivs(slideIndex
+                += n);
+        } function showDivs(n) {
+            var i; var x =
+                document.getElementsByClassName("mySlides"); if (n > x.length) {
+                    slideIndex
+                        = 1
+                } if (n < 1) { slideIndex = x.length } for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                } x[slideIndex - 1].style.display = "block";
+        }
+      /*------------------- Automatic*/ function carousel() {
+            var i; var x =
+                document.getElementsByClassName("mySlides");
+        } for (i = 0; i < x.length;
+            i++) { x[i].style.display = "none"; } myIndex++; if (myIndex > x.length) { myIndex = 1 } x[myIndex - 1].style.display = "block"; setTimeout(carousel,
+                4000); // Change image every 2 seconds }
+    </script>
     <script src="scripts/apifetch.js"></script>
 </body>
 

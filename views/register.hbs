@@ -1,41 +1,66 @@
-<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Getflix</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
-      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+
+<head>
+    <title>NodeFlix</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="Images/logoTab.png">
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/styles/styleform.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="row-1">
-        <!--Header -->
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js?ver=3.6.0'></script>
+</head>
+
+<body>
+    <header>
         <div class="col-1">
-          <!--Logo -->
-          <img
-            class="logo"
-            src="/Images/Getflix.png"
-            href="index"
-            alt="logo getflix"
-          />
+            <!--Logo -->
+            <a href="/">
+              <img class="logo" src="/Images/logo.png" href="index" alt="logo getflix" />
+            </a>
         </div>
         <div class="col-2">
-          <!--Navbar -->
-          <ul class="navbar">
-            <li><a href="/login">Login</a></li>
-            <li><a href="#">Category</a></li>
-            <li><a href="#">Search</a></li>
-          </ul>
+            <!--Navbar -->
+            <ul class="navbar">
+                {{#if logged}}
+                <li>
+                    <form action="/auth/logout" method="post" style="margin-left: 20px; display:flex; color: white">
+                        <h4>
+                            <h4>Hi, {{logged}}</h4>
+                            <button class="form-button" type="submit">
+                              Logout
+                            </button>
+                    </form>
+                </li>
+
+                {{else}}
+                <li>
+                    <a href="/login">Sign In</a>
+                </li>
+                {{/if}}
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Genres</a>
+                        <ul class="sub_menu" id="sub_menu">
+                                
+                        </ul>      
+                </li>
+                <li>
+                <li>
+                    <form id="searchbox">
+                        <input type="search" placeholder="Search" id="search" class="search" name="search" />
+                    </form>
+                    <!-- <a href="#">Search</a> -->
+                </li>
+            </ul>
         </div>
-      </div>
+    </header>
+    
+    
+
+
         {{#if message}}
-          <div class="message" style="text-align: center; padding: 20px 0; background-color: #333; color: white;">
+          <div class="message">
             <h1>{{message}}</h1>
           </div>
         {{/if}}
@@ -45,6 +70,7 @@
             <label for="email" class="form-label">Email:</label></br>
             <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" required/>
             </div>
+            
             <div class="forminput">
             <label for="name" class="form-label">Password</label></br>
             <input type="password" class="form-control" id="lastname" name="password" required/>
@@ -54,32 +80,43 @@
             <label for="name" class="form-label">Confirm Password</label></br>
             <input type="password" class="form-control" id="lastname" name="confirmPassword" required/>
             </div>
+
+            
+            <label for="name" class="form-label">Subscription</label></br>
+            <div>
+              <input type="radio" id="Free" name="typeSubs">
+              <label for="freeSubs">Free</label>
+            
+              <input type="radio" id="premium" name="typeSubs">
+              <label for="premiumSubs">Premium</label>
+            </div>
             
 
             <div class="forminput">
-            <button
+            <button class="form-button"
                 type="submit"
-                name="submit">Create</button>
+                name="submit">Create your account</button>
             </div>
+        </div>
         </form>
-      </div>
-      {{!-- <div class="footer-basic" id="row-8"> --}}
-        <!-- Footer-->
-        <footer>
-          <div class="social">
-            <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a
-            ><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a
-            ><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a
-            ><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>
-          </div>
-          <ul class="list-footer">
+
+
+
+    <!-- Footer-->
+    <footer>
+        <div class="social"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a><a href="#"><i
+                    class="fa fa-facebook" aria-hidden="true"></i></a><a href="#"><i class="fa fa-instagram"
+                    aria-hidden="true"></i></a><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a></div>
+        <ul class="list-footer">
             <li class="list-inline-item"><a href="#">About</a></li>
             <li class="list-inline-item"><a href="#">Terms</a></li>
             <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-          </ul>
-          <p class="copyright">Getflix © 2022</p>
-        </footer>
-      {{!-- </div> --}}
-    </div>
-  </body>
+        </ul>
+        <p class="copyright">Getflix © 2022</p>
+    </footer>
+
+    <script type="text/javascript" language="javascript" src="scripts/GenreDropdown.js"></script>
+    <script src="scripts/apifetch.js"></script>
+</body>
+
 </html>
