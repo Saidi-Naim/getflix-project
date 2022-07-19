@@ -247,7 +247,15 @@ a #arrowDropdown{
 .hero button:hover{
   opacity: .8;
 }
-
+.form-button {
+  padding: 0 10px; 
+  background: none; 
+  margin: 10px 1px; 
+  border: none; 
+  border-radius: 5px; 
+  color: white; 
+  background-color: #b00000;
+}
 
 
 /*----------------*/
