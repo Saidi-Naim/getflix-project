@@ -27,7 +27,8 @@ function listGenres(data) {
       data.forEach(genre => {
           const {id, name} = genre;
           const genreEl = document.createElement('li');
-          genreEl.setAttribute('id', "LiSecondlevel")
+          genreEl.setAttribute('id', "LiSecondlevel");
+          genreEl.classList.add('sub_menu_li_hidden')
           genreEl.innerHTML = `<a href="" id="${name}">${name}</a>`;
         
         GenreDropdown.appendChild(genreEl);
