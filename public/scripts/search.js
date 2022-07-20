@@ -98,7 +98,12 @@ var nextPage = 2;
 var prevPage = 3;
 var lastUrl = '';
 var totalPages = 100;
+/// Pour lier recherche de page index à search
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
 
+console.log(urlParams.get("search"));
+////
 var selectedGenre = []
 setGenre();
 function setGenre() {
@@ -227,19 +232,24 @@ function showMovies(data) {
 
 
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const searchTerm = search.value;
-    selectedGenre=[];
-    setGenre();
-    if(searchTerm) {
-        getMovies(searchURL+'&query='+searchTerm)
-    }else{
-        getMovies(ApiUrlMovies);
-    }
-
-}) 
+if (urlParams.get("search") != null) {
+  console.log('r');
+  getMovies(searchURL + "&query=" + urlParams.get("search"));
+}else{
+  getMovies(ApiUrlMovies);
+}
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  window.location.href="/search?search="+search.value;
+  const searchTerm = search.value;
+  selectedGenre=[];
+  setGenre();
+  if(searchTerm) {
+      getMovies(searchURL+'&query='+searchTerm)
+  }else{
+      getMovies(ApiUrlMovies);
+  }
+});
 
 prev.addEventListener('click', () => {
   if(prevPage > 0){
