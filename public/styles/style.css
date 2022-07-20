@@ -120,6 +120,81 @@ li.dropdown {
 a #arrowDropdown{ 
   border: 0;
 }
+
+/* modal of myprofile */
+.modal-myprofile{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  right: 0;
+  top: 0;
+  transition: all 0.5s ease-out;
+}
+
+.modal-myprofile-hidden{
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.forms{
+  background-color: rgb(213, 3, 3, 0.7);
+  padding: 50px;
+}
+
+#form-myprofile{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.forminput{
+  width: 100%;
+}
+
+#form-myprofile input{
+  opacity: 0.5;
+}
+
+/* icon edit for myprofile modal */
+.fa-pen-to-square{
+  font-size: 1.3rem;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+#form-save{
+  padding-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+#form-save button{
+  color: rgb(213, 3, 3);
+  background-color: white;
+  border-radius: 10px;
+  padding: 5px 20px;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+}
+
+#form-save button:hover{
+  background-color: lightgray;
+}
+
 /* 
 	LEVEL ONE*/
 
@@ -179,7 +254,53 @@ a #arrowDropdown{
   display: block; 
   background: rgba(0,0,0,0.3); 
 } 
-  
+
+.navbar .user{
+  display: flex;
+}
+
+.icon-user{
+  border-radius: 50%;
+  background-color: #b00000;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  position: relative;
+}
+
+.user-dropdown{
+  position: absolute;
+  background-color: rgb(213, 3, 3, 0.7);
+  top: 100%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s 0.3s ease-out;
+}
+
+.user-dropdown-hidden{
+  right: -100%;
+  opacity: 0;
+}
+
+.user-dropdown button{
+  padding: 5px 20px;
+  background: none;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+}
+
+.user-dropdown button:hover{
+  background: rgba(0,0,0,0.3);
+}
+
 /*Searchbar*/
 #searchbox{
   margin-top: 12px;
