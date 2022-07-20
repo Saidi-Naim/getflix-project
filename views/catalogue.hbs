@@ -3,7 +3,7 @@
 <head>
   <title>NodeFlix</title>
   <link rel="icon" type="image/png" sizes="16x16" href="Images/logoTab.png">
-  <link rel="stylesheet" href="/styles/style.css" />
+  <link rel="stylesheet" href="/styles/cat.css" />
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
     integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
@@ -55,54 +55,18 @@
       </ul>
     </div>
   </header>
-  
-          <div class="row-2">
-          <!--Hero -->
-          {{!-- <img src="/Images/doctor-strange-1256x826.webp"> --}}
-          <div class="hero">
-            <h2>Doctor Strange 2: In The Multiverse Of Madness</h2>
-            <p>Doctor Stephen Strange continues his research on the Time Stone. However, an old friend-turned-enemy attempts
-              to destroy all the wizards on Earth, which disrupts Strange's plan.</p>
-
-            <button>More Info</button>
-          </div>
-        </div>
-        <div class="row-31">
-          <!-- -->
-          <button class="pre-btn"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></button>
-          <h3>Top rated</h3>
-          <button class="nxt-btn"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
-
-        </div>
-        <div class="row-41" id="movieTop10">
-          <!-- -->
-
-        </div>
-        <div class="row-3">
-          <!-- -->
-          <button class="pre-btn"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></button>
-          <h3>Trending</h3>
-          <button class="nxt-btn"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
-
-        </div>
-        <div class="row-4" id="trending">
-          <!-- -->
-
-        </div>
-        <div class="row-5">
-          <!-- -->
-          <h3>Now Playing in theatre</h3>
-        </div>
-        <div class="row-6" id="latestmovies">
-          <!-- -->
-
-        </div>
-        <div class="row-7">
-          <!--See more -->
-
-        </div>
+    <div class="main"></div>
+ 
+     <!--  <div id="GenreBtn"></div>-->
     
-  {{!-- <div class="footer-basic" id="row-8"> --}}
+      <main id="movieCard"></main>
+    <div class="pagination">
+        <div class="page" id="prev">Previous Page</div>
+        <div class="current" id="current">1</div>
+        <div class="page" id="next">Next Page</div>
+
+    </div>
+          
     <!-- Footer-->
     <footer>
       <div class="social"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a><a href="#"><i
@@ -117,9 +81,9 @@
     </footer>
 
   </div>
-  {{!-- </div> --}}
+  
   <script type="text/javascript" language="javascript" src="scripts/GenreDropdown.js"></script>
-  <script src="scripts/apifetch.js"></script>
+  <script src="scripts/catalogue.js"></script>
 </body>
 
 </html>
