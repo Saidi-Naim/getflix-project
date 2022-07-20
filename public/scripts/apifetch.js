@@ -11,6 +11,13 @@ const searchbox=document.getElementById("searchbox");
 const ApiUrlMovies = BASE_URL + '/genre/movie/list?'+API_KEY+'&include_adult=false';
 const GenreDropdown=document.getElementById("sub_menu");
 
+//Search:
+searchbox.addEventListener('submit', (e) => {
+  e.preventDefault();
+  window.location.href="/search?search="+search.value;
+  
+})
+
 //Genre Dropdown menu:
 fetchGenres(ApiUrlMovies); //https://stackoverflow.com/questions/45974412/is-it-possible-to-create-a-drop-down-with-multiple-columns-like-mega-menu-usin
 function fetchGenres(url) {
@@ -35,60 +42,7 @@ function listGenres(data) {
           
       })
   }
-//Search:
-searchbox.addEventListener('submit', (e) => {
-  window.location.href="/search";
-  e.preventDefault();
-  const searchTerm = search.value;
-  selectedGenre=[];
-  setGenre();
-  if(searchTerm) {
-      getMovies(searchURL+'&query='+searchTerm)
-  }else{
-      getMovies(ApiUrlMovies);
-  }
 
-}) 
-
-//scroll:
-/*const setupScrolling = () => {
-  
-      let containerDimensions = trending.getBoundingClientRect();
-      let containerWidth = containerDimensions.width;
-
-      nxtBtn.addEventListener('click', () => {
-        trending.scrollLeft += containerWidth;
-      })
-
-      preBtn.addEventListener('click', () => {
-        trending.scrollLeft -= containerWidth;
-      })
-  
-  movieTop10.forEach((item) => {
-    let containerDimensions = item.getBoundingClientRect();
-    let containerWidth = containerDimensions.width;
-
-    nxtBtn.addEventListener('click', () => {
-        item.scrollLeft += containerWidth;
-    })
-
-    preBtn.addEventListener('click', () => {
-        item.scrollLeft -= containerWidth;
-    })
-})
-airingShows.forEach((item) => {
-  let containerDimensions = item.getBoundingClientRect();
-  let containerWidth = containerDimensions.width;
-
-  nxtBtn.addEventListener('click', () => {
-      item.scrollLeft += containerWidth;
-  })
-
-  preBtn.addEventListener('click', () => {
-      item.scrollLeft -= containerWidth;
-  })
-})
-}*/
 
 getPopularMovies(API_URLPopular);
 getTopRatedMovies(API_URLTopRated);
