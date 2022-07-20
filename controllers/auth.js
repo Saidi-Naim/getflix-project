@@ -68,7 +68,7 @@ exports.login = (req, res) => {
             });
           } else {
             res.cookie("loggedin", results[0].email, {
-              maxAge: 900000,
+              maxAge: 9000000000,
               httpOnly: true,
             });
             return res.redirect("../");

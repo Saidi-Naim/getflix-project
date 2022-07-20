@@ -23,7 +23,8 @@ app.set("view engine", "hbs");
 
 // Define routes
 app.use("/", require("./routes/pages"));
-app.use('/auth',require('./routes/auth'))
+app.use('/auth',require('./routes/auth'));
+app.use('/myprofile',require('./routes/myprofile'));
 
 app.listen(port, () => {
   console.log(`server running on port ${port}`);
