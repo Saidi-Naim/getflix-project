@@ -1,0 +1,28 @@
+@media only screen and (max-width: 450px) {
+    .navDiv{
+        visibility: hidden;
+    }
+    .headerResponsive{
+        visibility: visible;
+        overflow: hidden;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 99;
+        display: flex;
+        justify-content: space-around;
+        background-color: white;
+    }
+    .headerResponsive a {
+        float: left;
+        display: block;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+    .headerResponsive a i{
+        font-size: 20px;
+        color: brown;
+    }
+}
