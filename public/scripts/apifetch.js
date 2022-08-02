@@ -1,3 +1,4 @@
+(()=>{
 const API_KEY = 'api_key=860299d08527b54489820acbf28e4486';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_URLPopular = BASE_URL + '/discover/movie?sort_by=popularity.desc&'+API_KEY;
@@ -234,17 +235,16 @@ prev.addEventListener('click', () => {
                   title.classList.add('genreTitle');
                   //title.id="28";
                   title.innerText = btn.innerHTML;
-                  if(btn[0]){
-                    getMovies(API_URLPopular + '&with_genres='+encodeURI("28"));
-                  }
-                  else if(btn[1]){
-                    getMovies(API_URLPopular + '&with_genres='+encodeURI("12"));
-                  }
-                  else {
-                    getMovies(API_URLPopular + '&with_genres='+encodeURI("80"));
-                  }  
-                      //getMovies(API_URLPopular + '&with_genres='+encodeURI("28"));
-                      GenreBtnEl.append(title);
+                  for(let genre of genres){
+                    if(genre.name== btn.innerText){
+                      console.log(genres[0].name);
+                      console.log(btn.innerText);
+                    const idBtn=genre.id;
+                    
+                    getMovies(API_URLPopular + '&with_genres='+encodeURI(idBtn));
+                    GenreBtnEl.append(title);
+                    }
+                } 
   //})
 })
 })
@@ -371,3 +371,5 @@ function showLatestMovies(data) {
 }
 
 ////////////////////////////////////////////////////
+
+})();
