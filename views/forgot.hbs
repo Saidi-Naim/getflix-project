@@ -18,13 +18,13 @@
 
 <body>
     <header>
-        <div class="col-1">
+        <div class="header">
             <!--Logo -->
             <a href="/">
               <img class="logo" src="/Images/logo.png" href="index" alt="logo getflix" />
             </a>
         </div>
-        <div class="col-2">
+        <div class="navDiv" id="navDiv">
             <!--Navbar -->
             <ul class="navbar">
                 {{#if logged}}
@@ -64,7 +64,7 @@
             <h1>{{message}}</h1>
           </div>
       {{/if}}
-      <div class="row-2">
+      <div class="HeroRow">
         <form action="/forgot" method="post">
             <div class="forminput">
             <label for="email" class="form-label">Email:</label></br>
