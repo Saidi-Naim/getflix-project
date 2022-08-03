@@ -4,6 +4,7 @@
     <title>NodeFlix</title>
     <link rel="icon" type="image/png" sizes="16x16" href="Images/logoTab.png">
     <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/HeaderFooter.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
         integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
@@ -14,13 +15,14 @@
 
 <body>
     <header>
-        <div class="col-1">
+        <div class="header">
             <!--Logo -->
-            <a href="/">
+        
+            <a href="login">
               <img class="logo" src="/Images/logo.png" href="index" alt="logo getflix" />
             </a>
         </div>
-        <div class="col-2">
+        <div class="navDiv" id="navDiv">
             <!--Navbar -->
             <ul class="navbar">
                 {{#if logged}}
@@ -39,18 +41,7 @@
                     <a href="#">Sign In</a>
                 </li>
                 {{/if}}
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">Genres</a>
-                        <ul class="sub_menu" id="sub_menu">
-                                
-                        </ul>      
-                </li>
-                <li>
-                    <form id="searchbox">
-                        <input type="search" placeholder="Search" id="search" class="search" name="search" />
-                    </form>
-                    <!-- <a href="#">Search</a> -->
-                </li>
+                
             </ul>
         </div>
     </header>
@@ -62,7 +53,7 @@
             <h1>{{message}}</h1>
           </div>
       {{/if}}
-      <div class="row-2">
+      <div class="HeroRow">
         <form action="/auth/login" method="post">
             <div class="forminput">
             <label for="email" class="form-label">Email:</label></br>
@@ -93,22 +84,8 @@
 
 
 
-    <!-- Footer-->
-    <footer>
-        <div class="social"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a><a href="#"><i
-                    class="fa fa-facebook" aria-hidden="true"></i></a><a href="#"><i class="fa fa-instagram"
-                    aria-hidden="true"></i></a><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a></div>
-        <ul class="list-footer">
-            <li class="list-inline-item"><a href="#">About</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-        </ul>
-        <p class="copyright">Getflix © 2022</p>
-    </footer>
-
-
-    <script type="text/javascript" language="javascript" src="scripts/GenreDropdown.js"></script>
     <script src="scripts/apifetch.js"></script>
+
 </body>
 
 </html>
