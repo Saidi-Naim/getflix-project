@@ -51,7 +51,7 @@ exports.login = (req, res) => {
   const { email, password } = req.body;
 
   db.query(
-    "SELECT email, password FROM user WHERE email = ?",
+    "SELECT * FROM user WHERE email = ?",
     [email],
     async (err, results) => {
       if (err) {
@@ -71,6 +71,12 @@ exports.login = (req, res) => {
               maxAge: 9000000000,
               httpOnly: true,
             });
+                if(results[0].premium == 1){
+                  res.cookie("premium", " ", {
+                    maxAge: 9000000000,
+                    httpOnly: true,
+                  });
+                }
             return res.redirect("../");
           }
         });
@@ -81,5 +87,6 @@ exports.login = (req, res) => {
 
 exports.logout = (req, res) => {
   res.clearCookie("loggedin");
-  return res.redirect("../");
+  res.clearCookie("premium");
+  return res.redirect("/login");
 };

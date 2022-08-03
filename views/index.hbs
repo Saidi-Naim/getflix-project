@@ -35,6 +35,21 @@
           <label for="name" class="form-label">Confirm password</label></br>
           <input type="password" class="form-control" id="pass" name="passwordConfirm" required disabled />
         </div>
+        {{#if premium}}
+            <div>
+              <input type="radio" id="Free" name="typeSubs">
+              <label for="freeSubs">Free</label>
+              <input type="radio" id="premium" name="typeSubs" checked>
+              <label for="premiumSubs">Premium</label>
+            </div>
+          {{else}}
+            <div>
+              <input type="radio" id="Free" name="typeSubs" checked>
+              <label for="freeSubs">Free</label>
+              <input type="radio" id="premium" name="typeSubs">
+              <label for="premiumSubs">Premium</label>
+            </div>
+        {{/if}}
         <br />
         <div id="form-save">
           <div class="forminput">
@@ -109,6 +124,11 @@
       <button>More Info</button>
     </div>
   </div>
+  {{#if premium}}
+  <div>
+    
+  </div>
+  {{/if}}
   <div class="row-31">
     <!-- -->
     <button class="pre-btn"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></button>
