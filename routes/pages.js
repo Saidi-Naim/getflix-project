@@ -28,8 +28,8 @@ router.get("/register", (req, res) => {
 router.get("/search", (req, res) => {
   res.render("search");
 });
-router.get("/catalogue", (req, res) => {
-  res.render("catalogue");
+router.get("/searchResponsive", (req, res) => {
+  res.render("searchResponsive");
 });
 
 router.get("/forgot", (req, res, next) => {
