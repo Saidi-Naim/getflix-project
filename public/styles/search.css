@@ -72,13 +72,15 @@ header{
     background-color: rgb(213, 3, 3);
   }
   
-  #searchbox{
+  #form{
     margin-top: 12px;
     margin-right: 10px;
   }
-  #searchbox input{
+  #form input{
     text-align: center;
     color: #fff;
+    padding-right: 0px;
+    margin-right: ;
   }
   #search{
     background-color: transparent;
@@ -94,38 +96,7 @@ header{
     color: #fff;
     padding-left: 20px;
   }
-  #searchMovie a{
-    text-decoration: none;
-  }
-  #searchMovie {
-    color:white;
-    padding:7px 17px;
-    background-color: rgb(21, 133, 21);
-    border-radius: 50px;
-    margin:5px;
-    display:inline-block;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-.search{
-    background-color: transparent;
-    border: 2px solid var(--primary-color);
-    padding:0.5rem 1rem;
-    border-radius: 50px;
-    font-size: 1rem;
-    color:#fff;
-    font-family: inherit;
-    margin-top: 10px;
-}
-
-.search:focus{
-    outline:0;
-    background-color: var(--primary-color);
-}
-
-.search::placeholder{
-    color: white;
-}
+  /*/////Affiches:///////*/
 
 #movieCard{
     display:flex;

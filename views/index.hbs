@@ -3,11 +3,11 @@
 <head>
   <title>NodeFlix</title>
   <link rel="icon" type="image/png" sizes="16x16" href="Images/logoTab.png">
+  <link rel="stylesheet" href="/styles/catalogue.css" />
+  <link rel="stylesheet" href="/styles/HeaderFooter.css" />
   <link rel="stylesheet" href="/styles/style.css" />
+  <link rel="stylesheet" href="/styles/headerResponsive.css"/>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
-    integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -35,21 +35,14 @@
           <label for="name" class="form-label">Confirm password</label></br>
           <input type="password" class="form-control" id="pass" name="passwordConfirm" required disabled />
         </div>
-        {{#if premium}}
+        
             <div>
-              <input type="radio" id="Free" name="typeSubs">
+              <input type="radio" id="Free" name="typeSubs" value="free" {{#unless premium}}checked{{/unless}}>
               <label for="freeSubs">Free</label>
-              <input type="radio" id="premium" name="typeSubs" checked>
+              <input type="radio" id="premium" name="typeSubs" value="premium" {{#if premium}}checked{{/if}}>
               <label for="premiumSubs">Premium</label>
             </div>
-          {{else}}
-            <div>
-              <input type="radio" id="Free" name="typeSubs" checked>
-              <label for="freeSubs">Free</label>
-              <input type="radio" id="premium" name="typeSubs">
-              <label for="premiumSubs">Premium</label>
-            </div>
-        {{/if}}
+        
         <br />
         <div id="form-save">
           <div class="forminput">
@@ -60,17 +53,17 @@
       </form>
     </div>
   </div>
-
+<div class="container">
   <!-- Header -->
   <header>
-    <div class="col-1">
+    <div class="header">
       <!--Logo -->
       <a href="#">
         <img class="logo" src="/Images/logo.png" href="index" alt="logo getflix" />
       </a>
 
     </div>
-    <div class="col-2" id="navDiv">
+    <div class="navDiv" id="navDiv">
       <!--Navbar -->
       <ul class="navbar">
         {{#if logged}}
@@ -93,15 +86,90 @@
           </div>
         </li>
         {{else}}
-        <li>
+        <li class="signIn">
           <a href="login">Sign In</a>
         </li>
         {{/if}}
         <li class="dropdown">
-          <a href="#" class="dropbtn">Genres</a>
+          <a href="" class="dropbtn">Genres</a>
           <ul class="sub_menu" id="sub_menu">
-
-          </ul>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="ActionM">Action
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="AdventureM">Adventure
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="AnimationM">Animation
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="ComedyM">Comedy
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="CrimeM">Crime
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="DocumentaryM">Documentary
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="DramaM">Drama
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="FamilyM">Family
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="FantasyM">Fantasy
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="HistoryM">History
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="HorrorM">Horror
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="MusicM">Music
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="MysteryM">Mystery
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="RomanceM">Romance
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="ScienceFictionM">Science Fiction
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="TVMovieM">TV Movie
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="ThrillerM">Thriller
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="WarM">War
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="WesternM">Western
+                  </a>
+              </li>
+            </ul>
 
         </li>
         <li>
@@ -112,76 +180,189 @@
         </li>
       </ul>
     </div>
+    <!--<div class="navResponsive" id="navResponsive">
+      
+      <ul class="navbar">
+        <li class="dropdown">
+          <a href="" class="dropbtn">Genres</a>
+          <ul class="sub_menu" id="sub_menu">
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="ActionM">Action
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="AdventureM">Adventure
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="AnimationM">Animation
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="ComedyM">Comedy
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="CrimeM">Crime
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="DocumentaryM">Documentary
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="DramaM">Drama
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="FamilyM">Family
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="FantasyM">Fantasy
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="HistoryM">History
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="HorrorM">Horror
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="MusicM">Music
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="MysteryM">Mystery
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="RomanceM">Romance
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="ScienceFictionM">Science Fiction
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="TVMovieM">TV Movie
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="ThrillerM">Thriller
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="WarM">War
+                  </a>
+              </li>
+              <li id="LiSecondlevel" class="sub_menu_li_hidden">
+                  <a class="aBtnDropdown"  id="WesternM">Western
+                  </a>
+              </li>
+            </ul>
+
+        </li>
+        
+      </ul>
+    </div> -->
   </header>
-  <div class="row-2">
-    <!--Hero -->
-    {{!-- <img src="/Images/doctor-strange-1256x826.webp"> --}}
-    <div class="hero">
-      <h2>Doctor Strange 2: In The Multiverse Of Madness</h2>
-      <p>Doctor Stephen Strange continues his research on the Time Stone. However, an old friend-turned-enemy attempts
-        to destroy all the wizards on Earth, which disrupts Strange's plan.</p>
+  <div id="toRemove">
+      <div class="HeroRow">
+        <!--Hero -->
+        {{!-- <img src="/Images/doctor-strange-1256x826.webp"> --}}
+        <div class="hero">
+          <h2>Doctor Strange 2: In The Multiverse Of Madness</h2>
+          <p>Doctor Stephen Strange continues his research on the Time Stone. However, an old friend-turned-enemy attempts
+            to destroy all the wizards on Earth, which disrupts Strange's plan.</p>
 
-      <button>More Info</button>
-    </div>
-  </div>
-  {{#if premium}}
-  <div>
-    
-  </div>
-  {{/if}}
-  <div class="row-31">
-    <!-- -->
-    <button class="pre-btn"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></button>
-    <h3>Top rated</h3>
-    <button class="nxt-btn"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
+          <button>More Info</button>
+        </div>
+      </div>
+      <div class="TitlemovieTop10">
+        <!-- -->
+        <button class="pre-btn"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></button>
+        <h3>Top rated</h3>
+        <button class="nxt-btn"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
 
-  </div>
-  <div class="row-41" id="movieTop10">
-    <!-- -->
+      </div>
+      <div class="movieTop10" id="movieTop10">
+        <!-- -->
 
-  </div>
-  <div class="row-3">
-    <!-- -->
-    <button class="pre-btn"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></button>
-    <h3>Trending</h3>
-    <button class="nxt-btn"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
+      </div>
+      <div class="TitleTrending">
+        <!-- -->
+        <button class="pre-btn"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></button>
+        <h3>Trending</h3>
+        <button class="nxt-btn"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
 
-  </div>
-  <div class="row-4" id="trending">
-    <!-- -->
+      </div>
+      <div class="trending" id="trending">
+        <!-- -->
 
-  </div>
-  <div class="row-5">
-    <!-- -->
-    <h3>Now Playing in theatre</h3>
-  </div>
-  <div class="row-6" id="latestmovies">
-    <!-- -->
+      </div>
+      <div class="TitleNowPlaying">
+        <!-- -->
+        <h3>Now Playing in theatre</h3>
+      </div>
+      <div class="NowPlaying" id="NowPlaying">
+        <!-- -->
 
-  </div>
-  <div class="row-7">
-    <!--See more -->
-
+      </div>
   </div>
   {{!-- <div class="footer-basic" id="row-8"> --}}
-    <!-- Footer-->
-    <footer>
-      <div class="social"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a><a href="#"><i
-            class="fa fa-facebook" aria-hidden="true"></i></a><a href="#"><i class="fa fa-instagram"
-            aria-hidden="true"></i></a><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a></div>
-      <ul class="list-footer">
-        <li class="list-inline-item"><a href="#">About</a></li>
-        <li class="list-inline-item"><a href="#">Terms</a></li>
-        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-      </ul>
-      <p class="copyright">Getflix © 2022</p>
-    </footer>
+    
+    <!--  Catalogue-->
+    <div id="GenreBtn" style="visibility: hidden;"></div>
+      <main id="movieCard" style="visibility: hidden;"></main>
+    <div class="pagination" id="pagination" style="visibility: hidden;">
+        <div class="page" id="prev" style="visibility: hidden;">Previous Page</div>
+        <div class="current" id="current" style="visibility: hidden;">1</div>
+        <div class="page" id="next" style="visibility: hidden;">Next Page</div>
 
-  </div>
+    </div>
+    
+    <div class="headerResponsive">
+      <ul class="navbar">
+        <li><a href=""><i class="fa-solid fa-house"></i></a></li>
+      <li><a href="/search"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+{{#if logged}}
+        <li class="user">
+          <h4>Hi, {{logged}}</h4>
+          <div class="icon-user">
+            <i class="fa-solid fa-user"></i>
+            <div class="user-dropdown user-dropdown-hidden">
+              <button id="myprofile">My&nbsp;profile</button>
+              <form action="/auth/logout" method="post" style="display:flex; color: white; width: 100%">
+                <button type="submit">Logout</button>
+              </form>
+              <form action="/myprofile/upgrade" method="post" style="display:flex; color: white; width: 100%">
+                <button type="submit">Upgrade</button>
+              </form>
+              <form action="/myprofile/delete" method="post" style="display:flex; color: white; width: 100%">
+                <button type="submit">Delete</button>
+              </form>
+            </div>
+          </div>
+        </li>
+        {{else}}
+        <li>
+          <a href="login"><i class="fa-regular fa-user"></i></a>
+        </li>
+        {{/if}}
+
+      </ul>
+    </div>
+</div>
+  
   {{!-- </div> --}}
   <script type="text/javascript" language="javascript" src="scripts/GenreDropdown.js"></script>
   <script src="scripts/userDropdown.js"></script>
   <script src="scripts/apifetch.js"></script>
+  
+  
 </body>
 
 </html>
