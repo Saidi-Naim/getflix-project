@@ -1,6 +1,53 @@
-@media only screen and (max-width: 450px) {
-    .navDiv{
+@media only screen and (max-width: 480px) {
+    .navDiv .user, .navbar .signIn, .navDiv li #searchbox{
         visibility: hidden;
+    }
+    footer{
+        visibility: hidden;
+    }
+    .navDiv{
+        position: absolute;
+        width: 100%;
+        right: 0;
+        top:0;
+    }
+    /*------------Header------*/
+    header{
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        top: 0;
+        z-index: 99;
+    }
+    .user h4{
+        display: none;
+    }
+  .header{
+    float: left;
+  }
+  
+  .navbar {
+    margin-top: 5px;
+    list-style-type: none;
+    background-color: none;
+    float: right;
+  }
+  .navbar > li {
+    float: right;
+  }
+  .navbar > li > a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: all .2s ease-in-out;
+  }
+  
+  .navbar >li >a:hover {
+    background-color: rgb(213, 3, 3);
+  }
+    a .dropdown{
+        padding-bottom: 10px;
     }
     .headerResponsive{
         visibility: visible;
@@ -10,19 +57,90 @@
         width: 100%;
         z-index: 99;
         display: flex;
-        justify-content: space-around;
-        background-color: white;
+        justify-content: center;
+        background-color: Black;
     }
-    .headerResponsive a {
-        float: left;
-        display: block;
+    .headerResponsive ul {
+        display: flex;
+        justify-content: space-around;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
         font-size: 17px;
     }
-    .headerResponsive a i{
-        font-size: 20px;
-        color: brown;
+    .headerResponsive ul li{
+        padding-left: 15px;
     }
+    .headerResponsive ul li a i{
+        font-size: 20px;
+        color: white;
+    }
+
+    /* ----  Dropdown genre   ----------*/
+    #arrowDropdown{
+        vertical-align: middle; 
+        width: 15px;
+      }
+      a #arrowDropdown{ 
+        border: 0;
+      }
+      
+      /* Dropdown LEVEL ONE*/
+      
+      .navbar { 
+        position: relative; 
+        width: 100%; }
+      .navbar .dropdown{ 
+        font-weight: bold;
+        width: 150px;  
+        position: relative; }
+      .dropdown .dropbtn:hover	{ 
+        color: white; }
+      .dropdown .dropbtn{ 
+        display: block; 
+        color: white; 
+        position: relative; 
+        z-index: 2000; }
+      .dropbtn:hover{ 
+        background: #f9f9f9; 
+        position: relative; }
+      .dropbtn.hover{
+        position: relative;
+        background: rgb(213, 3, 3);
+      }
+      
+      /* Dropdown LEVEL TWO*/
+      
+      .sub_menu { 
+        display: block; 
+        transition: all 0.3s ease-out;
+        position: absolute; 
+        background-color: rgb(213, 3, 3, 0.7);
+        top: 100%; 
+        left: 0; 
+        height: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        width: 100%;
+        z-index: 1000; 
+    }
+      .sub_menu li { 
+        font-weight: normal; 
+        color: #000; 
+        transition: all 0.2s ease-in-out;
+      }
+      .sub_menu_li_hidden{
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      .sub_menu li a	{ 
+        padding: 5px 0 5px 10px;
+        color: #fff;
+        display: block; 
+        text-decoration: none;
+      } 
+      .sub_menu li a:hover{ 
+        display: block; 
+        background: rgba(0,0,0,0.3); 
+      } 
 }

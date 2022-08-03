@@ -1,5 +1,5 @@
 /*Responsive*/
-@media only screen and (min-width: 450px) {
+@media only screen and (min-width: 480px) {
   /*Hero*/
 .HeroRow{
   position: relative;
@@ -45,16 +45,36 @@
   font-weight: 900;
   font-size: xx-large;
 }
+#trending, #movieTop10, #NowPlaying{
+  width: 80%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
+.form-button {
+  padding: 0 10px; 
+  background: none; 
+  margin: 10px 1px; 
+  border: none; 
+  border-radius: 5px; 
+  color: white; 
+  background-color: #b00000;
+}
 
 }
 
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 480px) {
 /*Hero*/
 .HeroRow{
   position: relative;
   width: 100%;
-  height: 550px;
+  height: 300px;
   background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(6, 5, 6, 0.993)), url('/Images/doctor-strange-1256x826.webp');
   display: flex;
   align-items: center;
@@ -69,8 +89,10 @@
   margin-top: 10px;
 }
 .hero h2{
-  font-weight: 700;
-  font-size: 17px;
+  font-weight: 500;
+  font-size: 15px;
+  text-align: center;
+  display: none;
 }
 .hero p{
   font-size: 10px;
@@ -78,20 +100,9 @@
   display: none;
 }
 .hero button{
-  height: 40px;
-  margin-top: 10px;
-  background-color: #b00000;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 0 5px 0 5px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
+  display: none;
 }
-.hero button:hover{
-  opacity: .8;
-}
+
 .form-button {
   padding: 0 10px; 
   background: none; 
@@ -101,9 +112,17 @@
   color: white; 
   background-color: #b00000;
 }
-
-
-
+#trending, #movieTop10, #NowPlaying{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
 
 }
 
@@ -129,21 +148,7 @@
   font-size: large;
 }
 
-.movieTop10, .trending, .NowPlaying{
-  width: 80%;
-  display: inline-flex;
-  justify-content: center;
-}
-#trending, #movieTop10, #NowPlaying{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 5px;
-  overflow-y: hidden;
-  scroll-behavior: smooth;
-}
+
 
 #trending::-webkit-scrollbar, #movieTop10::-webkit-scrollbar, #NowPlaying::-webkit-scrollbar {
   display: none;
