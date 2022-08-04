@@ -1,5 +1,5 @@
 /*Responsive*/
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 481px) {
   /*Hero*/
 .HeroRow{
   position: relative;
@@ -76,6 +76,12 @@
   overflow: hidden;
   cursor: pointer;
 }
+.message h1{
+  text-align: center; 
+  padding: 20px 0; 
+  background-color: #000; 
+  color: white;
+}
 }
 
 
@@ -143,6 +149,12 @@
   position:relative;
   overflow: hidden;
   cursor: pointer;
+}
+.message {
+  text-align: center; 
+  padding: 20px 0; 
+  background-color: #000; 
+  color: white;
 }
 }
 
