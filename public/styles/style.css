@@ -48,7 +48,7 @@
 #trending, #movieTop10, #NowPlaying{
   width: 80%;
   display:flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
@@ -73,7 +73,6 @@
   box-shadow: 0.2px 4px 5px rgba(0,0,0,0.1);
   background-color: var(--secondary-color);
   position:relative;
-  left: 100%;
   overflow: hidden;
   cursor: pointer;
 }
@@ -128,7 +127,7 @@
   margin-left: auto;
   margin-right: auto;
   display:flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   border-radius: 5px;
   overflow-y: hidden;
@@ -142,7 +141,6 @@
   box-shadow: 0.2px 4px 5px rgba(0,0,0,0.1);
   background-color: var(--secondary-color);
   position:relative;
-  left: 420%;
   overflow: hidden;
   cursor: pointer;
 }
@@ -230,19 +228,7 @@
   cursor:pointer;
 }
 
-/*Affiches*/
-.movie-info{
-  border-top: 2px solid orange;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  
-}
-.movie-info .titlemovie{
-  font-size: medium;
-  align-self: flex-start;
-}
+
 
 /* Scroll: */
   
