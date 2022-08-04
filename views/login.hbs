@@ -3,8 +3,9 @@
 <head>
     <title>NodeFlix</title>
     <link rel="icon" type="image/png" sizes="16x16" href="Images/logoTab.png">
-    <link rel="stylesheet" href="/styles/style.css" />
+    {{!-- <link rel="stylesheet" href="/styles/styleform.css" /> --}}
     <link rel="stylesheet" href="/styles/HeaderFooter.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
         integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
@@ -48,20 +49,21 @@
     
     
 
-{{#if message}}
-          <div class="message">
-            <h1>{{message}}</h1>
-          </div>
-      {{/if}}
       <div class="HeroRow">
+        <h1>Sign In</h1>
+        {{#if message}}
+          <div class="message">
+            <h4>{{message}}</h4>
+          </div>
+        {{/if}}
         <form action="/auth/login" method="post">
             <div class="forminput">
             <label for="email" class="form-label">Email:</label></br>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" required/>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email"/>
             </div>
             <div class="forminput">
-            <label for="name" class="form-label">Password</label></br>
-            <input type="password" class="form-control" id="lastname" name="password" required/>
+            <label for="name" class="form-label">Password:</label></br>
+            <input type="password" class="form-control" id="lastname" name="password"/>
             </div>
 
             <div class="forminput">

@@ -48,26 +48,27 @@
     
 
 
+      <div class="HeroRow">
+        <h1>Register</h1>
         {{#if message}}
           <div class="message">
-            <h1>{{message}}</h1>
+            <h4>{{message}}</h4>
           </div>
         {{/if}}
-      <div class="HeroRow">
         <form action="/auth/register" method="post">
             <div class="forminput">
             <label for="email" class="form-label">Email:</label></br>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" required/>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email"/>
             </div>
             
             <div class="forminput">
-            <label for="name" class="form-label">Password</label></br>
-            <input type="password" class="form-control" id="lastname" name="password" required/>
+            <label for="name" class="form-label">Password:</label></br>
+            <input type="password" class="form-control" id="lastname" name="password"/>
             </div>
 
             <div class="forminput">
-            <label for="name" class="form-label">Confirm Password</label></br>
-            <input type="password" class="form-control" id="lastname" name="confirmPassword" required/>
+            <label for="name" class="form-label">Confirm Password:</label></br>
+            <input type="password" class="form-control" id="lastname" name="confirmPassword"/>
             </div>
 
             

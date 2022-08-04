@@ -11,6 +11,9 @@ const db = mysql.createConnection({
 
 exports.register = (req, res) => {
   const { email, password, confirmPassword } = req.body;
+  if (email == "" || password == "" || confirmPassword == ""){
+    return res.render("register", { message: "Empty fields please check" });
+  }
 
   db.query(
     "SELECT email FROM user WHERE email = ?",
@@ -49,7 +52,9 @@ exports.register = (req, res) => {
 
 exports.login = (req, res) => {
   const { email, password } = req.body;
-
+  if (email == "" || password == ""){
+    return res.render("login", { message: "password or email is empty" });
+  }
   db.query(
     "SELECT * FROM user WHERE email = ?",
     [email],
