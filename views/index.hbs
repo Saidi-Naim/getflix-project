@@ -18,10 +18,14 @@
 
 <body>
   <!-- modal myprofile -->
+
   <div class="modal-myprofile modal-myprofile-hidden">
+<div id="messageProfile"></div>
     <div class="forms">
       <form action="/myprofile/update" method="post" id="form-myprofile">
+      <input type="hidden" value="{{logged}}" name="token"/>
         <div class="forminput">
+          
           <label for="email" class="form-label">Username:</label></br>
           <input type="email" class="form-control" id="username" aria-describedby="emailHelp" name="email" default-value="{{logged}}"
             value="{{logged}}" required disabled /> <i class="fa-solid fa-pen-to-square" id="edit-username"></i>
@@ -33,7 +37,7 @@
         </div>
         <div class="forminput">
           <label for="name" class="form-label">Confirm password</label></br>
-          <input type="password" class="form-control" id="pass" name="passwordConfirm" required disabled />
+          <input type="password" class="form-control" id="pass" name="confirmPassword" required disabled />
         </div>
         <br />
         <div id="form-save">
@@ -43,11 +47,14 @@
           <button type="button" id="annulateMyprofile">Back</button>
         </div>
       </form>
+
+
     </div>
   </div>
 
   <!-- Header -->
   <header>
+
     <div class="col-1">
       <!--Logo -->
       <a href="#">
@@ -71,7 +78,7 @@
               <form action="/myprofile/upgrade" method="post" style="display:flex; color: white; width: 100%">
                 <button type="submit">Upgrade</button>
               </form>
-              <form action="/myprofile/delete" method="post" style="display:flex; color: white; width: 100%">
+              <form action="/myprofile/delete" method="post" style="display:flex; color: white; width: 100%">    
                 <button type="submit">Delete</button>
               </form>
             </div>
