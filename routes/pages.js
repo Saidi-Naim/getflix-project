@@ -201,26 +201,6 @@ router.post("/reset/:id/:token", (req, res, next) => {
   );
 });
 
-router.get("/test", (req, res) => {
-  db.query(
-      "SELECT email FROM user",
-      
-      async (err, result) => {
-        if (err) {
-          console.log(err);
-        }
-  
-        if (result.length > 0) {
-          return res.send(result);
-          
-        } else if (password != confirmPassword) {
-          return res.render("register", { message: "Passwords do not match" });
-        }
-  
-  
-        
-      }
-    );
-});
+
 
 module.exports = router;
