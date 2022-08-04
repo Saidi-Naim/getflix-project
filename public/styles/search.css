@@ -60,10 +60,9 @@ header{
   }
   
   .message {
-    text-align: center; 
-    padding: 20px 0; 
-    background-color: #000; 
-    color: white;
+    /* text-align: center; 
+    padding: 20px 0;  */
+    background: transparent;
   }
   .col-1{
     width: 25%;
