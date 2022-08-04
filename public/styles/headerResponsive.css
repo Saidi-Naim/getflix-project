@@ -2,8 +2,10 @@
     .navDiv .user, .navbar .signIn, .navDiv li #searchbox{
         visibility: hidden;
     }
-    footer{
-        visibility: hidden;
+    .logo {
+      width: 100px;
+      height: auto;
+      background: none;
     }
     .navDiv{
         position: absolute;
