@@ -32,17 +32,26 @@
         </div>
         <br />
         <div class="forminput">
-          <label for="name" class="form-label">Password</label></br>
+          <label for="name" class="form-label">Password:</label></br>
           <input type="password" class="form-control" id="pass" name="password" required disabled /> <i class="fa-solid fa-pen-to-square" id="edit-pass"></i>
         </div>
         <div class="forminput">
-          <label for="name" class="form-label">Confirm password</label></br>
+          <label for="name" class="form-label">Confirm password:</label></br>
           <input type="password" class="form-control" id="pass" name="confirmPassword" required disabled />
         </div>
+        <div class="forminput">
+            <legend>Update subscription plan:</legend>
+              <select id="subscription" name="subscription">
+                <option disabled selected value=""> -- select an option -- </option>
+                <option value="free">Free</option>
+                <option value="premium">Premium</option>
+              </select>
+        </div>
+
         <br />
         <div id="form-save">
           <div class="forminput">
-            <button>Save</button>
+            <button>Update</button>
           </div>
           <button type="button" id="annulateMyprofile">Back</button>
         </div>

@@ -10,16 +10,11 @@ const db = mysql.createConnection({
 });
 
 exports.update = async (req, res) => {
-  const { token, email, password, confirmPassword } = req.body;
+  const { token, email, password, confirmPassword, subscription} = req.body;
 
   let sql;
 
-
-
-    
-
-  if (email && password) {
-
+  if (email && password && subscription == undefined) {
 
     db.query(
       "SELECT email FROM user WHERE email = ?",
@@ -29,15 +24,12 @@ exports.update = async (req, res) => {
           console.log(err);        
         }
         if (result.length > 0) {
-          console.log("email already used");
           const str = 'email already used';
           return res.redirect("../../?messageMyProfile=" + str);
 
         } else if (password != confirmPassword) { 
-            console.log("passwords do not match");
             const str = 'passwords do not match';
             return res.redirect("../../?messageMyProfile=" + str);
-            
           }
 
           res.cookie("loggedin", email, {
@@ -55,15 +47,52 @@ exports.update = async (req, res) => {
             if (err) {
               console.log(err);
                   }
-            console.log("email and password updated");
             const str = 'email and password updated';
             return res.redirect("../../?messageMyProfile=" + str);
           })
-
         })
+  } 
 
+  if (email && password && subscription != undefined) {
 
-  } else if (email) {
+    db.query(
+      "SELECT email FROM user WHERE email = ?",
+      [email],
+      async (err, result) => {
+        if (err) {
+          console.log(err);        
+        }
+        if (result.length > 0) {
+          const str = 'email already used';
+          return res.redirect("../../?messageMyProfile=" + str);
+
+        } else if (password != confirmPassword) { 
+            const str = 'passwords do not match';
+            return res.redirect("../../?messageMyProfile=" + str);
+          }
+
+          res.cookie("loggedin", email, {
+            maxAge: 9000000000,
+            httpOnly: true,
+          });
+      
+          sql = "UPDATE user SET email = ?, password = ?, subscription = ? WHERE email = ?";
+      
+          let hashedPassword = await bcrypt.hash(password, 8);
+      
+          db.query(sql,
+          [email, hashedPassword, subscription, token],
+          async (err, result) => {
+            if (err) {
+              console.log(err);
+                  }
+            const str = 'email, password and subscription updated';
+            return res.redirect("../../?messageMyProfile=" + str);
+          })
+        })
+  } 
+
+  if (email && subscription == undefined) {
     res.cookie("loggedin", email, {
       maxAge: 9000000000,
       httpOnly: true,
@@ -76,15 +105,15 @@ exports.update = async (req, res) => {
       async (err, result) => {
         if (err) {
           console.log(err);        }
-        console.log("email updated");
         const str = 'email updated';
         return res.redirect("../../?messageMyProfile=" + str);
       })
 
-  } else if (password) {
+  } 
+
+  if (password && subscription == undefined) {
 
     if (password != confirmPassword) { 
-      console.log("passwords do not match");
       const str = 'passwords do not match';
       return res.redirect("../../?messageMyProfile=" + str);
       
@@ -98,17 +127,31 @@ exports.update = async (req, res) => {
       [hashedPassword, token],
       async (err, result) => {
         if (err) {
-          console.log(err);        }
-        console.log("password updated")
+          console.log(err);        
+        }
         const str = 'password updated';
         return res.redirect("../../?messageMyProfile=" + str);
       })
   }
 
+  console.log(subscription)
+  console.log(token)
 
+  if (subscription != undefined) {
 
-  // return res.redirect("../");
+    sql = "UPDATE user SET subscription = ? WHERE email = ?";
+    console.log(sql)
 
+    db.query(sql,
+      [subscription, token],
+      async (err, result) => {
+        if (err) {
+          console.log(err);
+        }
+        const str = 'subscription updated';
+        return res.redirect("../../?messageMyProfile=" + str);
+      })
+  }
 
 };
 
@@ -119,8 +162,8 @@ exports.update = async (req, res) => {
 
 
 
-exports.upgrade = (req, res) => {
-};
+
+
 
 exports.delete = (req, res) => {
 };
