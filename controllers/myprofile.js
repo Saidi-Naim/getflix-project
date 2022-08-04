@@ -9,7 +9,7 @@ const db = mysql.createConnection({
   database: process.env.RDS_DB_NAME,
 });
 
-exports.update = (req, res) => {
+exports.update = async (req, res) => {
   const { token, email, password, confirmPassword } = req.body;
 
   let sql;
@@ -92,7 +92,7 @@ exports.update = (req, res) => {
 
     sql = "UPDATE user SET password = ? WHERE email = ?";
 
-    // let hashedPassword = await bcrypt.hash(password, 8);
+    let hashedPassword = await bcrypt.hash(password, 8);
 
     db.query(sql,
       [hashedPassword, token],
