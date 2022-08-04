@@ -162,3 +162,15 @@ function showLatestMovies(data) {
         })
     })
 }
+
+// myprofile modal message
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const messageMyProfile = urlParams.get('messageMyProfile');
+if (messageMyProfile != null) {
+  document.querySelector('.modal-myprofile').classList.remove('modal-myprofile-hidden');
+  document.getElementById('messageProfile').innerHTML = messageMyProfile
+}
+
+fetch('http://localhost:3000/test').then(res => res.json()).then(data => console.log(data));
+
