@@ -36,6 +36,7 @@
   }
   .navbar > li {
     float: right;
+    margin-top: 5px;
   }
   .navbar > li > a {
     display: block;
@@ -109,6 +110,7 @@
       /*----------Searchbar*/
       #searchbox{
         margin-top: 12px;
+        margin-left: 30px;
         margin-right: 10px;
       }
       #searchbox input{
