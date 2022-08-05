@@ -28,6 +28,7 @@
         <div class="navDiv" id="navDiv">
             <!--Navbar -->
             <ul class="navbar">
+                
                 {{#if logged}}
                 <li>
                     <form action="/auth/logout" method="post" style="margin-left: 20px; display:flex; color: white">
@@ -44,7 +45,7 @@
                     <a href="login">Sign In</a>
                 </li>
                 {{/if}}
-                
+                <li class="home"><a href="/">Home</a></li>
             </ul>
         </div>
     </header>
