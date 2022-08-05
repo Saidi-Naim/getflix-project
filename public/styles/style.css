@@ -1,10 +1,82 @@
 /*Responsive*/
 @media only screen and (min-width: 481px) {
   /*Hero*/
-
+  .HeroRow{
+  position: relative;
+  width: 100%;
+  height: 550px;
+  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(6, 5, 6, 0.993)), url('/Images/doctor-strange-1256x826.webp');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.allForm{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 400px;
+  margin-left: 275px;
+  align-items: center;
+  background: rgba(24, 24, 24, 0.425);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.6px);
+  -webkit-backdrop-filter: blur(4.6px);
+  border: 1px solid rgba(0, 0, 0, 0.35);
+}
+.forminput{
+  padding: 10px 0;
+}
+.forminput:nth-child(0n+2){
+  padding-bottom: 0;
+}
+.forminput:nth-child(0n+3){
+  padding: 0;
+}
+.allForm h1{
+  padding-bottom: 30px;
+  font-weight: 700;
+  font-size: xx-large;
+}
+.message{
+  margin-top: -40px;
+  background-color: transparent;
+}
+.hero{
+  position: absolute;
+  width: 40%;
+  margin-right: 50%;
+  margin-top: 100px;
+}
+.hero h2{
+  font-weight: 700;
+  font-size: 2vw;
+}
+.hero p{
+  font-size: 1vw;
+  font-weight: lighter;
+}
+.hero button{
+  width: 35%;
+  height: 40px;
+  margin-top: 10px;
+  background-color: #b00000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: large;
+  font-weight: 600;
+  cursor: pointer;
+}
+.hero button:hover{
+  opacity: .8;
+}
 .TitlemovieTop10 h3, .TitleTrending h3, .TitleNowPlaying h3{
   font-weight: 900;
-  font-size: xx-large;
+  font-size: 50em;
 }
 #trending, #movieTop10, #NowPlaying{
   width: 80%;
@@ -131,16 +203,29 @@
 }
 @media only screen and (max-width: 480px) {
 /*Hero*/
-.HeroRow{
+.allForm{
+  display: flex;
+  flex-direction: column;
   position: relative;
   width: 100%;
   height: 300px;
-  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(6, 5, 6, 0.993)), url('/Images/doctor-strange-1256x826.webp');
   display: flex;
   align-items: center;
-  justify-content: center;
-  background-size: 100%;
-  background-repeat: no-repeat;
+  
+}
+.forminput{
+  padding: 10px 0;
+}
+.forminput:nth-child(0n+2){
+  padding-bottom: 0;
+}
+.forminput:nth-child(0n+3){
+  padding: 0;
+}
+.HeroRow h1{
+  padding-bottom: 50px;
+  font-weight: 700;
+  font-size: xx-large;
 }
 .hero{
   position: absolute;

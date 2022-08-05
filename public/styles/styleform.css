@@ -1,141 +1,36 @@
 *{
-    padding: 0;
-    margin: 0;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-.container{
-    display: grid;
-    height: 100vh;
+body{
+    background-image: linear-gradient(rgba(59, 59, 59, 0.7), rgba(0, 0, 0, 0.7)), url(https://assets.nflxext.com/ffe/siteui/vlv3/c8c8a0ad-86d6-45f1-b21d-821afa4e5027/f8d21352-6d07-4bdf-88e5-7c19adc18dac/BE-fr-20220801-popsignuptwoweeks-perspective_alpha_website_medium.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
-.logo {
-    max-width: 100px;
-    height: auto;
+.form-button {
+  padding: 0 10px; 
+  background: none; 
+  margin: 10px 1px; 
+  border: none; 
+  border-radius: 5px; 
+  color: white; 
+  background-color: #b00000;
 }
-.col-1{
-    width: 25%;
-    float: left;
+.message {
+  background-color: transparent;
 }
-.col-2{
-    width: 75%;
-    float: right;
+.forgotLink{
+  font-size: small;
+  color: #55aaeb;
+  text-decoration: none;
 }
-.navbar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    position: -webkit-sticky; /* Safari */
-    position: sticky;
-    top: 0;
-  }
-.navbar > li {
-    float: right;
-  }
-.navbar > li > a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-.navbar >li >a:hover {
-    background-color: #111;
-  }
-  #searchbox{
-    margin-top: 12px;
-  }
-  #search{
-    background-color: transparent;
-    border-radius: 50px;
-    color: white;
-  }
-  #search:focus{
-    outline: 0;
-    background-color: var(--primary-color);
-  }
-  #search::placeholder{
-    color: rgb(233, 198, 133);
-    text-align: center;
-  }
-
-/*----------------*/
-
-.row-2{
-    display: grid;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
+.forgotLink:hover{
+  text-decoration: underline;
 }
-.row-2 form{
-  width: 100%;
+.forminput > button:hover{
+  transform: scale(1.1);
 }
-.forminput{
-    margin-top: 15px;
+.form-button:hover{
+  transform: scale(1.1);
 }
-/* Footer*/
-footer{
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  padding-bottom:5px;
-  background-color:#333;
-  color:#4b4c4d;
-  margin-top: 13%;
-}
-.list-footer {
-    text-align:center;
-    font-size:18px;
-    line-height:1.6;
-    /* margin-bottom:0; */
-    list-style-type: none;
-    padding-bottom: 20px;
-    display: flex;
-    justify-content: center;
-  }
-.list-footer > li > a {
-    display: inline-flex;
-    color: gray;
-    text-align: center;
-    padding: 0 16px;
-    text-decoration: none;
-  }
-  
-.list-footer >li >a:hover {
-    background-color: white;
-  }
-.social {
-    text-align:center;
-    padding-bottom:25px;
-  }
-  
-.social > a {
-    font-size:24px;
-    width:40px;
-    height:40px;
-    line-height:40px;
-    display:inline-block;
-    text-align:center;
-    border-radius:50%;
-    border:1px solid #ccc;
-    margin:0 8px;
-    color:inherit;
-    opacity:0.75;
-  }
-  
-.social > a:hover {
-    opacity:0.9;
-  }
-  
-.copyright {
-    /* margin-top:15px; */
-    text-align:center;
-    font-size:13px;
-    color:#aaa;
-    margin-bottom:0;
-  }
-
-  /* Subscribe Form */
-  
