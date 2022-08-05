@@ -346,3 +346,51 @@ header{
   margin-bottom: 90px;
 }
 }
+
+.modal-comments{
+  background-color: rgba(0,0,0,0.7);
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transition: all .3s ease-out;
+  position:fixed;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-comments-hidden{
+  transform: translate(-100%, -100vh);
+}
+
+.modal-comments .comments{
+  background-color: white;
+  padding: 20px;
+  width: 80%;
+  color: black;
+  max-height: 80%;
+  overflow-y: auto;
+}
+
+.modal-comments .fa-xmark{
+  position: absolute;
+  top: 20px;
+  cursor: pointer;
+  right: 20px;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.movie:hover .overview{
+  transform:translateY(0)
+}
+.know-more{
+  background-color: #b00000;
+  color: #fff;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  cursor:pointer;
+}
