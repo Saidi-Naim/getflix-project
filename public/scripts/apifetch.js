@@ -187,6 +187,7 @@
               <div class="comments">
                 <h1>${title}</h1>
                 <p>${overview}</p>
+                <button class="trailer"><a href="">Trailer</a></button>
               </div>
             </div>
             <div class="overview">
@@ -295,7 +296,7 @@
               <div class="comments">
                 <h1>${title}</h1>
                 <p>${overview}</p>
-                <button class="trailer">Trailer</button>
+                <button class="trailer"><a href="">Trailer</a></button>
               </div>
             </div>
             <div class="overview">
@@ -347,7 +348,7 @@
              <div class="comments">
                <h1>${title}</h1>
                <p>${overview}</p>
-               
+               <button class="trailer"><a href="">Trailer</a></button>
              </div>
            </div>
             <div class="overview">
@@ -403,6 +404,7 @@
               <div class="comments">
                 <h1>${title}</h1>
                 <p>${overview}</p>
+                <button class="trailer"><a href="">Trailer</a></button>
               </div>
             </div>
             <div class="overview">
