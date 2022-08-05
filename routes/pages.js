@@ -15,7 +15,7 @@ const db = mysql.createConnection({
 });
 
 router.get("/", (req, res) => {
-  res.render("index", { logged: req.cookies.loggedin });
+  res.render("index", { logged: req.cookies.loggedin, premium: req.cookies.premium });
 });
 
 router.get("/login", (req, res) => {
@@ -37,6 +37,9 @@ const JWT_TOKEN = crypt.randomBytes(32).toString("hex");
 
 router.post("/forgot", (req, res, next) => {
   const { email } = req.body;
+  if (email == ""){
+    return res.render("forgot", { message: "Empty field please check" });
+  }
   // make sure user exists in database
   db.query(
     "SELECT id, email, password FROM user WHERE email = ?",

@@ -10,10 +10,8 @@ const db = mysql.createConnection({
 });
 
 exports.update = (req, res) => {
-    res.send(req.body)
-};
-
-exports.upgrade = (req, res) => {
+    res.send(req.body.typeSubs)
+    
 };
 
 exports.delete = (req, res) => {

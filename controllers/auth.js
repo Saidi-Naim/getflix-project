@@ -11,6 +11,9 @@ const db = mysql.createConnection({
 
 exports.register = (req, res) => {
   const { email, password, confirmPassword } = req.body;
+  if (email == "" || password == "" || confirmPassword == ""){
+    return res.render("register", { message: "Empty fields please check" });
+  }
 
   db.query(
     "SELECT email FROM user WHERE email = ?",
@@ -49,9 +52,11 @@ exports.register = (req, res) => {
 
 exports.login = (req, res) => {
   const { email, password } = req.body;
-
+  if (email == "" || password == ""){
+    return res.render("login", { message: "password or email is empty" });
+  }
   db.query(
-    "SELECT email, password FROM user WHERE email = ?",
+    "SELECT * FROM user WHERE email = ?",
     [email],
     async (err, results) => {
       if (err) {
@@ -71,6 +76,12 @@ exports.login = (req, res) => {
               maxAge: 9000000000,
               httpOnly: true,
             });
+                if(results[0].premium == 1){
+                  res.cookie("premium", " ", {
+                    maxAge: 9000000000,
+                    httpOnly: true,
+                  });
+                }
             return res.redirect("../");
           }
         });
@@ -81,5 +92,6 @@ exports.login = (req, res) => {
 
 exports.logout = (req, res) => {
   res.clearCookie("loggedin");
-  return res.redirect("../");
+  res.clearCookie("premium");
+  return res.redirect("/login");
 };
