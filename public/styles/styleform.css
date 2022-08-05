@@ -4,19 +4,9 @@
   box-sizing: border-box;
 }
 body{
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 200vh;
-}
-.HeroRow{
-  position: relative;
-  width: 50%;
-  height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: solid 2px red;
+    background-image: linear-gradient(rgba(59, 59, 59, 0.7), rgba(0, 0, 0, 0.7)), url(https://assets.nflxext.com/ffe/siteui/vlv3/c8c8a0ad-86d6-45f1-b21d-821afa4e5027/f8d21352-6d07-4bdf-88e5-7c19adc18dac/BE-fr-20220801-popsignuptwoweeks-perspective_alpha_website_medium.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .form-button {
   padding: 0 10px; 
@@ -30,3 +20,17 @@ body{
 .message {
   background-color: transparent;
 }
+.forgotLink{
+  font-size: small;
+}
+.forgotLink:hover{
+  color: #c40202;
+  text-decoration: none;
+}
+.forminput > button:hover{
+  transform: scale(1.1);
+}
+.form-button:hover{
+  transform: scale(1.1);
+}
+input:

@@ -1,12 +1,18 @@
 /*Responsive*/
 @media only screen and (min-width: 480px) {
   /*Hero*/
-  body{
-    background-image: linear-gradient(rgba(59, 59, 59, 0.7), rgba(0, 0, 0, 0.7)), url(https://assets.nflxext.com/ffe/siteui/vlv3/c8c8a0ad-86d6-45f1-b21d-821afa4e5027/f8d21352-6d07-4bdf-88e5-7c19adc18dac/BE-fr-20220801-popsignuptwoweeks-perspective_alpha_website_medium.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-.HeroRow{
+  .HeroRow{
+  position: relative;
+  width: 100%;
+  height: 550px;
+  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(6, 5, 6, 0.993)), url('/Images/doctor-strange-1256x826.webp');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.allForm{
   position: relative;
   display: flex;
   flex-direction: column;
@@ -24,7 +30,13 @@
 .forminput{
   padding: 10px 0;
 }
-.HeroRow h1{
+.forminput:nth-child(0n+2){
+  padding-bottom: 0;
+}
+.forminput:nth-child(0n+3){
+  padding: 0;
+}
+.allForm h1{
   padding-bottom: 30px;
   font-weight: 700;
   font-size: xx-large;
@@ -103,16 +115,24 @@
 
 @media only screen and (max-width: 480px) {
 /*Hero*/
-.HeroRow{
+.allForm{
+  display: flex;
+  flex-direction: column;
   position: relative;
   width: 100%;
   height: 300px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  
 }
-input{
-  padding: 0 10px;
+.forminput{
+  padding: 10px 0;
+}
+.forminput:nth-child(0n+2){
+  padding-bottom: 0;
+}
+.forminput:nth-child(0n+3){
+  padding: 0;
 }
 .HeroRow h1{
   padding-bottom: 50px;
