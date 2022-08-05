@@ -22,10 +22,11 @@ body{
 }
 .forgotLink{
   font-size: small;
+  color: #55aaeb;
+  text-decoration: none;
 }
 .forgotLink:hover{
-  color: #c40202;
-  text-decoration: none;
+  text-decoration: underline;
 }
 .forminput > button:hover{
   transform: scale(1.1);
@@ -33,4 +34,3 @@ body{
 .form-button:hover{
   transform: scale(1.1);
 }
-input:
