@@ -6,16 +6,13 @@
     <link rel="stylesheet" href="/styles/style.css" />
     <link rel="stylesheet" href="/styles/styleform.css" />
     <link rel="stylesheet" href="/styles/HeaderFooter.css" />
+    <link rel="stylesheet" href="/styles/headerResponsive.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
-        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-        .mySlides {
-            display: none;
-        }
-    </style>
+    
 </head>
 
 <body>
@@ -80,29 +77,37 @@
         </form>
     </div>
 
+<div class="headerResponsive">
+      <ul class="navbar">
+        <li><a href=""><i class="fa-solid fa-house"></i></a></li>
+      <li><a href="/search"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+{{#if logged}}
+        <li class="user">
+          <h4>Hi, {{logged}}</h4>
+          <div class="icon-user">
+            <i class="fa-solid fa-user"></i>
+            <div class="user-dropdown user-dropdown-hidden">
+              <button id="myprofile">My&nbsp;profile</button>
+              <form action="/auth/logout" method="post" style="display:flex; color: white; width: 100%">
+                <button type="submit">Logout</button>
+              </form>
+              <form action="/myprofile/upgrade" method="post" style="display:flex; color: white; width: 100%">
+                <button type="submit">Upgrade</button>
+              </form>
+              <form action="/myprofile/delete" method="post" style="display:flex; color: white; width: 100%">
+                <button type="submit">Delete</button>
+              </form>
+            </div>
+          </div>
+        </li>
+        {{else}}
+        <li>
+          <a href="login"><i class="fa-regular fa-user"></i></a>
+        </li>
+        {{/if}}
 
-
-    <script>
-        var slideIndex = 1; showDivs(slideIndex); var myIndex = 0; carousel();
-      /*------------------- manuel*/ function plusDivs(n) {
-            showDivs(slideIndex
-                += n);
-        } function showDivs(n) {
-            var i; var x =
-                document.getElementsByClassName("mySlides"); if (n > x.length) {
-                    slideIndex
-                        = 1
-                } if (n < 1) { slideIndex = x.length } for (i = 0; i < x.length; i++) {
-                    x[i].style.display = "none";
-                } x[slideIndex - 1].style.display = "block";
-        }
-      /*------------------- Automatic*/ function carousel() {
-            var i; var x =
-                document.getElementsByClassName("mySlides");
-        } for (i = 0; i < x.length;
-            i++) { x[i].style.display = "none"; } myIndex++; if (myIndex > x.length) { myIndex = 1 } x[myIndex - 1].style.display = "block"; setTimeout(carousel,
-                4000); // Change image every 2 seconds }
-    </script>
+      </ul>
+    </div>
     <script src="scripts/apifetch.js"></script>
 </body>
 
