@@ -1,5 +1,5 @@
 /*Responsive*/
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 481px) {
   /*Hero*/
   .HeroRow{
   position: relative;
@@ -81,7 +81,7 @@
 #trending, #movieTop10, #NowPlaying{
   width: 80%;
   display:flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
@@ -106,13 +106,101 @@
   box-shadow: 0.2px 4px 5px rgba(0,0,0,0.1);
   background-color: var(--secondary-color);
   position:relative;
-  left: 100%;
   overflow: hidden;
   cursor: pointer;
 }
+.message h1{
+  text-align: center; 
+  padding: 20px 0; 
+  background-color: #000; 
+  color: white;
 }
-
-
+.know-more{
+  font-size: 15px;
+}
+}
+@media only screen and (min-width: 481px) and (max-width: 800px) {
+.HeroRow{
+  position: relative;
+  width: 100%;
+  height: 550px;
+  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(6, 5, 6, 0.993)), url('/Images/doctor-strange-1256x826.webp');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.hero{
+  width: 40%;
+  margin-right: 50%;
+  margin-top: 50px;
+}
+.hero h2{
+  font-weight: 700;
+  font-size: 3vw;
+}
+.hero p{
+  font-size: 2vw;
+  font-weight: lighter;
+}
+.hero button{
+  width: 35%;
+  height: 40px;
+  margin-top: 10px;
+  background-color: #b00000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: small;
+  font-weight: 600;
+  cursor: pointer;
+}
+.hero button:hover{
+  opacity: .8;
+}
+}
+@media only screen and (min-width: 801px) {
+.HeroRow{
+  position: relative;
+  width: 100%;
+  height: 550px;
+  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(6, 5, 6, 0.993)), url('/Images/doctor-strange-1256x826.webp');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.hero{
+  width: 40%;
+  margin-right: 50%;
+  margin-top: 100px;
+}
+.hero h2{
+  font-weight: 700;
+  font-size: 30px;
+}
+.hero p{
+  font-size: 20px;
+  font-weight: lighter;
+}
+.hero button{
+  width: 35%;
+  height: 40px;
+  margin-top: 10px;
+  background-color: #b00000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: large;
+  font-weight: 600;
+  cursor: pointer;
+}
+.hero button:hover{
+  opacity: .8;
+}
+}
 @media only screen and (max-width: 480px) {
 /*Hero*/
 .allForm{
@@ -174,7 +262,7 @@
   margin-left: auto;
   margin-right: auto;
   display:flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   border-radius: 5px;
   overflow-y: hidden;
@@ -188,9 +276,18 @@
   box-shadow: 0.2px 4px 5px rgba(0,0,0,0.1);
   background-color: var(--secondary-color);
   position:relative;
-  left: 420%;
   overflow: hidden;
   cursor: pointer;
+}
+.message {
+  text-align: center; 
+  padding: 20px 0; 
+  background-color: #000; 
+  color: white;
+}
+.TitlemovieTop10 h3, .TitleTrending h3, .TitleNowPlaying h3{
+  font-weight: 700;
+  font-size: large;
 }
 }
 
@@ -211,12 +308,6 @@
   display: inline-flex;
   justify-content: center;
 }
-.TitlemovieTop10 h3, .TitleTrending h3, .TitleNowPlaying h3{
-  font-weight: 700;
-  font-size: large;
-}
-
-
 
 #trending::-webkit-scrollbar, #movieTop10::-webkit-scrollbar, #NowPlaying::-webkit-scrollbar {
   display: none;
@@ -232,7 +323,7 @@
   justify-content: space-between;
   padding: 1.5rem 1.5rem 1.5rem;
   letter-spacing: 0.5px;
-  height: fit-content;
+  
 }
 
 .movie-info h3{
@@ -253,6 +344,8 @@
   left:0;
   right:0;
   bottom:0;
+  align-items: center;
+  justify-content: center;
   background:rgba(115, 116, 116, 0.689);
   color: #fff;
   padding: 1rem;
@@ -264,6 +357,43 @@
 .overview h3 {
   font-size: medium;
 }
+
+.modal-comments{
+  background-color: rgba(0,0,0,0.7);
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transition: all .3s ease-out;
+  position:fixed;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-comments-hidden{
+  transform: translate(-100%, -100vh);
+}
+
+.modal-comments .comments{
+  background-color: white;
+  padding: 20px;
+  width: 80%;
+  color: black;
+  max-height: 80%;
+  overflow-y: auto;
+}
+
+.modal-comments .fa-xmark{
+  position: absolute;
+  top: 20px;
+  cursor: pointer;
+  right: 20px;
+  font-size: 1.5rem;
+  color: white;
+}
+
 .movie:hover .overview{
   transform:translateY(0)
 }
@@ -273,22 +403,11 @@
   border: none;
   width: 100%;
   border-radius: 5px;
+  font-size: 10px;
   cursor:pointer;
 }
 
-/*Affiches*/
-.movie-info{
-  border-top: 2px solid orange;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  
-}
-.movie-info .titlemovie{
-  font-size: medium;
-  align-self: flex-start;
-}
+
 
 /* Scroll: */
   

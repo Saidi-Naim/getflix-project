@@ -28,9 +28,6 @@ router.get("/register", (req, res) => {
 router.get("/search", (req, res) => {
   res.render("search");
 });
-router.get("/searchResponsive", (req, res) => {
-  res.render("searchResponsive");
-});
 
 router.get("/forgot", (req, res, next) => {
   res.render("forgot");
