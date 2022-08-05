@@ -43,6 +43,9 @@
   background-color: #000; 
   color: white;
 }
+.know-more{
+  font-size: 15px;
+}
 }
 @media only screen and (min-width: 481px) and (max-width: 800px) {
 .HeroRow{
@@ -235,7 +238,7 @@
   justify-content: space-between;
   padding: 1.5rem 1.5rem 1.5rem;
   letter-spacing: 0.5px;
-  height: fit-content;
+  
 }
 
 .movie-info h3{
@@ -256,7 +259,6 @@
   left:0;
   right:0;
   bottom:0;
-  display: flex;
   align-items: center;
   justify-content: center;
   background:rgba(115, 116, 116, 0.689);
@@ -264,7 +266,7 @@
   padding: 1rem;
   height: 100%;
   font-size: small;
-  transform:translateY(100%);
+  transform:translateY(101%);
   transition:transform 0.3s ease-in;
 }
 .overview h3 {
@@ -316,6 +318,7 @@
   border: none;
   width: 100%;
   border-radius: 5px;
+  font-size: 10px;
   cursor:pointer;
 }
 
