@@ -40,6 +40,9 @@ const JWT_TOKEN = crypt.randomBytes(32).toString("hex");
 
 router.post("/forgot", (req, res, next) => {
   const { email } = req.body;
+  if (email == ""){
+    return res.render("forgot", { message: "Empty field please check" });
+  }
   // make sure user exists in database
   db.query(
     "SELECT id, email, password FROM user WHERE email = ?",
