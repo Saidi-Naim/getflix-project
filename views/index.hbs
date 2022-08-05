@@ -66,6 +66,12 @@
     <div class="navDiv" id="navDiv">
       <!--Navbar -->
       <ul class="navbar">
+        <li>
+          <form id="searchbox">
+            <input type="search" placeholder="Search" id="search" class="search" name="search" />
+          </form>
+
+        </li>
         {{#if logged}}
         <li class="user">
           <h4>Hi, {{logged}}</h4>
@@ -172,12 +178,8 @@
             </ul>
 
         </li>
-        <li>
-          <form id="searchbox">
-            <input type="search" placeholder="Search" id="search" class="search" name="search" />
-          </form>
-
-        </li>
+        <li class="home"><a href="/">Home</a></li>
+        
       </ul>
     </div>
     <!--<div class="navResponsive" id="navResponsive">
@@ -327,7 +329,7 @@
     <div class="headerResponsive">
       <ul class="navbar">
         <li><a href=""><i class="fa-solid fa-house"></i></a></li>
-      <li><a href="/searchResponsive"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+      <li><a href="/search"><i class="fa-solid fa-magnifying-glass"></i></a></li>
 {{#if logged}}
         <li class="user">
           <h4>Hi, {{logged}}</h4>

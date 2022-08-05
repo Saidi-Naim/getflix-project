@@ -3,18 +3,14 @@
     <title>Search...</title>
     <link rel="stylesheet" href="/styles/search.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
-      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
   </head>
   <body>
-    <div class="container">
+    
       <div class="row-1">
         <!--Header -->
         <div class="col-1">
@@ -26,35 +22,42 @@
         <div class="col-2">
           <!--Navbar -->
           <ul class="navbar">
-            {{#if logged}}
-        <li>
-          <form action="/auth/logout" method="post" style="margin-left: 20px; display:flex; color: white">
-            <h4>
-              <h4>Hi, {{logged}}</h4>
-              <button type="submit"
-                style="padding: 0 20px; background: none; margin: 5px 10px; border: 1px solid white;  border-radius: 10px; color: white; cursor: pointer">Logout
-              </button>
-          </form>
+           {{#if logged}}
+        <li class="user">
+          <h4>Hi, {{logged}}</h4>
+          <div class="icon-user">
+            <i class="fa-solid fa-user"></i>
+            <div class="user-dropdown user-dropdown-hidden">
+              <button id="myprofile">My&nbsp;profile</button>
+              <form action="/auth/logout" method="post" style="display:flex; color: white; width: 100%">
+                <button type="submit">Logout</button>
+              </form>
+              <form action="/myprofile/upgrade" method="post" style="display:flex; color: white; width: 100%">
+                <button type="submit">Upgrade</button>
+              </form>
+              <form action="/myprofile/delete" method="post" style="display:flex; color: white; width: 100%">
+                <button type="submit">Delete</button>
+              </form>
+            </div>
+          </div>
         </li>
-
         {{else}}
-        <li>
+        <li class="signIn">
           <a href="login">Sign In</a>
         </li>
         {{/if}}
-            
+            <li class="home"><a href="/">Home</a></li> 
             <li>
               <form  id="form">
             <input type="search" placeholder="Search" id="search" class="search">
         </form>
               <!-- <a href="#">Search</a> -->
-            </li>
+            </li> 
             
-              
           </ul>
         </div>
-      
       </div>
+      <div class="container">
       <div id="GenreBtn"></div>
       <main id="movieCard"></main>
     <div class="pagination">
@@ -63,9 +66,40 @@
         <div class="page" id="next">Next Page</div>
 
     </div>
-    
-      
+    </div <!-- Container -->>
+    <div class="headerResponsive">
+      <ul class="navbar">
+        <li><a href="/"><i class="fa-solid fa-house"></i></a></li>
+      <li><a href="/search"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+{{#if logged}}
+        <li class="user">
+          <h4>Hi, {{logged}}</h4>
+          <div class="icon-user">
+            <i class="fa-solid fa-user"></i>
+            <div class="user-dropdown user-dropdown-hidden">
+              <button id="myprofile">My&nbsp;profile</button>
+              <form action="/auth/logout" method="post" style="display:flex; color: white; width: 100%">
+                <button type="submit">Logout</button>
+              </form>
+              <form action="/myprofile/upgrade" method="post" style="display:flex; color: white; width: 100%">
+                <button type="submit">Upgrade</button>
+              </form>
+              <form action="/myprofile/delete" method="post" style="display:flex; color: white; width: 100%">
+                <button type="submit">Delete</button>
+              </form>
+            </div>
+          </div>
+        </li>
+        {{else}}
+        <li>
+          <a href="login"><i class="fa-regular fa-user"></i></a>
+        </li>
+        {{/if}}
+
+      </ul>
     </div>
+
     <script src="scripts/search.js"></script>
+    <script src="scripts/userDropdown.js"></script>
   </body>
 </html>
