@@ -89,39 +89,71 @@ exports.update = async (req, res) => {
           })
         })
   } else if (email && subscription == undefined) {
-    res.cookie("loggedin", email, {
-      maxAge: 9000000000,
-      httpOnly: true,
-    });
-
-    sql = "UPDATE user SET email = ? WHERE email = ?";
-
-    db.query(sql,
-      [email, token],
+    db.query(
+      "SELECT email FROM user WHERE email = ?",
+      [email],
       async (err, result) => {
         if (err) {
-          console.log(err);        }
-        const str = 'email updated';
-        return res.redirect("../../?messageMyProfile=" + str);
-      })
+          console.log(err);        
+        } else if (result.length > 0) {
+          const str = 'email already used';
+          return res.redirect("../../?messageMyProfile=" + str);
+
+        } else if (password != confirmPassword) { 
+            const str = 'passwords do not match';
+            return res.redirect("../../?messageMyProfile=" + str);
+        }
+
+        res.cookie("loggedin", email, {
+          maxAge: 9000000000,
+          httpOnly: true,
+        })
+    
+        sql = "UPDATE user SET email = ? WHERE email = ?";
+
+        db.query(sql,
+          [email, token],
+          async (err, result) => {
+            if (err) {
+              console.log(err);        }
+            const str = 'email updated';
+            return res.redirect("../../?messageMyProfile=" + str);
+          })
+        })
 
   } else if (email && subscription != undefined) {
     
-    res.cookie("loggedin", email, {
-      maxAge: 9000000000,
-      httpOnly: true,
-    });
-
-    sql = "UPDATE user SET email = ?, subscription = ? WHERE email = ?";
-
-    db.query(sql,
-      [email, subscription, token],
+    db.query(
+      "SELECT email FROM user WHERE email = ?",
+      [email],
       async (err, result) => {
         if (err) {
-          console.log(err);        }
-        const str = 'email and subscription updated';
-        return res.redirect("../../?messageMyProfile=" + str);
-      })
+          console.log(err);        
+        } else if (result.length > 0) {
+          const str = 'email already used';
+          return res.redirect("../../?messageMyProfile=" + str);
+
+        } else if (password != confirmPassword) { 
+            const str = 'passwords do not match';
+            return res.redirect("../../?messageMyProfile=" + str);
+        }
+
+        res.cookie("loggedin", email, {
+          maxAge: 9000000000,
+          httpOnly: true,
+        })
+
+        sql = "UPDATE user SET email = ?, subscription = ? WHERE email = ?";
+
+        db.query(sql,
+          [email, subscription, token],
+          async (err, result) => {
+            if (err) {
+              console.log(err);        }
+            const str = 'email and subscription updated';
+            return res.redirect("../../?messageMyProfile=" + str);
+          })
+    })
 
   } else if (password && subscription == undefined) {
 
@@ -186,5 +218,5 @@ exports.update = async (req, res) => {
 };
 
 exports.delete = (req, res) => {
-  alert("test")
+  return res.redirect("../../");
 };
