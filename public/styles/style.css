@@ -1,4 +1,14 @@
 /*Responsive*/
+.trailer{
+  color: white;
+  background-color: grey;
+  border-radius: 5px;
+  padding: 0 5px 0 5px;
+  border: none;
+}
+.trailer a{
+  text-decoration: none;
+}
 @media only screen and (min-width: 481px) {
   /*Hero*/
   .HeroRow{

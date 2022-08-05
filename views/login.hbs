@@ -5,12 +5,13 @@
     <link rel="icon" type="image/png" sizes="16x16" href="Images/logoTab.png">
     {{!-- <link rel="stylesheet" href="/styles/styleform.css" /> --}}
     <link rel="stylesheet" href="/styles/HeaderFooter.css" />
+    <link rel="stylesheet" href="/styles/headerResponsive.css" />
     <link rel="stylesheet" href="/styles/style.css" />
     <link rel="stylesheet" href="/styles/styleform.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
-        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js?ver=3.6.0'></script>
 </head>
@@ -84,7 +85,37 @@
             </div>
         </form>
     </div>
+<div class="headerResponsive">
+      <ul class="navbar">
+        <li><a href=""><i class="fa-solid fa-house"></i></a></li>
+      <li><a href="/search"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+{{#if logged}}
+        <li class="user">
+          <h4>Hi, {{logged}}</h4>
+          <div class="icon-user">
+            <i class="fa-solid fa-user"></i>
+            <div class="user-dropdown user-dropdown-hidden">
+              <button id="myprofile">My&nbsp;profile</button>
+              <form action="/auth/logout" method="post" style="display:flex; color: white; width: 100%">
+                <button type="submit">Logout</button>
+              </form>
+              <form action="/myprofile/upgrade" method="post" style="display:flex; color: white; width: 100%">
+                <button type="submit">Upgrade</button>
+              </form>
+              <form action="/myprofile/delete" method="post" style="display:flex; color: white; width: 100%">
+                <button type="submit">Delete</button>
+              </form>
+            </div>
+          </div>
+        </li>
+        {{else}}
+        <li>
+          <a href="login"><i class="fa-regular fa-user"></i></a>
+        </li>
+        {{/if}}
 
+      </ul>
+    </div>
 
 
 
