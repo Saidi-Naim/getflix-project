@@ -51,9 +51,7 @@ exports.update = async (req, res) => {
             return res.redirect("../../?messageMyProfile=" + str);
           })
         })
-  } 
-
-  if (email && password && subscription != undefined) {
+  } else if (email && password && subscription != undefined) {
 
     db.query(
       "SELECT email FROM user WHERE email = ?",
@@ -90,9 +88,7 @@ exports.update = async (req, res) => {
             return res.redirect("../../?messageMyProfile=" + str);
           })
         })
-  } 
-
-  if (email && subscription == undefined) {
+  } else if (email && subscription == undefined) {
     res.cookie("loggedin", email, {
       maxAge: 9000000000,
       httpOnly: true,
@@ -109,9 +105,25 @@ exports.update = async (req, res) => {
         return res.redirect("../../?messageMyProfile=" + str);
       })
 
-  } 
+  } else if (email && subscription != undefined) {
+    
+    res.cookie("loggedin", email, {
+      maxAge: 9000000000,
+      httpOnly: true,
+    });
 
-  if (password && subscription == undefined) {
+    sql = "UPDATE user SET email = ?, subscription = ? WHERE email = ?";
+
+    db.query(sql,
+      [email, subscription, token],
+      async (err, result) => {
+        if (err) {
+          console.log(err);        }
+        const str = 'email and subscription updated';
+        return res.redirect("../../?messageMyProfile=" + str);
+      })
+
+  } else if (password && subscription == undefined) {
 
     if (password != confirmPassword) { 
       const str = 'passwords do not match';
@@ -132,12 +144,30 @@ exports.update = async (req, res) => {
         const str = 'password updated';
         return res.redirect("../../?messageMyProfile=" + str);
       })
-  }
+      
+  } else if (password && subscription != undefined) {
 
-  console.log(subscription)
-  console.log(token)
+    if (password != confirmPassword) { 
+      const str = 'passwords do not match';
+      return res.redirect("../../?messageMyProfile=" + str);
+      
+    }
 
-  if (subscription != undefined) {
+    sql = "UPDATE user SET password = ?, subscription = ? WHERE email = ?";
+
+    let hashedPassword = await bcrypt.hash(password, 8);
+
+    db.query(sql,
+      [hashedPassword, subscription, token],
+      async (err, result) => {
+        if (err) {
+          console.log(err);        
+        }
+        const str = 'password updated';
+        return res.redirect("../../?messageMyProfile=" + str);
+      })
+
+  } else if (subscription != undefined) {
 
     sql = "UPDATE user SET subscription = ? WHERE email = ?";
     console.log(sql)
@@ -155,15 +185,6 @@ exports.update = async (req, res) => {
 
 };
 
-
-
-
-
-
-
-
-
-
-
 exports.delete = (req, res) => {
+  alert("test")
 };

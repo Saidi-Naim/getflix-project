@@ -40,7 +40,7 @@
           <input type="password" class="form-control" id="pass" name="confirmPassword" required disabled />
         </div>
         <div class="forminput">
-            <legend>Update subscription plan:</legend>
+            <label>Update subscription plan:</label><br>
               <select id="subscription" name="subscription">
                 <option disabled selected value=""> -- select an option -- </option>
                 <option value="free">Free</option>
@@ -48,13 +48,16 @@
               </select>
         </div>
 
-        <br />
         <div id="form-save">
           <div class="forminput">
             <button>Update</button>
           </div>
           <button type="button" id="annulateMyprofile">Back</button>
         </div>
+      </form>
+      <br>
+      <form action="/myprofile/delete" >
+        <button>Close this account</button>
       </form>
 
 
