@@ -213,13 +213,20 @@ function showMovies(data) {
         const movieEl = document.createElement('div');
         movieEl.classList.add('movie');
         movieEl.innerHTML = `
-             <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/150x150" }" alt="${title}">
+             <img src="${
+               poster_path
+                 ? IMG_URL + poster_path
+                 : "http://via.placeholder.com/150x150"
+             }" alt="${title}">
+             <div class="modal-comments modal-comments-hidden" id="comments${id}">
+             <i class="fa-solid fa-xmark"></i>
+             <div class="comments">
+               <h1>${title}</h1>
+               <p>${overview}</p>
+             </div>
+           </div>
             <div class="overview">
-                <h3><b>${title}</b></h3>
-                <span class="scoreAverage">Rated: ${vote_average}</span>
-                
-                <br/> 
-                <button class="know-more" id="${id}">More Info</button>
+                <button class="know-more" id="${id}" title="${title}" description="${overview}">More Info</button>
             </div>`;
 
         movieCard.appendChild(movieEl);
