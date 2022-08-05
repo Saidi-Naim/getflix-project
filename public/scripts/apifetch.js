@@ -173,7 +173,7 @@
         movieCard.innerHTML = "";
 
         data.forEach((movie) => {
-          const { title, poster_path, overview, id } = movie;
+          const { title, poster_path,vote_average, overview, id } = movie;
           const movieEl = document.createElement("div");
           movieEl.classList.add("movie2");
           movieEl.innerHTML = `
@@ -190,14 +190,13 @@
               </div>
             </div>
             <div class="overview">
+            <h3><b>${title}</b></h3>
+                <span class="scoreAverage">Rated: ${vote_average}</span>
                 <button class="know-more" id="${id}" title="${title}" description="${overview}">More Info</button>
             </div>`;
 
           movieCard.appendChild(movieEl);
-          // document.getElementById(id).addEventListener('click', () => {
-          //   console.log(id);
-          //   openNav(movie);
-          // })
+          
         });
         [...document.querySelectorAll('.know-more')].forEach(el => {
           document.getElementById('comments'+el.getAttribute('id')).querySelector('.fa-xmark').addEventListener('click',()=>{
@@ -282,7 +281,7 @@
     trending.innerHTML = "";
 
     data.forEach((movie) => {
-      const { title, poster_path, overview, id } = movie;
+      const { title, poster_path,vote_average, overview, id } = movie;
       const movieEl = document.createElement("div");
       movieEl.classList.add("movie");
       movieEl.innerHTML = `
@@ -299,6 +298,8 @@
               </div>
             </div>
             <div class="overview">
+            <h3><b>${title}</b></h3>
+                <span class="scoreAverage">Rated: ${vote_average}</span>
                 <button class="know-more" id="${id}" title="${title}" description="${overview}">More Info</button>
             </div>`;
 
@@ -328,7 +329,7 @@
     movieTop10.innerHTML = "";
 
     data.forEach((movie) => {
-      const { title, poster_path, overview, id } = movie;
+      const { title, poster_path,vote_average, overview, id } = movie;
 
       const movieEl = document.createElement("div");
       movieEl.classList.add("movie");
@@ -346,6 +347,8 @@
              </div>
            </div>
             <div class="overview">
+            <h3><b>${title}</b></h3>
+                <span class="scoreAverage">Rated: ${vote_average}</span>
                 <button class="know-more" id="${id}" title="${title}" description="${overview}">More Info</button>
             </div>`;
 
@@ -373,7 +376,7 @@
     latestmovies.innerHTML = "";
 
     data.forEach((movie) => {
-      const { title, poster_path, overview, id } = movie;
+      const { title, poster_path, vote_average,overview, id } = movie;
 
       const movieEl = document.createElement("div");
       movieEl.classList.add("movie");
@@ -392,6 +395,8 @@
               </div>
             </div>
             <div class="overview">
+            <h3><b>${title}</b></h3>
+                <span class="scoreAverage">Rated: ${vote_average}</span>
                 <button class="know-more" id="${id}" title="${title}" description="${overview}">More Info</button>
             </div>`;
 

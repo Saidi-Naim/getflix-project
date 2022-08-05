@@ -209,7 +209,7 @@ function showMovies(data) {
     movieCard.innerHTML = '';
 
     data.forEach(movie => {
-        const {title, poster_path, vote_average, id} = movie;
+        const {title, poster_path, vote_average,overview, id} = movie;
         const movieEl = document.createElement('div');
         movieEl.classList.add('movie');
         movieEl.innerHTML = `
@@ -226,14 +226,23 @@ function showMovies(data) {
              </div>
            </div>
             <div class="overview">
+            <h3><b>${title}</b></h3>
+                <span class="scoreAverage">Rated: ${vote_average}</span>
                 <button class="know-more" id="${id}" title="${title}" description="${overview}">More Info</button>
             </div>`;
 
         movieCard.appendChild(movieEl);
-        document.getElementById(id).addEventListener('click', () => {
-          console.log(id);
-          openNav(movie);
-        })
+        
+    });
+    [...document.querySelectorAll('.know-more')].forEach(el => {
+      document.getElementById('comments'+el.getAttribute('id')).querySelector('.fa-xmark').addEventListener('click',()=>{
+        document.getElementById('comments'+el.getAttribute('id')).classList.add('modal-comments-hidden');
+     
+      });
+      el.addEventListener('click', ()=>{
+        console.log('r');
+        document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
+      })
     })
 }
 
