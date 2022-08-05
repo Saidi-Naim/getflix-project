@@ -295,6 +295,7 @@
               <div class="comments">
                 <h1>${title}</h1>
                 <p>${overview}</p>
+                <button class="trailer">Trailer</button>
               </div>
             </div>
             <div class="overview">
@@ -304,16 +305,18 @@
             </div>`;
 
       trending.appendChild(movieEl);
-      /*if(movie == data.length - 1){
-              setTimeout(() => {
-                  setupScrolling();
-              }, 100);
-          } */
-      // document.getElementById(id).addEventListener('click', () => {
-      //   console.log(id);
-      //   openNav(movie);
-      // })
+      
     });
+    [...document.querySelectorAll('.know-more')].forEach(el => {
+      document.getElementById('comments'+el.getAttribute('id')).querySelector('.fa-xmark').addEventListener('click',()=>{
+        document.getElementById('comments'+el.getAttribute('id')).classList.add('modal-comments-hidden');
+     
+      });
+      el.addEventListener('click', ()=>{
+        console.log('r');
+        document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
+      })
+    })
   }
   function getTopRatedMovies(url) {
     lastUrl = url;
@@ -344,6 +347,7 @@
              <div class="comments">
                <h1>${title}</h1>
                <p>${overview}</p>
+               
              </div>
            </div>
             <div class="overview">
@@ -354,11 +358,18 @@
 
       movieTop10.appendChild(movieEl);
 
-      // document.getElementById(id).addEventListener('click', () => {
-      //   console.log(id);
-      //   openNav(movie);
-      // })
+      
     });
+    [...document.querySelectorAll('.know-more')].forEach(el => {
+      document.getElementById('comments'+el.getAttribute('id')).querySelector('.fa-xmark').addEventListener('click',()=>{
+        document.getElementById('comments'+el.getAttribute('id')).classList.add('modal-comments-hidden');
+     
+      });
+      el.addEventListener('click', ()=>{
+        console.log('r');
+        document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
+      })
+    })
   }
 
   //console.log(searchURL);
@@ -403,11 +414,7 @@
           
             latestmovies.appendChild(movieEl);
 
-      // document.getElementById(id).addEventListener('click', () => {
-      //   console.log(id);
-      //   openNav(movie);
-
-      // })
+     
     });
 
     [...document.querySelectorAll('.know-more')].forEach(el => {
