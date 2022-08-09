@@ -13,13 +13,13 @@
     
       <div class="row-1">
         <!--Header -->
-        <div class="col-1">
+        <div class="header">
           <!--Logo -->
           <a href="/">
         <img class="logo" src="/Images/logo.png" href="index" alt="logo getflix" />
       </a>
         </div>
-        <div class="col-2">
+        <div class="navDiv" id="navDiv">
           <!--Navbar -->
           <ul class="navbar">
            {{#if logged}}
@@ -68,7 +68,7 @@
     </div>
     </div <!-- Container -->>
     <div class="headerResponsive">
-      <ul class="navbar">
+      <ul>
         <li><a href="/"><i class="fa-solid fa-house"></i></a></li>
       <li><a href="/search"><i class="fa-solid fa-magnifying-glass"></i></a></li>
 {{#if logged}}
