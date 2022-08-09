@@ -2,10 +2,10 @@
   const API_KEY = "api_key=860299d08527b54489820acbf28e4486";
   const BASE_URL = "https://api.themoviedb.org/3";
   const API_URLPopular =
-    BASE_URL + "/discover/movie?sort_by=popularity.desc&" + API_KEY;
+    BASE_URL + "/discover/movie?sort_by=popularity.desc&" + API_KEY +"&include_adult=false";
   const API_URLTopRated =
-    BASE_URL + "/movie/top_rated?" + API_KEY + "&language=en-US";
-  const API_URLLatest = BASE_URL + "/movie/now_playing?" + API_KEY;
+    BASE_URL + "/movie/top_rated?" + API_KEY + "&language=en-US" +"&include_adult=false";
+  const API_URLLatest = BASE_URL + "/movie/now_playing?" + API_KEY +"&include_adult=false";
   const IMG_URL = "https://image.tmdb.org/t/p/w342";
   const trending = document.getElementById("trending");
   const movieTop10 = document.getElementById("movieTop10");
@@ -128,8 +128,6 @@
 
       const main = document.querySelector(".main");
       const movieCard = document.getElementById("movieCard");
-      const aBtnDropdown = document.querySelectorAll(".aBtnDropdown");
-      const ActionBtn = document.getElementById("ActionM");
 
       searchbox.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -296,7 +294,6 @@
               <div class="comments">
                 <h1>${title}</h1>
                 <p>${overview}</p>
-                <button class="trailer"><a href="">Trailer</a></button>
               </div>
             </div>
             <div class="overview">
@@ -348,7 +345,7 @@
              <div class="comments">
                <h1>${title}</h1>
                <p>${overview}</p>
-               <button class="trailer"><a href="">Trailer</a></button>
+               
              </div>
            </div>
             <div class="overview">
@@ -404,7 +401,6 @@
               <div class="comments">
                 <h1>${title}</h1>
                 <p>${overview}</p>
-                <button class="trailer"><a href="">Trailer</a></button>
               </div>
             </div>
             <div class="overview">

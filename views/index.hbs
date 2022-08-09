@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="/styles/HeaderFooter.css" />
   <link rel="stylesheet" href="/styles/headerResponsive.css"/>
   <link rel="stylesheet" href="/styles/style.css" />
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -76,12 +75,7 @@
     <div class="navDiv" id="navDiv">
       <!--Navbar -->
       <ul class="navbar">
-        <li>
-          <form id="searchbox">
-            <input type="search" placeholder="Search" id="search" class="search" name="search" />
-          </form>
-
-        </li>
+        
         {{#if logged}}
         <li class="user">
           <h4>Hi, {{logged}}</h4>
@@ -107,7 +101,7 @@
         </li>
         {{/if}}
         <li class="dropdown">
-          <a href="" class="dropbtn">Genres</a>
+          <a href="#" class="dropbtn">Genres</a>
           <ul class="sub_menu" id="sub_menu">
               <li id="LiSecondlevel" class="sub_menu_li_hidden">
                   <a class="aBtnDropdown"  id="ActionM">Action
@@ -189,7 +183,12 @@
 
         </li>
         <li class="home"><a href="/">Home</a></li>
-        
+        <li>
+          <form id="searchbox">
+            <input type="search" placeholder="Search" id="search" class="search" name="search" />
+          </form>
+
+        </li>
       </ul>
     </div>
   

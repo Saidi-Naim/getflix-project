@@ -5,6 +5,8 @@ const ApiUrlMovies = BASE_URL + '/discover/movie?sort_by=popularity.desc&'+API_K
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 const searchURL = BASE_URL + '/search/movie?'+API_KEY+'&language=en-US&include_adult=false';
 
+
+
 const genres = [
     {
       "id": 28,
@@ -207,7 +209,7 @@ function getMovies(url) {
 }
 function showMovies(data) {
     movieCard.innerHTML = '';
-
+   
     data.forEach(movie => {
         const {title, poster_path, vote_average,overview, id} = movie;
         const movieEl = document.createElement('div');
@@ -222,8 +224,8 @@ function showMovies(data) {
              <i class="fa-solid fa-xmark"></i>
              <div class="comments">
                <h1>${title}</h1>
+               
                <p>${overview}</p>
-               <button class="trailer"><a href="">Trailer</a></button>
              </div>
            </div>
             <div class="overview">
@@ -233,24 +235,83 @@ function showMovies(data) {
             </div>`;
 
         movieCard.appendChild(movieEl);
-        
+        [...document.querySelectorAll('.know-more')].forEach(el => {
+          document.getElementById('comments'+el.getAttribute('id')).querySelector('.fa-xmark').addEventListener('click',()=>{
+            document.getElementById('comments'+el.getAttribute('id')).classList.add('modal-comments-hidden');
+         
+          });
+          el.addEventListener('click', ()=>{
+            //console.log('r');
+            document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
+            //getVideos(movie);
+          })
+        })
     });
-    [...document.querySelectorAll('.know-more')].forEach(el => {
-      document.getElementById('comments'+el.getAttribute('id')).querySelector('.fa-xmark').addEventListener('click',()=>{
-        document.getElementById('comments'+el.getAttribute('id')).classList.add('modal-comments-hidden');
-     
-      });
-      el.addEventListener('click', ()=>{
-        console.log('r');
-        document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
-      })
-    })
+    
 }
+/*const trailer=document.getElementById("video");
+function getVideos(movie) {
+  let id=movie.id;
+  fetch(BASE_URL + 'movie/'+id+'/videos?' + API_KEY +'&language=en-US')
+  .then(res => res.json()).then(videoData => {
+      console.log(videoData);
+      //showVideos(data.results);
+      if(videoData){
+        trailer.style.width = "100%";
+        if(videoData.results.length>0){
+          videoData.results.forEach((video) => {
+            let {name, key, site} = video
+  
+            if(site == 'YouTube' ){
+              
+              trailer.innerHTML = "";
+                const videoEl = document.createElement("div");
+                videoEl.classList.add("movieTrailer");
+                  videoEl.innerHTML = `
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" class="embed hide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                `
+              
+                trailer.appendChild(videoEl);
+              
+            }
+            else{
+                trailer.innerHTML = `<h1 class="no-results">No Results Found</h1>`
+              }
+            
+          })
+      }
+    }
+    });
+}
+*/
+/*function showVideos(data) {
+  const video=document.getElementById("video");
+  video.innerHTML = "";
+
+  data.forEach((video) => {
+    const { name, key, site, id } = video;
+    const videoEl = document.createElement("div");
+    videoEl.classList.add("movieTrailer");
+    
+    if(site == 'Youtube'){
+      videoEl.innerHTML = `
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" class="embed hide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    `
+  }
+  else{
+    videoEl.innerHTML = `
+        <p>No Trailer available</p>
+    `;
+  }
+    video.appendChild(videoEl);
+  }); 
+}*/
 
 
-
+//////////////////////////////////////
+/////////////////////////////////////
 if (urlParams.get("search") != null) {
-  console.log('r');
+  //console.log('r');
   getMovies(searchURL + "&query=" + urlParams.get("search"));
 }else{
   getMovies(ApiUrlMovies);
