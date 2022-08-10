@@ -40,7 +40,7 @@ function showMovies(data) {
 const trailer=document.getElementById("video");
 function getVideos(movie) {
   let id=movie.id;
-  fetch(BASE_URL + 'movie/'+id+'/videos?' + API_KEY)
+  fetch(BASE_URL + '/movie/'+id+'/videos?' + API_KEY)
   .then(res => res.json()).then(videoData => {
       console.log(videoData);
       showVideos(videoData.results);
