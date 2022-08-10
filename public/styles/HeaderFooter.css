@@ -56,86 +56,88 @@
     background-color: rgb(213, 3, 3);
   }
       
-      .navbar .user{
-        display: flex;
-      }
-      
-      .icon-user{
-        border-radius: 50%;
-        background-color: #b00000;
-        height: 50px;
-        width: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 10px;
-        position: relative;
-      }
-      
-      .user-dropdown{
-        position: absolute;
-        background-color: rgb(213, 3, 3, 0.7);
-        top: 100%;
-        right: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s 0.3s ease-out;
-      }
-      
-      .user-dropdown-hidden{
-        right: -100%;
-        opacity: 0;
-      }
-      
-      .user-dropdown button{
-        padding: 5px 20px;
-        background: none;
-        color: white;
-        cursor: pointer;
-        width: 100%;
-        border: none;
-      }
-      
-      .user-dropdown button:hover{
-        background: rgba(0,0,0,0.3);
-      }
-      .form-control {
-        color: #000;
-        background-color: #d1d1d1;
-      }
-      
-      .message {
-        /* text-align: center; 
-        padding: 20px 0;  */
-        background: transparent;
-      }
-      /*----------Searchbar*/
-      #searchbox{
-        margin-top: 12px;
-        margin-left: 30px;
-        margin-right: 10px;
-      }
-      #searchbox input{
-        text-align: center;
-        color: #fff;
-      }
-      #search{
-        background-color: transparent;
-        border-radius: 50px;
-        color: white;
-        width: 200px;
-        font-size: 20px;
-      }
-      #search:focus{
-        outline: 0;
-        background-color: var(--primary-color);
-      }
-      #search::placeholder{
-        color: #fff;
-        padding-left: 20px;
-      }
+  .navbar .user{
+    display: flex;
+  }
+  .user h4{
+    display: none;
+  }
+  .icon-user{
+    border-radius: 50%;
+    background-color: #b00000;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    position: relative;
+  }
+  
+  .user-dropdown{
+    position: absolute;
+    background-color: rgb(213, 3, 3, 0.7);
+    top: 100%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s 0.3s ease-out;
+  }
+  
+  .user-dropdown-hidden{
+    right: -100%;
+    opacity: 0;
+  }
+  
+  .user-dropdown button{
+    padding: 5px 20px;
+    background: none;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+  }
+  
+  .user-dropdown button:hover{
+    background: rgba(0,0,0,0.3);
+  }
+  .form-control {
+    color: #000;
+    background-color: #d1d1d1;
+  }
+  
+  .message {
+    /* text-align: center; 
+    padding: 20px 0;  */
+    background: transparent;
+  }
+  /*----------Searchbar*/
+  #searchbox{
+    margin-top: 12px;
+    margin-left: 30px;
+    margin-right: 10px;
+  }
+  #searchbox input{
+    text-align: center;
+    color: #fff;
+  }
+  #search{
+    background-color: transparent;
+    border-radius: 50px;
+    color: white;
+    width: 200px;
+    font-size: 20px;
+  }
+  #search:focus{
+    outline: 0;
+    background-color: var(--primary-color);
+  }
+  #search::placeholder{
+    color: #fff;
+    padding-left: 20px;
+  }
      
       
 }

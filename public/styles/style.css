@@ -11,7 +11,7 @@
 }
 @media only screen and (min-width: 481px) {
   /*Hero*/
-  .HeroRow{
+  .HeroRow{ 
   position: relative;
   width: 100%;
   height: 550px;
@@ -46,6 +46,10 @@
 }
 .forminput:nth-child(0n+3){
   padding: 0;
+}
+.form-control{
+  width: 300px;
+  border: 2px solid black;
 }
 .allForm h1{
   padding-bottom: 30px;

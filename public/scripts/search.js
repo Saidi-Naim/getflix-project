@@ -224,7 +224,7 @@ function showMovies(data) {
              <i class="fa-solid fa-xmark"></i>
              <div class="comments">
                <h1>${title}</h1>
-               
+               <div id="video"></div>
                <p>${overview}</p>
              </div>
            </div>
@@ -238,31 +238,38 @@ function showMovies(data) {
         [...document.querySelectorAll('.know-more')].forEach(el => {
           document.getElementById('comments'+el.getAttribute('id')).querySelector('.fa-xmark').addEventListener('click',()=>{
             document.getElementById('comments'+el.getAttribute('id')).classList.add('modal-comments-hidden');
-         
+            //getVideos(movie);
           });
           el.addEventListener('click', ()=>{
             //console.log('r');
             document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
-            //getVideos(movie);
+            getVideos(movie);
           })
         })
     });
     
 }
-/*const trailer=document.getElementById("video");
+
 function getVideos(movie) {
   let id=movie.id;
-  fetch(BASE_URL + 'movie/'+id+'/videos?' + API_KEY +'&language=en-US')
+  fetch('https://api.themoviedb.org/3/' + 'movie/'+id+'/videos?' + 'api_key=860299d08527b54489820acbf28e4486' +'&language=en-US')
   .then(res => res.json()).then(videoData => {
-      console.log(videoData);
+    const trailer=document.getElementById("video");
+      //console.log(videoData);
       //showVideos(data.results);
       if(videoData){
-        trailer.style.width = "100%";
+        //trailer.style.width = "100%";
         if(videoData.results.length>0){
           videoData.results.forEach((video) => {
             let {name, key, site} = video
-  
-            if(site == 'YouTube' ){
+  //console.log( movie.title);
+  //console.log(name);
+  //let title=movie.title;
+  /*if( name == title){
+    console.log("ok")
+  }*/
+  console.log(typeof name, typeof movie.title);
+            if(site == 'YouTube'){
               
               trailer.innerHTML = "";
                 const videoEl = document.createElement("div");
@@ -283,7 +290,7 @@ function getVideos(movie) {
     }
     });
 }
-*/
+
 /*function showVideos(data) {
   const video=document.getElementById("video");
   video.innerHTML = "";
