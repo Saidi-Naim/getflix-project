@@ -395,6 +395,14 @@
 .scoreAverage{
   font-size: 15px;
 }
+/*div[id^="video"] .movieTrailer {
+
+}*/
+.movieTrailer p{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
 
 /* Scroll: */
