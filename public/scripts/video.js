@@ -91,3 +91,40 @@ function getVideos(movie) {
 }
     
   }
+
+  /*let id=movie.id;
+  fetch('https://api.themoviedb.org/3/' + 'movie/'+id+'/videos?' + 'api_key=860299d08527b54489820acbf28e4486' +'&language=en-US')
+  .then(res => res.json()).then(TrailerData => {
+    const trailer=document.getElementById("video");
+      //console.log(TrailerData);
+      //showVideos(data.results);
+      if(TrailerData){
+        //trailer.style.width = "100%";
+        if(TrailerData.results.length>0){
+          TrailerData.results.forEach((video) => {
+            let {name, key, site} = video
+  
+            if(site == 'YouTube'){
+              
+             
+                if(idBTN == id){
+                  //trailer.innerHTML = "";
+                  const videoEl = document.createElement("div");
+                  videoEl.classList.add("movieTrailer");
+                  //console.log(movie.title);
+                videoEl.innerHTML = `
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" class="embed hide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                `
+                  trailer.appendChild(videoEl);
+                console.log(key);
+                }
+            }
+            else{
+                trailer.innerHTML = `<h1 class="no-results">No Results Found</h1>`
+              }
+           
+              
+          })
+      }
+    }
+    });*/
