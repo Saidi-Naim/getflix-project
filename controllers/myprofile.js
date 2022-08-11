@@ -9,6 +9,14 @@ const db = mysql.createConnection({
   database: process.env.RDS_DB_NAME,
 });
 
+db.connect(function(err) {
+  if (err) {
+    return console.error('error: ' + err.message);
+  }
+  console.log('Connected to the MySQL server.');
+});
+
+
 exports.update = async (req, res) => {
   const { token, email, password, confirmPassword, subscription} = req.body;
 
