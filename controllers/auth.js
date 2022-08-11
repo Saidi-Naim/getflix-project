@@ -110,7 +110,8 @@ exports.comment = (req, res) => {
               if (err) {
                 console.log(err);
               } else {
-                return res.redirect("../..");
+                const str = 'Comment added successfully';
+                return res.redirect("../../?comment=" + str);
               }
             }
           );

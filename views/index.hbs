@@ -18,39 +18,49 @@
 
 <body>
   <!-- modal myprofile -->
+
   <div class="modal-myprofile modal-myprofile-hidden">
+<div id="messageProfile"></div>
     <div class="forms">
       <form action="/myprofile/update" method="post" id="form-myprofile">
+      <input type="hidden" value="{{logged}}" name="token"/>
         <div class="forminput">
+          
           <label for="email" class="form-label">Username:</label></br>
           <input type="email" class="form-control" id="username" aria-describedby="emailHelp" name="email" default-value="{{logged}}"
             value="{{logged}}" required disabled /> <i class="fa-solid fa-pen-to-square" id="edit-username"></i>
         </div>
         <br />
         <div class="forminput">
-          <label for="name" class="form-label">Password</label></br>
+          <label for="name" class="form-label">Password:</label></br>
           <input type="password" class="form-control" id="pass" name="password" required disabled /> <i class="fa-solid fa-pen-to-square" id="edit-pass"></i>
         </div>
         <div class="forminput">
-          <label for="name" class="form-label">Confirm password</label></br>
-          <input type="password" class="form-control" id="pass" name="passwordConfirm" required disabled />
+          <label for="name" class="form-label">Confirm password:</label></br>
+          <input type="password" class="form-control" id="pass" name="confirmPassword" required disabled />
         </div>
-        
-            <div>
-              <input type="radio" id="Free" name="typeSubs" value="free" {{#unless premium}}checked{{/unless}}>
-              <label for="freeSubs">Free</label>
-              <input type="radio" id="premium" name="typeSubs" value="premium" {{#if premium}}checked{{/if}}>
-              <label for="premiumSubs">Premium</label>
-            </div>
-        
-        <br />
+        <div class="forminput">
+            <label>Update subscription plan:</label><br>
+              <select id="subscription" name="subscription">
+                <option disabled selected value=""> -- select an option -- </option>
+                <option value="free">Free</option>
+                <option value="premium">Premium</option>
+              </select>
+        </div>
+
         <div id="form-save">
           <div class="forminput">
-            <button>Save</button>
+            <button>Update</button>
           </div>
           <button type="button" id="annulateMyprofile">Back</button>
         </div>
       </form>
+      <br>
+      <form action="/myprofile/delete" method="post">
+        <button>Close this account</button>
+      </form>
+
+
     </div>
   </div>
 <div class="container">
@@ -85,7 +95,7 @@
               <form action="/myprofile/upgrade" method="post" style="display:flex; color: white; width: 100%">
                 <button type="submit">Upgrade</button>
               </form>
-              <form action="/myprofile/delete" method="post" style="display:flex; color: white; width: 100%">
+              <form action="/myprofile/delete" method="post" style="display:flex; color: white; width: 100%">    
                 <button type="submit">Delete</button>
               </form>
             </div>
@@ -182,7 +192,7 @@
         
       </ul>
     </div>
-    
+
   </header>
   <div id="toRemove">
       <div class="HeroRow">
@@ -276,8 +286,8 @@
   <script type="text/javascript" language="javascript" src="scripts/GenreDropdown.js"></script>
   <script src="scripts/userDropdown.js"></script>
   <script src="scripts/apifetch.js"></script>
-  
-  
+  <script src="scripts/myprofile.js"></script>
+  <script src="scripts/comment.js"></script>
 </body>
 
 </html>

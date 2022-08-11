@@ -187,7 +187,10 @@
               <div class="comments">
                 <h1>${title}</h1>
                 <p>${overview}</p>
+
                 <h3>Hello World</h3>
+
+                <button class="trailer"><a href="">Trailer</a></button>
               </div>
             </div>
             <div class="overview">
@@ -296,6 +299,7 @@
               <div class="comments">
                 <h1>${title}</h1>
                 <p>${overview}</p>
+                <button class="trailer"><a href="">Trailer</a></button>
               </div>
             </div>
             <div class="overview">
@@ -305,16 +309,18 @@
             </div>`;
 
       trending.appendChild(movieEl);
-      /*if(movie == data.length - 1){
-              setTimeout(() => {
-                  setupScrolling();
-              }, 100);
-          } */
-      // document.getElementById(id).addEventListener('click', () => {
-      //   console.log(id);
-      //   openNav(movie);
-      // })
+      
     });
+    [...document.querySelectorAll('.know-more')].forEach(el => {
+      document.getElementById('comments'+el.getAttribute('id')).querySelector('.fa-xmark').addEventListener('click',()=>{
+        document.getElementById('comments'+el.getAttribute('id')).classList.add('modal-comments-hidden');
+     
+      });
+      el.addEventListener('click', ()=>{
+        console.log('r');
+        document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
+      })
+    })
   }
   function getTopRatedMovies(url) {
     lastUrl = url;
@@ -345,6 +351,7 @@
              <div class="comments">
                <h1>${title}</h1>
                <p>${overview}</p>
+
                <form action="/auth/comment" method="post">
                   <label for="comment" class="form-label">Comment:</label>
                   <input type="text" class="form-control" id="comment" aria-describedby="comment" name="comment"/>
@@ -354,6 +361,9 @@
                 type="submit"
                 name="submit">Send</button>
                </form>
+
+               <button class="trailer"><a href="">Trailer</a></button>
+
              </div>
            </div>
             <div class="overview">
@@ -364,11 +374,18 @@
 
       movieTop10.appendChild(movieEl);
 
-      // document.getElementById(id).addEventListener('click', () => {
-      //   console.log(id);
-      //   openNav(movie);
-      // })
+      
     });
+    [...document.querySelectorAll('.know-more')].forEach(el => {
+      document.getElementById('comments'+el.getAttribute('id')).querySelector('.fa-xmark').addEventListener('click',()=>{
+        document.getElementById('comments'+el.getAttribute('id')).classList.add('modal-comments-hidden');
+     
+      });
+      el.addEventListener('click', ()=>{
+        console.log('r');
+        document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
+      })
+    })
   }
 
   //console.log(searchURL);
@@ -402,6 +419,7 @@
               <div class="comments">
                 <h1>${title}</h1>
                 <p>${overview}</p>
+                <button class="trailer"><a href="">Trailer</a></button>
               </div>
             </div>
             <div class="overview">
@@ -413,11 +431,7 @@
           
             latestmovies.appendChild(movieEl);
 
-      // document.getElementById(id).addEventListener('click', () => {
-      //   console.log(id);
-      //   openNav(movie);
-
-      // })
+     
     });
 
     [...document.querySelectorAll('.know-more')].forEach(el => {
@@ -431,6 +445,8 @@
       })
     })
   }
-
-  ////////////////////////////////////////////////////
 })();
+
+
+
+// fetch('http://localhost:3000/test').then(res => res.json()).then(data => console.log(data))

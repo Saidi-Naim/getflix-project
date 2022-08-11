@@ -224,6 +224,7 @@ function showMovies(data) {
                <h1>${title}</h1>
                <h3>Hello World</h3>
                <p>${overview}</p>
+               <button class="trailer"><a href="">Trailer</a></button>
              </div>
            </div>
             <div class="overview">

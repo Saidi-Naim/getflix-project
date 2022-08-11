@@ -1,4 +1,14 @@
 /*Responsive*/
+.trailer{
+  color: white;
+  background-color: grey;
+  border-radius: 5px;
+  padding: 0 5px 0 5px;
+  border: none;
+}
+.trailer a{
+  text-decoration: none;
+}
 @media only screen and (min-width: 481px) {
   /*Hero*/
   .HeroRow{
@@ -76,7 +86,11 @@
 }
 .TitlemovieTop10 h3, .TitleTrending h3, .TitleNowPlaying h3{
   font-weight: 900;
+<<<<<<< HEAD
   font-size: large;
+=======
+  font-size: xx-large;
+>>>>>>> 14eff731f907cb16aa2629ba52b539eebe7bbd27
 }
 #trending, #movieTop10, #NowPlaying{
   width: 80%;
