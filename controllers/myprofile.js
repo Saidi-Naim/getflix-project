@@ -217,11 +217,6 @@ exports.update = async (req, res) => {
 };
 
 exports.delete = (req, res) => {
-  return res.redirect("../../?delete");
-};
-
-exports.deleteConfirmed = (req, res) => {
-
   const token = req.cookies.loggedin
   let sql = "DELETE FROM user WHERE email = ?";
 
@@ -234,5 +229,6 @@ exports.deleteConfirmed = (req, res) => {
     })
     res.clearCookie("loggedin");
     res.clearCookie("premium");
+    return res.redirect("../../login")
+};
 
-}
