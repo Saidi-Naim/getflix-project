@@ -1,14 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
-.trailer{
-  color: white;
-  background-color: grey;
-  border-radius: 5px;
-  padding: 0 5px 0 5px;
-  border: none;
-}
-.trailer a{
-  text-decoration: none;
-}
 *{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     box-sizing: border-box;
@@ -19,113 +9,14 @@
     --secondary-color: rgb(66, 63, 63);
 }
 body{
-  background-color: var(--primary-color);
+  background-color: #000;
  height: max-content;
   width: 100%;
-}
-header{
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 0;
-  z-index: 99;
-}
-.headerResponsive{
-  visibility: visible;
-  overflow: hidden;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  z-index: 99;
-  display: flex;
-  justify-content: center;
-  background-color: Black;
-}
-.headerResponsive ul {
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
-  padding: 5px 16px;
-  text-decoration: none;
-}
-.headerResponsive ul li{
-  padding-left: 15px;
-}
-.headerResponsive ul li a i{
-  font-size: 20px;
-  color: white;
+  color: #fff;
 }
 
-  .logo {
-    width: 100px;
-    height: auto;
-    background: none;
-    margin-top: 5px;
-  }
-  .form-control {
-    color: #000;
-    background-color: #d1d1d1;
-  }
+
   
-  .message {
-    /* text-align: center; 
-    padding: 20px 0;  */
-    background: transparent;
-  }
-  .col-1{
-    width: 25%;
-    float: left;
-  }
-  .col-2{
-    width: 75%;
-    float: right;
-  }
-  .navbar {
-    margin-top: 15px;
-    list-style-type: none;
-    background-color: none;
-    float: right;
-    
-  }
-  
-  .navbar > li {
-    float: right;
-  }
-  .navbar > li > a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    transition: all .2s ease-in-out;
-  }
-  
-  .navbar >li >a:hover {
-    background-color: rgb(213, 3, 3);
-  }
-  
-  #form{
-    margin-top: 12px;
-    margin-right: 10px;
-  }
-  #form input{
-    text-align: center;
-    color: #fff;
-    padding-right: 0px;
-  }
-  #search{
-    background-color: transparent;
-    border-radius: 50px;
-    color: white;
-    width: 100px;
-  }
-  #search:focus{
-    outline: 0;
-    background-color: var(--primary-color);
-  }
-  #search::placeholder{
-    color: #fff;
-    padding-left: 20px;
-  }
   /*/////Affiches:///////*/
 
 
@@ -145,6 +36,7 @@ header{
 .movie-info h3{
     margin-top: 0;
     font-size: 15px;
+  padding-bottom: 50px;
 }
 
 .movie-info span{
@@ -176,8 +68,13 @@ header{
   border: none;
   width: 100%;
   border-radius: 5px;
-  font-size: 10px;
+  font-size: 15px;
   cursor:pointer;
+}
+.scoreAverage{
+  font-size: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 #GenreBtn{
@@ -224,7 +121,9 @@ header{
     padding:20px;
     cursor:pointer;
 }
-
+#next{
+  padding-left: 7px;
+}
 .page.disabled{
     cursor:not-allowed;
     color:grey;
@@ -236,16 +135,19 @@ header{
   font-size: 15px;
   font-weight: 300;
 }
+.movieTrailer p{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
-  
 /*-------------Responsive----------------*/
 @media only screen and (max-width: 600px) {
   .navDiv .user, .navbar .signIn, .navbar .home{
     display: none;
   }
-  .header{
-    float: left;
-  }
+  
+  
   .container{
     width: 90%;
     height: max-content;
@@ -290,6 +192,32 @@ header{
 .overview h3 {
   font-size: medium;
 }
+.navbar > li > #form{
+  margin-right: 20px;
+  }
+  #form{
+    margin-top: 12px;
+    }
+    #form input{
+    text-align: center;
+    color: #fff;
+     margin-right: 30px;
+    }
+    #search{
+      background-color: transparent;
+      border-radius: 50px;
+      color: white;
+      width: 120px;
+      font-size: 3vw;
+      }
+      #search:focus{
+      outline: 0;
+      background-color: var(--primary-color);
+      }
+      #search::placeholder{
+      color: #fff;
+      padding-left: 20px;
+      }
 
 }
 @media only screen and (min-width: 601px) {
@@ -297,26 +225,24 @@ header{
     height: 100%;
     margin: 0;
 }  
-  .headerResponsive{
-      display: none;
+.navbar > li > #form{
+  margin-right: 20px;
+  }
+  #form{
+    margin-top: 12px;
     }
-    .logo {
-      width: 150px;
+    #form input{
+    text-align: center;
+    color: #fff;
+     margin-right: 30px;
     }
-    .navbar {
-      margin-top: 20px;
-      padding: 0;
-      overflow: hidden;
-    }
-    #form{
-      margin-right: 10px;
-    }
+    
     #movieCard{
       display:flex;
       flex-wrap: wrap;
       justify-content: center;
   }
-  
+ 
   .movie {
       width: 250px;
       margin: 1rem;
@@ -327,7 +253,7 @@ header{
       overflow: hidden;
   }
   .know-more{
-    font-size: 15px;
+    font-size: 25px;
   }
   #GenreBtn{
     width:80%;
@@ -374,10 +300,10 @@ header{
 }
 
 .modal-comments .comments{
-  background-color: white;
+  background-color: black;
   padding: 20px;
   width: 80%;
-  color: black;
+  color: white;
   max-height: 80%;
   overflow-y: auto;
 }
@@ -390,7 +316,9 @@ header{
   font-size: 1.5rem;
   color: white;
 }
-
+.comments p{
+  font-size: 20px;
+}
 .movie:hover .overview{
   transform:translateY(0)
 }

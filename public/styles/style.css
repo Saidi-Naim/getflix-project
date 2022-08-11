@@ -10,34 +10,8 @@
   text-decoration: none;
 }
 @media only screen and (min-width: 481px) {
-  /*Hero*/
-  .HeroRow{
-  position: relative;
-  width: 100%;
-  height: 550px;
-  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(6, 5, 6, 0.993)), url('/Images/doctor-strange-1256x826.webp');
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
-.allForm{
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  height: 400px;
-  margin-left: 275px;
-  align-items: center;
-  background: rgba(24, 24, 24, 0.425);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(4.6px);
-  -webkit-backdrop-filter: blur(4.6px);
-  border: 1px solid rgba(0, 0, 0, 0.35);
-}
-.forminput{
+  
+/*.forminput{
   padding: 10px 0;
 }
 .forminput:nth-child(0n+2){
@@ -45,6 +19,10 @@
 }
 .forminput:nth-child(0n+3){
   padding: 0;
+}
+.form-control{
+  width: 300px;
+  border: 2px solid black;
 }
 .allForm h1{
   padding-bottom: 30px;
@@ -54,7 +32,7 @@
 .message{
   margin-top: -40px;
   background-color: transparent;
-}
+}*/
 .hero{
   position: absolute;
   width: 40%;
@@ -67,7 +45,6 @@
 }
 .hero p{
   font-size: 1vw;
-  font-weight: lighter;
 }
 .hero button{
   width: 35%;
@@ -110,7 +87,7 @@
 }
 .movie {
   flex:auto 0 0;
-  width: 150px;
+  width: 250px;
   margin: 1rem;
   border-radius: 3px;
   box-shadow: 0.2px 4px 5px rgba(0,0,0,0.1);
@@ -126,21 +103,32 @@
   color: white;
 }
 .know-more{
-  font-size: 15px;
+  font-size: 25px;
 }
+.overview h3 {
+  font-size: x-large;
+}
+}
+@media only screen and (max-width: 600px) {
+  .HeroRow{
+    display: none;
+  }
+}
+@media only screen and (min-width: 601px) {
+  .HeroRow{
+    position: relative;
+    width: 100%;
+    height: 550px;
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(6, 5, 6, 0.993)), url('/Images/doctor-strange-1256x826.webp');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
 }
 @media only screen and (min-width: 481px) and (max-width: 800px) {
-.HeroRow{
-  position: relative;
-  width: 100%;
-  height: 550px;
-  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(6, 5, 6, 0.993)), url('/Images/doctor-strange-1256x826.webp');
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
+
 .hero{
   width: 40%;
   margin-right: 50%;
@@ -151,8 +139,7 @@
   font-size: 3vw;
 }
 .hero p{
-  font-size: 2vw;
-  font-weight: lighter;
+  font-size: 1.5vw;
 }
 .hero button{
   width: 35%;
@@ -169,6 +156,8 @@
 .hero button:hover{
   opacity: .8;
 }
+
+
 }
 @media only screen and (min-width: 801px) {
 .HeroRow{
@@ -193,7 +182,6 @@
 }
 .hero p{
   font-size: 20px;
-  font-weight: lighter;
 }
 .hero button{
   width: 35%;
@@ -210,28 +198,11 @@
 .hero button:hover{
   opacity: .8;
 }
+
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 600px) {
 /*Hero*/
-.allForm{
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 100%;
-  height: 300px;
-  display: flex;
-  align-items: center;
-  
-}
-.forminput{
-  padding: 10px 0;
-}
-.forminput:nth-child(0n+2){
-  padding-bottom: 0;
-}
-.forminput:nth-child(0n+3){
-  padding: 0;
-}
+
 .HeroRow h1{
   padding-bottom: 50px;
   font-weight: 700;
@@ -299,10 +270,16 @@
   font-weight: 700;
   font-size: large;
 }
+.know-more{
+  font-size: 15px;
+}
+.overview h3 {
+  font-size: medium;
+}
 }
 
 /*-------Body Page Index---------*/
-.TitleTrending, .trending, .TitleNowPlaying{
+.TitleTrending, .TitlemovieTop10, .trending, .TitleNowPlaying{
   width: 100%;
   display: inline-flex;
   justify-content: center;
@@ -356,17 +333,15 @@
   bottom:0;
   align-items: center;
   justify-content: center;
-  background:rgba(115, 116, 116, 0.689);
+  background:rgba(115, 116, 116, 0.9);
   color: #fff;
   padding: 1rem;
   height: 100%;
   font-size: small;
   transform:translateY(101%);
-  transition:transform 0.3s ease-in;
+  transition:transform 0.6s ease-in;
 }
-.overview h3 {
-  font-size: medium;
-}
+
 
 .modal-comments{
   background-color: rgba(0,0,0,0.7);
@@ -387,14 +362,16 @@
 }
 
 .modal-comments .comments{
-  background-color: white;
+  background-color: black;
   padding: 20px;
   width: 80%;
-  color: black;
+  color: white;
   max-height: 80%;
   overflow-y: auto;
 }
-
+.comments p{
+  font-size: 20px;
+}
 .modal-comments .fa-xmark{
   position: absolute;
   top: 20px;
@@ -413,10 +390,19 @@
   border: none;
   width: 100%;
   border-radius: 5px;
-  font-size: 10px;
   cursor:pointer;
 }
+.scoreAverage{
+  font-size: 15px;
+}
+/*div[id^="video"] .movieTrailer {
 
+}*/
+.movieTrailer p{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
 
 /* Scroll: */

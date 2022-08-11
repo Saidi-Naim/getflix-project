@@ -9,30 +9,91 @@ body{
     background-repeat: no-repeat;
 }
 
-.form-button {
-  padding: 0 10px; 
-  background: none; 
-  margin: 10px 1px; 
-  border: none; 
-  border-radius: 5px; 
-  color: white; 
-  background-color: #b00000;
+@media only screen and (min-width: 601px) {
+
+
+.form-control{
+  width: 300px;
+  border: 2px solid black;
 }
-.message {
+.allForm h1{
+  padding-bottom: 30px;
+  font-weight: 700;
+  font-size: xx-large;
+}
+.message{
+  margin-top: -40px;
   background-color: transparent;
 }
-.forgotLink{
-  font-size: small;
-  color: #55aaeb;
-  text-decoration: none;
 }
-.forgotLink:hover{
-  text-decoration: underline;
+header{
+  grid-area: header;
 }
-.forminput > button:hover{
-  transform: scale(1.1);
+.allForm{
+  grid-area: formulaire;
+  position: relative;
+  display: flex;
+  min-width: 300px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  background: rgba(24, 24, 24, 0.7);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.6px);
+  -webkit-backdrop-filter: blur(4.6px);
+  border: 1px solid rgba(0, 0, 0, 0.35);
 }
-.form-button:hover{
-  transform: scale(1.1);
-}
-
+  
+  .forminput{
+    padding: 10px 0;
+  }
+  .forminput:nth-child(0n+2){
+    padding-bottom: 0;
+  }
+  .forminput:nth-child(0n+3){
+    padding: 0;
+  }
+  
+  .form-button {
+    padding: 0 10px; 
+    background: none; 
+    margin: 10px 1px; 
+    border: none; 
+    border-radius: 5px; 
+    color: white; 
+    background-color: #b00000;
+  }
+  
+  .forgotLink{
+    font-size: small;
+    color: #55aaeb;
+    text-decoration: none;
+  }
+  .forgotLink:hover{
+    text-decoration: underline;
+  }
+  .forminput > button:hover{
+    transform: scale(1.1);
+  }
+  .form-button:hover{
+    transform: scale(1.1);
+  }
+  .message {
+    text-align: center; 
+    padding: 20px 0; 
+    background-color: #000; 
+    color: white;
+    background-color: transparent;
+  }
+  .container{
+    display: grid;
+    grid-template-areas: 'header'
+                        'formulaire';
+  }
+  
+  

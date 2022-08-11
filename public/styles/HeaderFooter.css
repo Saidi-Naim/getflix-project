@@ -1,144 +1,264 @@
 /*---------------Header----------*/
+header{
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+.headerResponsive{
+  visibility: hidden;
+}
+.navResponsive{
+visibility: hidden;
+}
 
+/*------------Header------*/
+.header{
+float: left;
+}
 /*Responsive Big screen*/
-@media only screen and (min-width: 480px) {
-    header{
-        position: -webkit-sticky; /* Safari */
-        position: sticky;
-        top: 0;
-        z-index: 99;
-    }
-    .headerResponsive{
-        visibility: hidden;
-    }
-    .navResponsive{
-      visibility: hidden;
-    }
-    .logo {
-      width: 120px;
-      height: auto;
-      background: none;
-      margin-top: 10px;
+@media only screen and (min-width: 601px) {
+  .logo {
+    width: 120px;
+    height: auto;
+    background: none;
+    /*margin-top: 10px;*/
+    }  
+    .navDiv{
+      /*width: 60%;*/
+      float: right;
+      margin-right: 10px;
       }
-    /*------------Header------*/
-  .header{
-    float: left;
-  }
-  .navDiv{
-    width: 75%;
-    float: right;
-  }
-  .navbar {
-    margin-top: 20px;
-    list-style-type: none;
-    padding: 0;
-    background-color: none;
-  }
-  .navbar > li {
-    float: right;
-    margin-top: 5px;
-  }
-  .navbar > li > a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    transition: all .2s ease-in-out;
-  }
-  
-  .navbar >li >a:hover {
-    background-color: rgb(213, 3, 3);
-  }
+      .navbar {
+      margin-top: 5px;
+      list-style-type: none;
+      padding: 0;
+      background-color: none;
+      }
+      .navbar > li {
+      float: right;
+      margin-top: 5px;
+      }
+      .navbar > li > #searchbox{
+      margin-right: 20px;
+      }
+      .navbar > li > a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 5px;
+      font-size: 1.8vw;
+      text-decoration: none;
+      transition: all .2s ease-in-out;
+      }
       
+      .navbar >li >a:hover {
+      background-color: rgb(213, 3, 3);
+      }
+        
       .navbar .user{
-        display: flex;
+      display: flex;
       }
-      
+      .user h4{
+      display: none;
+      }
       .icon-user{
-        border-radius: 50%;
-        background-color: #b00000;
-        height: 50px;
-        width: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 10px;
-        position: relative;
+      border-radius: 50%;
+      background-color: #b00000;
+      height: 40px;
+      width: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 10px;
+      position: relative;
       }
       
       .user-dropdown{
-        position: absolute;
-        background-color: rgb(213, 3, 3, 0.7);
-        top: 100%;
-        right: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s 0.3s ease-out;
+      position: absolute;
+      background-color: rgb(213, 3, 3, 0.7);
+      top: 100%;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s 0.3s ease-out;
       }
       
       .user-dropdown-hidden{
-        right: -100%;
-        opacity: 0;
+      right: -100%;
+      opacity: 0;
       }
       
       .user-dropdown button{
-        padding: 5px 20px;
-        background: none;
-        color: white;
-        cursor: pointer;
-        width: 100%;
-        border: none;
+      padding: 5px 20px;
+      background: none;
+      color: white;
+      cursor: pointer;
+      width: 100%;
+      border: none;
       }
       
       .user-dropdown button:hover{
-        background: rgba(0,0,0,0.3);
+      background: rgba(0,0,0,0.3);
       }
       .form-control {
-        color: #000;
-        background-color: #d1d1d1;
+      color: #000;
+      background-color: #d1d1d1;
       }
       
       .message {
-        /* text-align: center; 
-        padding: 20px 0;  */
-        background: transparent;
+      /* text-align: center; 
+      padding: 20px 0;  */
+      background: transparent;
       }
       /*----------Searchbar*/
       #searchbox{
-        margin-top: 12px;
-        margin-left: 30px;
-        margin-right: 10px;
+      margin-top: 12px;
       }
       #searchbox input{
-        text-align: center;
-        color: #fff;
+      text-align: center;
+      color: #fff;
+       margin-right: 30px;
       }
       #search{
-        background-color: transparent;
-        border-radius: 50px;
-        color: white;
-        width: 100px;
+      background-color: transparent;
+      border-radius: 50px;
+      color: white;
+      width: 120px;
+      font-size: 1.8vw;
       }
       #search:focus{
-        outline: 0;
-        background-color: var(--primary-color);
+      outline: 0;
+      background-color: var(--primary-color);
       }
       #search::placeholder{
-        color: #fff;
-        padding-left: 20px;
+      color: #fff;
+      padding-left: 20px;
       }
-     
       
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 801px) {
 .logo {
   width: 150px;
   height: auto;
   background: none;
   }
+ 
+.navDiv{
+/*width: 70%;*/
+float: right;
+margin-right: 30px;
+}
+.navbar {
+margin-top: 20px;
+list-style-type: none;
+padding: 0;
+background-color: none;
+}
+.navbar > li {
+float: right;
+margin-top: 5px;
+}
+.navbar > li > #searchbox{
+margin-right: 70px;
+}
+.navbar > li > a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 5px;
+font-size: 1.5vw;
+text-decoration: none;
+transition: all .2s ease-in-out;
+}
+
+.navbar >li >a:hover {
+background-color: rgb(213, 3, 3);
+}
+  
+.navbar .user{
+display: flex;
+}
+.user h4{
+display: none;
+}
+.icon-user{
+border-radius: 50%;
+background-color: #b00000;
+height: 50px;
+width: 50px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 0 10px;
+position: relative;
+}
+
+.user-dropdown{
+position: absolute;
+background-color: rgb(213, 3, 3, 0.7);
+top: 100%;
+right: 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+transition: all 0.3s 0.3s ease-out;
+}
+
+.user-dropdown-hidden{
+right: -100%;
+opacity: 0;
+}
+
+.user-dropdown button{
+padding: 5px 20px;
+background: none;
+color: white;
+cursor: pointer;
+width: 100%;
+border: none;
+}
+
+.user-dropdown button:hover{
+background: rgba(0,0,0,0.3);
+}
+.form-control {
+color: #000;
+background-color: #d1d1d1;
+}
+
+.message {
+/* text-align: center; 
+padding: 20px 0;  */
+background: transparent;
+}
+/*----------Searchbar*/
+#searchbox{
+margin-top: 12px;
+margin-right: 10px;
+}
+#searchbox input{
+text-align: center;
+color: #fff;
+}
+#search{
+background-color: transparent;
+border-radius: 50px;
+color: white;
+width: 200px;
+font-size: 1.5vw;
+}
+#search:focus{
+outline: 0;
+background-color: var(--primary-color);
+}
+#search::placeholder{
+color: #fff;
+padding-left: 20px;
+}
 }
 
 *{

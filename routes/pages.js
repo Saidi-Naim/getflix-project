@@ -26,7 +26,7 @@ router.get("/register", (req, res) => {
   res.render("register");
 });
 router.get("/search", (req, res) => {
-  res.render("search");
+  res.render("search",{ logged: req.cookies.loggedin, premium: req.cookies.premium });
 });
 
 router.get("/forgot", (req, res, next) => {
