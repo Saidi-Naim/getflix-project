@@ -202,7 +202,6 @@ exports.update = async (req, res) => {
   } else if (subscription != undefined) {
 
     sql = "UPDATE user SET subscription = ? WHERE email = ?";
-    console.log(sql)
 
     db.query(sql,
       [subscription, token],
@@ -218,5 +217,22 @@ exports.update = async (req, res) => {
 };
 
 exports.delete = (req, res) => {
-  return res.redirect("../../");
+  return res.redirect("../../?delete");
 };
+
+exports.deleteConfirmed = (req, res) => {
+
+  const token = req.cookies.loggedin
+  let sql = "DELETE FROM user WHERE email = ?";
+
+  db.query(sql,
+    [token],
+    async (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+    })
+    res.clearCookie("loggedin");
+    res.clearCookie("premium");
+
+}
