@@ -10,23 +10,6 @@ if (messageMyProfile != null) {
   document.getElementById('messageProfile').innerHTML = messageMyProfile
 }
 
-const deleteProfile = urlParams.get('delete');
-
-// myprofile delete
-if (deleteProfile != null) {
-  const conf = confirm("Are you sure you want to delete your account?");
-  if (conf) {
-    fetch("http://localhost:3000/myprofile/deleteConfirmed", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify()
-    })
-    .then(window.location.replace("http://localhost:3000/login"))
-    
-  }
-}
 
 
 })();
