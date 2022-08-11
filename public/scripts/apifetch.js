@@ -184,8 +184,8 @@
              <i class="fa-solid fa-xmark"></i>
               <div class="comments">
                 <h1>${title}</h1>
+                <div id="video${id}"></div>
                 <p>${overview}</p>
-                <button class="trailer"><a href="">Trailer</a></button>
               </div>
             </div>
             <div class="overview">
@@ -205,6 +205,7 @@
           el.addEventListener('click', ()=>{
             console.log('r');
             document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
+            getVideos(data,el.getAttribute('id'));
           })
         })
       }
@@ -293,6 +294,7 @@
              <i class="fa-solid fa-xmark"></i>
               <div class="comments">
                 <h1>${title}</h1>
+                <div id="video${id}"></div>
                 <p>${overview}</p>
               </div>
             </div>
@@ -313,6 +315,7 @@
       el.addEventListener('click', ()=>{
         console.log('r');
         document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
+        getVideos(data,el.getAttribute('id'));
       })
     })
   }
@@ -344,6 +347,7 @@
              <i class="fa-solid fa-xmark"></i>
              <div class="comments">
                <h1>${title}</h1>
+               <div id="video${id}"></div>
                <p>${overview}</p>
                
              </div>
@@ -366,6 +370,7 @@
       el.addEventListener('click', ()=>{
         console.log('r');
         document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
+        getVideos(data,el.getAttribute('id'));
       })
     })
   }
@@ -400,6 +405,7 @@
             <i class="fa-solid fa-xmark"></i>
               <div class="comments">
                 <h1>${title}</h1>
+                <div id="video${id}"></div>
                 <p>${overview}</p>
               </div>
             </div>
@@ -423,11 +429,32 @@
       el.addEventListener('click', ()=>{
       
         document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
+        getVideos(data,el.getAttribute('id'));
       })
     })
   }
 })();
 
-
-
-// fetch('http://localhost:3000/test').then(res => res.json()).then(data => console.log(data))
+function getVideos(data,idBTN) {
+  
+  data.forEach(movie =>{
+    if(idBTN==movie.id){
+      
+      fetch('https://api.themoviedb.org/3/' + 'movie/'+movie.id+'/videos?' + 'api_key=860299d08527b54489820acbf28e4486' +'&language=en-US')
+      .then(res => res.json()).then(TrailerData => {
+        let {name, key, site} = TrailerData.results[0];
+        console.log(name, key, site);
+        const trailer=document.getElementById(`video${idBTN}`);
+        //trailer.innerHTML = "";
+        const videoEl = document.createElement("div");
+                  videoEl.classList.add("movieTrailer");
+                 
+                videoEl.innerHTML = `
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" class="embed hide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                `
+                  trailer.appendChild(videoEl);
+      })
+    }
+  })
+  
+}

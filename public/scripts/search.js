@@ -209,7 +209,7 @@ function getMovies(url) {
 }
 function showMovies(data) {
     movieCard.innerHTML = '';
-   
+    
     data.forEach(movie => {
         const {title, poster_path, vote_average,overview, id} = movie;
         const movieEl = document.createElement('div');
@@ -224,7 +224,7 @@ function showMovies(data) {
              <i class="fa-solid fa-xmark"></i>
              <div class="comments">
                <h1>${title}</h1>
-               <div id="video"></div>
+               <div id="video${id}"></div>
                <p>${overview}</p>
              </div>
            </div>
@@ -235,84 +235,47 @@ function showMovies(data) {
             </div>`;
 
         movieCard.appendChild(movieEl);
-        [...document.querySelectorAll('.know-more')].forEach(el => {
-          document.getElementById('comments'+el.getAttribute('id')).querySelector('.fa-xmark').addEventListener('click',()=>{
-            document.getElementById('comments'+el.getAttribute('id')).classList.add('modal-comments-hidden');
-            //getVideos(movie);
-          });
-          el.addEventListener('click', ()=>{
-            //console.log('r');
-            document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
-            getVideos(movie);
-          })
-        })
+        return movie;
+       
     });
+    [...document.querySelectorAll('.know-more')].forEach(el => {
+      document.getElementById('comments'+el.getAttribute('id')).querySelector('.fa-xmark').addEventListener('click',()=>{
+        document.getElementById('comments'+el.getAttribute('id')).classList.add('modal-comments-hidden');
+        
+      });
+      el.addEventListener('click', ()=>{
+        //console.log('r');
+        
+        document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
+        getVideos(data,el.getAttribute('id'));
+      })
+    })
     
 }
 
-function getVideos(movie) {
-  let id=movie.id;
-  fetch('https://api.themoviedb.org/3/' + 'movie/'+id+'/videos?' + 'api_key=860299d08527b54489820acbf28e4486' +'&language=en-US')
-  .then(res => res.json()).then(videoData => {
-    const trailer=document.getElementById("video");
-      //console.log(videoData);
-      //showVideos(data.results);
-      if(videoData){
-        //trailer.style.width = "100%";
-        if(videoData.results.length>0){
-          videoData.results.forEach((video) => {
-            let {name, key, site} = video
-  //console.log( movie.title);
-  //console.log(name);
-  //let title=movie.title;
-  /*if( name == title){
-    console.log("ok")
-  }*/
-  console.log(typeof name, typeof movie.title);
-            if(site == 'YouTube'){
-              
-              trailer.innerHTML = "";
-                const videoEl = document.createElement("div");
-                videoEl.classList.add("movieTrailer");
-                  videoEl.innerHTML = `
+function getVideos(data,idBTN) {
+  
+  data.forEach(movie =>{
+    if(idBTN==movie.id){
+      
+      fetch('https://api.themoviedb.org/3/' + 'movie/'+movie.id+'/videos?' + 'api_key=860299d08527b54489820acbf28e4486' +'&language=en-US')
+      .then(res => res.json()).then(TrailerData => {
+        let {name, key, site} = TrailerData.results[0];
+        console.log(name, key, site);
+        const trailer=document.getElementById(`video${idBTN}`);
+        //trailer.innerHTML = "";
+        const videoEl = document.createElement("div");
+                  videoEl.classList.add("movieTrailer");
+                 
+                videoEl.innerHTML = `
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" class="embed hide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 `
-              
-                trailer.appendChild(videoEl);
-              
-            }
-            else{
-                trailer.innerHTML = `<h1 class="no-results">No Results Found</h1>`
-              }
-            
-          })
-      }
+                  trailer.appendChild(videoEl);
+      })
     }
-    });
+  })
+  
 }
-
-/*function showVideos(data) {
-  const video=document.getElementById("video");
-  video.innerHTML = "";
-
-  data.forEach((video) => {
-    const { name, key, site, id } = video;
-    const videoEl = document.createElement("div");
-    videoEl.classList.add("movieTrailer");
-    
-    if(site == 'Youtube'){
-      videoEl.innerHTML = `
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" class="embed hide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    `
-  }
-  else{
-    videoEl.innerHTML = `
-        <p>No Trailer available</p>
-    `;
-  }
-    video.appendChild(videoEl);
-  }); 
-}*/
 
 
 //////////////////////////////////////
