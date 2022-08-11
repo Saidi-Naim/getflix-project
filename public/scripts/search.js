@@ -222,6 +222,7 @@ function showMovies(data) {
              <i class="fa-solid fa-xmark"></i>
              <div class="comments">
                <h1>${title}</h1>
+               <h3>Hello World</h3>
                <p>${overview}</p>
              </div>
            </div>
@@ -229,6 +230,7 @@ function showMovies(data) {
             <h3><b>${title}</b></h3>
                 <span class="scoreAverage">Rated: ${vote_average}</span>
                 <button class="know-more" id="${id}" title="${title}" description="${overview}">More Info</button>
+                <h3>Hello World</h3>
             </div>`;
 
         movieCard.appendChild(movieEl);

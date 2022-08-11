@@ -76,7 +76,7 @@
 }
 .TitlemovieTop10 h3, .TitleTrending h3, .TitleNowPlaying h3{
   font-weight: 900;
-  font-size: 50em;
+  font-size: large;
 }
 #trending, #movieTop10, #NowPlaying{
   width: 80%;

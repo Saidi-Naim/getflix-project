@@ -90,6 +90,32 @@ exports.login = (req, res) => {
   );
 };
 
+exports.comment = (req, res) => {
+  const { comment } = req.body;
+  if (comment == ""){
+    return res.render("index", { message: "Fields is empty" });
+  }
+  db.query(
+    "SELECT * FROM comments WHERE comment = ?",
+    [comment],
+    async (err, results) => {
+      if (err) {
+        console.log(err);
+      }
+        });
+        db.query(
+            "INSERT INTO comments SET ?",
+            { comment: comment},
+            (err, results) => {
+              if (err) {
+                console.log(err);
+              } else {
+                return res.redirect("../..");
+              }
+            }
+          );
+    }
+
 exports.logout = (req, res) => {
   res.clearCookie("loggedin");
   res.clearCookie("premium");
