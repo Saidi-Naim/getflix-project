@@ -1,5 +1,5 @@
-@media only screen and (max-width: 480px) {
-    .navDiv .user, .navbar .signIn, .navDiv li #searchbox, .navbar .home{
+@media only screen and (max-width: 600px) {
+    .navDiv .navbar .user, .navbar .signIn, .navDiv li #searchbox, .navbar .home{
         display: none;
     }
     .logo {
@@ -22,6 +22,51 @@
     }
     .user h4{
         display: none;
+    }
+    .headerResponsive .navbar .user{
+      display: flex;
+    }
+    
+    .icon-user{
+      border-radius: 50%;
+      background-color: #b00000;
+      height: 50px;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 10px;
+      position: relative;
+    }
+    
+    .user-dropdown{
+      position: absolute;
+      background-color: rgb(213, 3, 3, 0.7);
+      bottom: 100%;
+      right: -20;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s 0.3s ease-out;
+    }
+    
+    .user-dropdown-hidden{
+      right: -100%;
+      opacity: 0;
+    }
+    
+    .user-dropdown button{
+      padding: 5px 20px;
+      background: none;
+      color: white;
+      cursor: pointer;
+      width: 100%;
+      border: none;
+    }
+    
+    .user-dropdown button:hover{
+      background: rgba(0,0,0,0.3);
     }
   .header{
     float: left;
@@ -54,7 +99,6 @@
     }
     .headerResponsive{
         visibility: visible;
-        overflow: hidden;
         position: fixed;
         bottom: 0;
         width: 100%;
@@ -71,9 +115,9 @@
         text-decoration: none;
         font-size: 17px;
     }
-    .headerResponsive ul li{
-        padding-left: 15px;
-    }
+    /*.headerResponsive ul li{
+        padding-left: 5px;
+    }*/
     .headerResponsive ul li a i{
         font-size: 20px;
         color: white;
