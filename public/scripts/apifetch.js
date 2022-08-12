@@ -2,10 +2,10 @@
   const API_KEY = "api_key=860299d08527b54489820acbf28e4486";
   const BASE_URL = "https://api.themoviedb.org/3";
   const API_URLPopular =
-    BASE_URL + "/discover/movie?sort_by=popularity.desc&" + API_KEY;
+    BASE_URL + "/discover/movie?sort_by=popularity.desc&" + API_KEY +"&include_adult=false";
   const API_URLTopRated =
-    BASE_URL + "/movie/top_rated?" + API_KEY + "&language=en-US";
-  const API_URLLatest = BASE_URL + "/movie/now_playing?" + API_KEY;
+    BASE_URL + "/movie/top_rated?" + API_KEY + "&language=en-US" +"&include_adult=false";
+  const API_URLLatest = BASE_URL + "/movie/now_playing?" + API_KEY +"&include_adult=false";
   const IMG_URL = "https://image.tmdb.org/t/p/w342";
   const trending = document.getElementById("trending");
   const movieTop10 = document.getElementById("movieTop10");
@@ -18,6 +18,7 @@
   let img_url = "https://image.tmdb.org/t/p/w500";
   let original_img_url = "https://image.tmdb.org/t/p/original";
   const GenreBtnEl = document.getElementById("GenreBtn");
+  console.log(document.cookie)
   const genres = [
     {
       id: 28,
@@ -128,8 +129,6 @@
 
       const main = document.querySelector(".main");
       const movieCard = document.getElementById("movieCard");
-      const aBtnDropdown = document.querySelectorAll(".aBtnDropdown");
-      const ActionBtn = document.getElementById("ActionM");
 
       searchbox.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -186,11 +185,23 @@
              <i class="fa-solid fa-xmark"></i>
               <div class="comments">
                 <h1>${title}</h1>
+                <div id="video${id}"></div>
                 <p>${overview}</p>
 
-                <h3>Hello World</h3>
+                {{#if premium}}
+                <form action="/auth/comment" method="post">
+                  <label for="comment" class="form-label">Comment:</label>
+                  <input type="text" value="${id}" name="movieid"/>
+                  <input type="text" class="form-control" id="comment" aria-describedby="comment" name="younes"/>
+                  <button class="form-button"
+                type="submit"
+                name="submit">Send</button>
 
-                <button class="trailer"><a href="">Trailer</a></button>
+               </form>
+               {{/if}}
+
+               <div>{{comment}}</div>
+
               </div>
             </div>
             <div class="overview">
@@ -210,6 +221,7 @@
           el.addEventListener('click', ()=>{
             console.log('r');
             document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
+            getVideos(data,el.getAttribute('id'));
           })
         })
       }
@@ -298,8 +310,18 @@
              <i class="fa-solid fa-xmark"></i>
               <div class="comments">
                 <h1>${title}</h1>
+                <div id="video${id}"></div>
                 <p>${overview}</p>
-                <button class="trailer"><a href="">Trailer</a></button>
+                {{#if}}
+                <form action="/auth/comment" method="post">
+                  <label for="comment" class="form-label">Comment:</label>
+                  <input type="text" value="${id}" name="movieid"/>
+                  <input type="text" class="form-control" id="comment" aria-describedby="comment" name="comment"/>
+                  <button class="form-button"
+                type="submit"
+                name="submit">Send</button>
+               </form>
+               {{/if}}
               </div>
             </div>
             <div class="overview">
@@ -319,9 +341,11 @@
       el.addEventListener('click', ()=>{
         console.log('r');
         document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
+        getVideos(data,el.getAttribute('id'));
       })
     })
   }
+  
   function getTopRatedMovies(url) {
     lastUrl = url;
     fetch(url)
@@ -331,7 +355,6 @@
         showTopRatedMovies(data.results);
       });
   }
-
   function showTopRatedMovies(data) {
     movieTop10.innerHTML = "";
 
@@ -350,19 +373,17 @@
              <i class="fa-solid fa-xmark"></i>
              <div class="comments">
                <h1>${title}</h1>
+               <div id="video${id}"></div>
                <p>${overview}</p>
 
-               <form action="/auth/comment" method="post">
+               <form class="commentForm" action="/auth/comment" method="post">
                   <label for="comment" class="form-label">Comment:</label>
+                  <input type="hidden" value="${id}" name="movieid"/>
                   <input type="text" class="form-control" id="comment" aria-describedby="comment" name="comment"/>
-                  
-                  
                   <button class="form-button"
                 type="submit"
                 name="submit">Send</button>
                </form>
-
-               <button class="trailer"><a href="">Trailer</a></button>
 
              </div>
            </div>
@@ -376,6 +397,11 @@
 
       
     });
+    var premium = false;
+  if(premium==false){
+  console.log("premium falsee")
+        document.querySelector('.commentForm').style.display = 'none';
+      }
     [...document.querySelectorAll('.know-more')].forEach(el => {
       document.getElementById('comments'+el.getAttribute('id')).querySelector('.fa-xmark').addEventListener('click',()=>{
         document.getElementById('comments'+el.getAttribute('id')).classList.add('modal-comments-hidden');
@@ -384,6 +410,7 @@
       el.addEventListener('click', ()=>{
         console.log('r');
         document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
+        getVideos(data,el.getAttribute('id'));
       })
     })
   }
@@ -418,8 +445,18 @@
             <i class="fa-solid fa-xmark"></i>
               <div class="comments">
                 <h1>${title}</h1>
+                <div id="video${id}"></div>
                 <p>${overview}</p>
-                <button class="trailer"><a href="">Trailer</a></button>
+                
+                <form action="/auth/comment" method="post">
+                  <label for="comment" class="form-label">Comment:</label>
+                  <input type="text" value="${id}" name="movieid"/>
+                  <input type="text" class="form-control" id="comment" aria-describedby="comment" name="comment"/>
+                  <button class="form-button"
+                type="submit"
+                name="submit">Send</button>
+               </form>
+               {{/if}}
               </div>
             </div>
             <div class="overview">
@@ -442,11 +479,32 @@
       el.addEventListener('click', ()=>{
       
         document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
+        getVideos(data,el.getAttribute('id'));
       })
     })
   }
 })();
 
-
-
-// fetch('http://localhost:3000/test').then(res => res.json()).then(data => console.log(data))
+function getVideos(data,idBTN) {
+  
+  data.forEach(movie =>{
+    if(idBTN==movie.id){
+      
+      fetch('https://api.themoviedb.org/3/' + 'movie/'+movie.id+'/videos?' + 'api_key=860299d08527b54489820acbf28e4486' +'&language=en-US')
+      .then(res => res.json()).then(TrailerData => {
+        let {name, key, site} = TrailerData.results[0];
+        console.log(name, key, site);
+        const trailer=document.getElementById(`video${idBTN}`);
+        //trailer.innerHTML = "";
+        const videoEl = document.createElement("div");
+                  videoEl.classList.add("movieTrailer");
+                 
+                videoEl.innerHTML = `
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" class="embed hide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                `
+                  trailer.appendChild(videoEl);
+      })
+    }
+  })
+  
+}

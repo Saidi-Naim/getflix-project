@@ -5,6 +5,8 @@ const ApiUrlMovies = BASE_URL + '/discover/movie?sort_by=popularity.desc&'+API_K
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 const searchURL = BASE_URL + '/search/movie?'+API_KEY+'&language=en-US&include_adult=false';
 
+
+
 const genres = [
     {
       "id": 28,
@@ -207,7 +209,7 @@ function getMovies(url) {
 }
 function showMovies(data) {
     movieCard.innerHTML = '';
-
+    
     data.forEach(movie => {
         const {title, poster_path, vote_average,overview, id} = movie;
         const movieEl = document.createElement('div');
@@ -222,9 +224,18 @@ function showMovies(data) {
              <i class="fa-solid fa-xmark"></i>
              <div class="comments">
                <h1>${title}</h1>
-               <h3>Hello World</h3>
+
+               <div id="video${id}"></div>
+
                <p>${overview}</p>
-               <button class="trailer"><a href="">Trailer</a></button>
+
+               <form action="/auth/comment" method="post">
+                  <label for="comment" class="form-label">Comment:</label>
+                  <input type="text" class="form-control" id="comment" aria-describedby="comment" name="comment"/>
+                  <button class="form-button"
+                type="submit"
+                name="submit">Send</button>
+               </form>
              </div>
            </div>
             <div class="overview">
@@ -235,24 +246,53 @@ function showMovies(data) {
             </div>`;
 
         movieCard.appendChild(movieEl);
-        
+        return movie;
+       
     });
     [...document.querySelectorAll('.know-more')].forEach(el => {
       document.getElementById('comments'+el.getAttribute('id')).querySelector('.fa-xmark').addEventListener('click',()=>{
         document.getElementById('comments'+el.getAttribute('id')).classList.add('modal-comments-hidden');
-     
+        
       });
       el.addEventListener('click', ()=>{
-        console.log('r');
+        //console.log('r');
+        
         document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
+        getVideos(data,el.getAttribute('id'));
       })
     })
+    
+}
+
+function getVideos(data,idBTN) {
+  
+  data.forEach(movie =>{
+    if(idBTN==movie.id){
+      
+      fetch('https://api.themoviedb.org/3/' + 'movie/'+movie.id+'/videos?' + 'api_key=860299d08527b54489820acbf28e4486' +'&language=en-US')
+      .then(res => res.json()).then(TrailerData => {
+        let {name, key, site} = TrailerData.results[0];
+        console.log(name, key, site);
+        const trailer=document.getElementById(`video${idBTN}`);
+        //trailer.innerHTML = "";
+        const videoEl = document.createElement("div");
+                  videoEl.classList.add("movieTrailer");
+                 
+                videoEl.innerHTML = `
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" class="embed hide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                `
+                  trailer.appendChild(videoEl);
+      })
+    }
+  })
+  
 }
 
 
-
+//////////////////////////////////////
+/////////////////////////////////////
 if (urlParams.get("search") != null) {
-  console.log('r');
+  //console.log('r');
   getMovies(searchURL + "&query=" + urlParams.get("search"));
 }else{
   getMovies(ApiUrlMovies);

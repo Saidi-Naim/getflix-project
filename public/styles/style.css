@@ -11,7 +11,7 @@
 }
 @media only screen and (min-width: 481px) {
   /*Hero*/
-  .HeroRow{
+  .HeroRow{ 
   position: relative;
   width: 100%;
   height: 550px;
@@ -28,9 +28,10 @@
   flex-direction: column;
   width: 50%;
   height: 400px;
-  margin-left: 275px;
+  margin-left: auto;
+  margin-right: auto;
   align-items: center;
-  background: rgba(24, 24, 24, 0.425);
+  background: rgba(24, 24, 24, 0.7);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4.6px);
@@ -45,6 +46,10 @@
 }
 .forminput:nth-child(0n+3){
   padding: 0;
+}
+.form-control{
+  width: 300px;
+  border: 2px solid black;
 }
 .allForm h1{
   padding-bottom: 30px;
@@ -86,11 +91,7 @@
 }
 .TitlemovieTop10 h3, .TitleTrending h3, .TitleNowPlaying h3{
   font-weight: 900;
-<<<<<<< HEAD
-  font-size: large;
-=======
   font-size: xx-large;
->>>>>>> 14eff731f907cb16aa2629ba52b539eebe7bbd27
 }
 #trending, #movieTop10, #NowPlaying{
   width: 80%;
@@ -114,7 +115,7 @@
 }
 .movie {
   flex:auto 0 0;
-  width: 150px;
+  width: 250px;
   margin: 1rem;
   border-radius: 3px;
   box-shadow: 0.2px 4px 5px rgba(0,0,0,0.1);
@@ -130,7 +131,10 @@
   color: white;
 }
 .know-more{
-  font-size: 15px;
+  font-size: 25px;
+}
+.overview h3 {
+  font-size: x-large;
 }
 }
 @media only screen and (min-width: 481px) and (max-width: 800px) {
@@ -173,6 +177,8 @@
 .hero button:hover{
   opacity: .8;
 }
+
+
 }
 @media only screen and (min-width: 801px) {
 .HeroRow{
@@ -214,6 +220,7 @@
 .hero button:hover{
   opacity: .8;
 }
+
 }
 @media only screen and (max-width: 480px) {
 /*Hero*/
@@ -303,6 +310,12 @@
   font-weight: 700;
   font-size: large;
 }
+.know-more{
+  font-size: 15px;
+}
+.overview h3 {
+  font-size: medium;
+}
 }
 
 /*-------Body Page Index---------*/
@@ -360,17 +373,15 @@
   bottom:0;
   align-items: center;
   justify-content: center;
-  background:rgba(115, 116, 116, 0.689);
+  background:rgba(115, 116, 116, 0.9);
   color: #fff;
   padding: 1rem;
   height: 100%;
   font-size: small;
   transform:translateY(101%);
-  transition:transform 0.3s ease-in;
+  transition:transform 0.6s ease-in;
 }
-.overview h3 {
-  font-size: medium;
-}
+
 
 .modal-comments{
   background-color: rgba(0,0,0,0.7);
@@ -391,14 +402,16 @@
 }
 
 .modal-comments .comments{
-  background-color: white;
+  background-color: black;
   padding: 20px;
   width: 80%;
-  color: black;
+  color: white;
   max-height: 80%;
   overflow-y: auto;
 }
-
+.comments p{
+  font-size: 20px;
+}
 .modal-comments .fa-xmark{
   position: absolute;
   top: 20px;
@@ -417,10 +430,11 @@
   border: none;
   width: 100%;
   border-radius: 5px;
-  font-size: 10px;
   cursor:pointer;
 }
-
+.scoreAverage{
+  font-size: 15px;
+}
 
 
 /* Scroll: */
@@ -448,4 +462,7 @@
 .nxt-btn:hover,
 .pre-btn:hover{
     opacity: 1;
+}
+.commentForm{
+  display: block;
 }

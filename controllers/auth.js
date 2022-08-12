@@ -91,25 +91,22 @@ exports.login = (req, res) => {
 };
 
 exports.comment = (req, res) => {
-  const { comment } = req.body;
+  const comment = req.body.comment;
+  const user_id = req.cookies.loggedin;
+  const movieid = req.body.movieid;
+  const date = new Date();
+  console.log(date)
   if (comment == ""){
     return res.render("index", { message: "Fields is empty" });
   }
-  db.query(
-    "SELECT * FROM comments WHERE comment = ?",
-    [comment],
-    async (err, results) => {
-      if (err) {
-        console.log(err);
-      }
-        });
         db.query(
-            "INSERT INTO comments SET ?",
-            { comment: comment},
+            "INSERT INTO comments SET user_id=?, movie_id=?, created_at=?, comment=?",
+            [user_id, movieid,date, comment],
             (err, results) => {
               if (err) {
                 console.log(err);
               } else {
+                console.log
                 const str = 'Comment added successfully';
                 return res.redirect("../../?comment=" + str);
               }

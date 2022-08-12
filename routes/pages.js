@@ -29,6 +29,9 @@ router.get("/search", (req, res) => {
   res.render("search");
 });
 
+router.get("/video", (req, res) => {
+  res.render("video");
+});
 router.get("/forgot", (req, res, next) => {
   res.render("forgot");
 });
