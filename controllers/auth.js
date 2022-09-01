@@ -98,7 +98,7 @@ exports.comment = (req, res) => {
     return res.render("index", { message: "Fields is empty" });
   }
   db.query(
-              "INSERT INTO comments SET user_id=?, movie_id=?, created_at=?, comment=?",
+              "INSERT INTO comment SET user_id=?, movie_id=?, created_at=?, comment=?",
               [user_id, movieid,date, comment],
               (err, results) => {
                 if (err) {
