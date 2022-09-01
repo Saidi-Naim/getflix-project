@@ -60,7 +60,8 @@ router.post("/forgot", (req, res, next) => {
         id: results[0].id,
       };
       const token = jwt.sign(payload, secret, { expiresIn: "15m" });
-      const link = `https://nodeflix-prod.herokuapp.com/reset/${results[0].id}/${token}`;
+      const link = `http://localhost:3000/reset${results[0].id}/${token}`;
+      // const link = `https://nodeflix-prod.herokuapp.com/reset/${results[0].id}/${token}`;
 
 
       //     // send email with nodemailer
@@ -83,7 +84,7 @@ router.post("/forgot", (req, res, next) => {
             service: "gmail",
             auth: {
               type: "OAuth2",
-              user: "nodeflix.pw.recovery@gmail.com",
+              user: "felicien.dehertogh@gmail.com",
               clientId: CLIENT_ID,
               clientSecret: CLIENT_SECRET,
               refreshToken: REFRESH_TOKEN,
@@ -94,9 +95,9 @@ router.post("/forgot", (req, res, next) => {
           const mailOptions = {
             from: "nodeflix - noreply <nodeflix.pw.recovery@gmail.com>",
             to: email,
-            subject: "reset password",
+            subject: "Password reset",
             text: "",
-            html: `<h4>Click this <a href='${link}'>link</a> to reset the password.</h4>`,
+            html: `<h4>Click <a href='${link}'>here</a> to reset your password.</h4>`,
           };
 
           const result = await transport.sendMail(mailOptions);
