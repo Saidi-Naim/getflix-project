@@ -171,11 +171,12 @@
       function showMovies(data) {
         movieCard.innerHTML = "";
 
-        data.forEach((movie) => {
+        data.forEach(async (movie) => {
           const { title, poster_path,vote_average, overview, id } = movie;
           const movieEl = document.createElement("div");
           movieEl.classList.add("movie2");
-          movieEl.innerHTML = `
+          
+    movieEl.innerHTML = `
              <img src="${
                poster_path
                  ? img_url + poster_path
@@ -188,19 +189,15 @@
                 <div id="video${id}"></div>
                 <p>${overview}</p>
 
-                {{#if premium}}
                 <form action="/auth/comment" method="post">
                   <label for="comment" class="form-label">Comment:</label>
-                  <input type="text" value="${id}" name="movieid"/>
+                  <input type="hidden" value="${id}" name="movieid"/>
                   <input type="text" class="form-control" id="comment" aria-describedby="comment" name="younes"/>
                   <button class="form-button"
                 type="submit"
                 name="submit">Send</button>
-
                </form>
-               {{/if}}
 
-               <div>{{comment}}</div>
 
               </div>
             </div>
@@ -292,18 +289,21 @@
         showPopularMovies(data.results);
       });
   }
-
+// HERE I WORK NOW
   function showPopularMovies(data) {
     trending.innerHTML = "";
 
-    data.forEach((movie) => {
+    data.forEach(async(movie) => {
       const { title, poster_path,vote_average, overview, id } = movie;
       const movieEl = document.createElement("div");
       movieEl.classList.add("movie");
-      movieEl.innerHTML = `
+
+  //     await fetch("http://localhost:5000/checking/checkPremium").then(res => res.json()).then(data=>{
+  // if (data.premium === 1){
+    movieEl.innerHTML = `
              <img src="${
                poster_path
-                 ? IMG_URL + poster_path
+                 ? img_url + poster_path
                  : "http://via.placeholder.com/150x150"
              }" alt="${title}">
              <div class="modal-comments modal-comments-hidden" id="comments${id}">
@@ -312,16 +312,16 @@
                 <h1>${title}</h1>
                 <div id="video${id}"></div>
                 <p>${overview}</p>
-                {{#if}}
+
                 <form action="/auth/comment" method="post">
                   <label for="comment" class="form-label">Comment:</label>
-                  <input type="text" value="${id}" name="movieid"/>
+                  <input type="hidden" value="${id}" name="movieid"/>
                   <input type="text" class="form-control" id="comment" aria-describedby="comment" name="comment"/>
                   <button class="form-button"
                 type="submit"
                 name="submit">Send</button>
                </form>
-               {{/if}}
+
               </div>
             </div>
             <div class="overview">
@@ -329,6 +329,7 @@
                 <span class="scoreAverage">Rated: ${vote_average}</span>
                 <button class="know-more" id="${id}" title="${title}" description="${overview}">More Info</button>
             </div>`;
+            trending.appendChild(movieEl);
 
       trending.appendChild(movieEl);
       
@@ -375,7 +376,7 @@
                <h1>${title}</h1>
                <div id="video${id}"></div>
                <p>${overview}</p>
-
+                
                <form class="commentForm" action="/auth/comment" method="post">
                   <label for="comment" class="form-label">Comment:</label>
                   <input type="hidden" value="${id}" name="movieid"/>
@@ -384,6 +385,8 @@
                 type="submit"
                 name="submit">Send</button>
                </form>
+
+               
 
              </div>
            </div>
@@ -397,11 +400,6 @@
 
       
     });
-    var premium = false;
-  if(premium==false){
-  console.log("premium falsee")
-        document.querySelector('.commentForm').style.display = 'none';
-      }
     [...document.querySelectorAll('.know-more')].forEach(el => {
       document.getElementById('comments'+el.getAttribute('id')).querySelector('.fa-xmark').addEventListener('click',()=>{
         document.getElementById('comments'+el.getAttribute('id')).classList.add('modal-comments-hidden');
@@ -450,7 +448,7 @@
                 
                 <form action="/auth/comment" method="post">
                   <label for="comment" class="form-label">Comment:</label>
-                  <input type="text" value="${id}" name="movieid"/>
+                  <input type="hidden" value="${id}" name="movieid"/>
                   <input type="text" class="form-control" id="comment" aria-describedby="comment" name="comment"/>
                   <button class="form-button"
                 type="submit"

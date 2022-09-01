@@ -25,7 +25,7 @@ app.set("view engine", "hbs");
 app.use("/", require("./routes/pages"));
 app.use('/auth',require('./routes/auth'));
 app.use('/myprofile',require('./routes/myprofile'));
-
+app.use('/checking',require('./routes/checking')); 
 
 
 
