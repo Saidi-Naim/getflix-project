@@ -1,13 +1,9 @@
 const mysql = require("mysql");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const db = require("../config/db");
 
-const db = mysql.createConnection({
-  host: process.env.RDS_HOSTNAME,
-  user: process.env.RDS_USERNAME,
-  password: process.env.RDS_PASSWORD,
-  database: process.env.RDS_DB_NAME,
-});
+
 
 exports.register = (req, res) => {
   const { email, password, confirmPassword } = req.body;
@@ -40,7 +36,7 @@ exports.register = (req, res) => {
           if (err) {
             console.log(err);
           } else {
-            return res.render("register", {
+            return res.render("login", {
               message: "account subscribed successfully",
             });
           }
@@ -96,7 +92,6 @@ exports.comment = (req, res) => {
   const movieid = req.body.movieid;
   const date = new Date();
 
-
   if (comment == ""){
     return res.render("index", { message: "Fields is empty" });
   }
@@ -107,7 +102,6 @@ exports.comment = (req, res) => {
                 if (err) {
                   console.log(err);
                 } else {
-                
                   const str = 'Comment added successfully';
                   return res.redirect("../../?comment=" + str);
                 }

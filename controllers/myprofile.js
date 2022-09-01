@@ -1,13 +1,10 @@
 const mysql = require("mysql");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const db = require("../config/db");
 
-const db = mysql.createConnection({
-  host: process.env.RDS_HOSTNAME,
-  user: process.env.RDS_USERNAME,
-  password: process.env.RDS_PASSWORD,
-  database: process.env.RDS_DB_NAME,
-});
+
+
 
 exports.update = async (req, res) => {
   const { token, email, password, confirmPassword, subscription} = req.body;
@@ -202,7 +199,6 @@ exports.update = async (req, res) => {
   } else if (subscription != undefined) {
 
     sql = "UPDATE user SET subscription = ? WHERE email = ?";
-    console.log(sql)
 
     db.query(sql,
       [subscription, token],
@@ -218,5 +214,18 @@ exports.update = async (req, res) => {
 };
 
 exports.delete = (req, res) => {
-  return res.redirect("../../");
+  const token = req.cookies.loggedin
+  let sql = "DELETE FROM user WHERE email = ?";
+
+  db.query(sql,
+    [token],
+    async (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+    })
+    res.clearCookie("loggedin");
+    res.clearCookie("premium");
+    return res.redirect("../../login")
 };
+

@@ -170,7 +170,9 @@
 
       async function showMovies(data) {
         movieCard.innerHTML = "";
+
         await fetch('http://localhost:3000/auth/getComments').then(res => res.json()).then(comments => {
+
         data.forEach(async (movie) => {
           const { title, poster_path,vote_average, overview, id } = movie;
           const movieEl = document.createElement("div");
@@ -192,7 +194,10 @@
                 <form action="/auth/comment" method="post">
                   <label for="comment" class="form-label">Comment:</label>
                   <input type="hidden" value="${id}" name="movieid"/>
+
                   <input type="text" class="form-control" id="comment" aria-describedby="comment" name="comment"/>
+
+                  
                   <button class="form-button"
                 type="submit"
                 name="submit">Send</button>
@@ -218,7 +223,10 @@
           el.addEventListener('click', ()=>{
             console.log('r');
             document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
-            getVideos(data,el.getAttribute('id'));
+            let div=document.getElementById("video"+el.getAttribute('id'));
+        if(div.innerHTML == ''){
+        getVideos(data,el.getAttribute('id'));
+        }
           })
         })
       }
@@ -293,6 +301,7 @@
   async function showPopularMovies(data) {
     trending.innerHTML = "";
     await fetch('http://localhost:3000/auth/getComments').then(res => res.json()).then(comments => {
+
     data.forEach(async(movie) => {
       const { title, poster_path,vote_average, overview, id } = movie;
       const movieEl = document.createElement("div");
@@ -321,7 +330,9 @@
                 type="submit"
                 name="submit">Send</button>
                </form>
+
               ${comments[0].comment}
+
               </div>
             </div>
             <div class="overview">
@@ -342,7 +353,10 @@
       el.addEventListener('click', ()=>{
         console.log('r');
         document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
+        let div=document.getElementById("video"+el.getAttribute('id'));
+        if(div.innerHTML == ''){
         getVideos(data,el.getAttribute('id'));
+        }
       })
     })
   }
@@ -393,7 +407,7 @@
                 name="submit">Send</button>
                </form>
 
-               ${comments[0].comment}
+               ${comments[0].comment}        
 
              </div>
            </div>
@@ -441,7 +455,8 @@
             // movieTop10.appendChild(movieEl);
       
     });
- [...document.querySelectorAll('.know-more')].forEach(el => {
+    [...document.querySelectorAll('.know-more')].forEach(el => {
+
       document.getElementById('comments'+el.getAttribute('id')).querySelector('.fa-xmark').addEventListener('click',()=>{
         document.getElementById('comments'+el.getAttribute('id')).classList.add('modal-comments-hidden');
      
@@ -449,7 +464,10 @@
       el.addEventListener('click', ()=>{
         console.log('r');
         document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
+        let div=document.getElementById("video"+el.getAttribute('id'));
+        if(div.innerHTML == ''){
         getVideos(data,el.getAttribute('id'));
+        }
       })
     })
   }
@@ -518,7 +536,10 @@
       el.addEventListener('click', ()=>{
       
         document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
+        let div=document.getElementById("video"+el.getAttribute('id'));
+        if(div.innerHTML == ''){
         getVideos(data,el.getAttribute('id'));
+        }
       })
     })
   }
@@ -539,7 +560,7 @@ function getVideos(data,idBTN) {
                   videoEl.classList.add("movieTrailer");
                  
                 videoEl.innerHTML = `
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" class="embed hide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <p><iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" class="embed hide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>
                 `
                   trailer.appendChild(videoEl);
       })

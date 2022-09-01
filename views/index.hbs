@@ -86,12 +86,6 @@
               <form action="/auth/logout" method="post" style="display:flex; color: white; width: 100%">
                 <button type="submit">Logout</button>
               </form>
-              <form action="/myprofile/upgrade" method="post" style="display:flex; color: white; width: 100%">
-                <button type="submit">Upgrade</button>
-              </form>
-              <form action="/myprofile/delete" method="post" style="display:flex; color: white; width: 100%">    
-                <button type="submit">Delete</button>
-              </form>
             </div>
           </div>
         </li>
@@ -252,7 +246,7 @@
       <ul class="navbar">
         <li><a href=""><i class="fa-solid fa-house"></i></a></li>
       <li><a href="/search"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-{{#if logged}}
+      {{#if logged}}
         <li class="user">
           <h4>Hi, {{logged}}</h4>
           <div class="icon-user">

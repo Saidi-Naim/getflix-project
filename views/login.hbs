@@ -17,12 +17,13 @@
 </head>
 
 <body>
+  <div class="container">
     <header>
         <div class="header">
             <!--Logo -->
         
             <a href="login">
-              <img class="logo" src="/Images/logo.png" href="login" alt="logo getflix" />
+              <img class="logo" src="/Images/logo.png" href="index" alt="logo getflix" />
             </a>
         </div>
         <div class="navDiv" id="navDiv">
@@ -83,6 +84,7 @@
             </div>
         </form>
     </div>
+  </div>
 <div class="headerResponsive">
       <ul class="navbar">
         <li><a href=""><i class="fa-solid fa-house"></i></a></li>
@@ -96,12 +98,6 @@
               <button id="myprofile">My&nbsp;profile</button>
               <form action="/auth/logout" method="post" style="display:flex; color: white; width: 100%">
                 <button type="submit">Logout</button>
-              </form>
-              <form action="/myprofile/upgrade" method="post" style="display:flex; color: white; width: 100%">
-                <button type="submit">Upgrade</button>
-              </form>
-              <form action="/myprofile/delete" method="post" style="display:flex; color: white; width: 100%">
-                <button type="submit">Delete</button>
               </form>
             </div>
           </div>
