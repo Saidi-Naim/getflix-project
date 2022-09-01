@@ -18,6 +18,7 @@
   let img_url = "https://image.tmdb.org/t/p/w500";
   let original_img_url = "https://image.tmdb.org/t/p/original";
   const GenreBtnEl = document.getElementById("GenreBtn");
+  console.log(document.cookie)
   const genres = [
     {
       id: 28,
@@ -170,11 +171,12 @@
       function showMovies(data) {
         movieCard.innerHTML = "";
 
-        data.forEach((movie) => {
+        data.forEach(async (movie) => {
           const { title, poster_path,vote_average, overview, id } = movie;
           const movieEl = document.createElement("div");
           movieEl.classList.add("movie2");
-          movieEl.innerHTML = `
+          
+    movieEl.innerHTML = `
              <img src="${
                poster_path
                  ? img_url + poster_path
@@ -186,6 +188,17 @@
                 <h1>${title}</h1>
                 <div id="video${id}"></div>
                 <p>${overview}</p>
+
+                <form action="/auth/comment" method="post">
+                  <label for="comment" class="form-label">Comment:</label>
+                  <input type="hidden" value="${id}" name="movieid"/>
+                  <input type="text" class="form-control" id="comment" aria-describedby="comment" name="younes"/>
+                  <button class="form-button"
+                type="submit"
+                name="submit">Send</button>
+               </form>
+
+
               </div>
             </div>
             <div class="overview">
@@ -279,18 +292,21 @@
         showPopularMovies(data.results);
       });
   }
-
+// HERE I WORK NOW
   function showPopularMovies(data) {
     trending.innerHTML = "";
 
-    data.forEach((movie) => {
+    data.forEach(async(movie) => {
       const { title, poster_path,vote_average, overview, id } = movie;
       const movieEl = document.createElement("div");
       movieEl.classList.add("movie");
-      movieEl.innerHTML = `
+
+  //     await fetch("http://localhost:5000/checking/checkPremium").then(res => res.json()).then(data=>{
+  // if (data.premium === 1){
+    movieEl.innerHTML = `
              <img src="${
                poster_path
-                 ? IMG_URL + poster_path
+                 ? img_url + poster_path
                  : "http://via.placeholder.com/150x150"
              }" alt="${title}">
              <div class="modal-comments modal-comments-hidden" id="comments${id}">
@@ -299,6 +315,16 @@
                 <h1>${title}</h1>
                 <div id="video${id}"></div>
                 <p>${overview}</p>
+
+                <form action="/auth/comment" method="post">
+                  <label for="comment" class="form-label">Comment:</label>
+                  <input type="hidden" value="${id}" name="movieid"/>
+                  <input type="text" class="form-control" id="comment" aria-describedby="comment" name="comment"/>
+                  <button class="form-button"
+                type="submit"
+                name="submit">Send</button>
+               </form>
+
               </div>
             </div>
             <div class="overview">
@@ -306,6 +332,7 @@
                 <span class="scoreAverage">Rated: ${vote_average}</span>
                 <button class="know-more" id="${id}" title="${title}" description="${overview}">More Info</button>
             </div>`;
+            trending.appendChild(movieEl);
 
       trending.appendChild(movieEl);
       
@@ -325,6 +352,7 @@
       })
     })
   }
+  
   function getTopRatedMovies(url) {
     lastUrl = url;
     fetch(url)
@@ -334,7 +362,6 @@
         showTopRatedMovies(data.results);
       });
   }
-
   function showTopRatedMovies(data) {
     movieTop10.innerHTML = "";
 
@@ -355,7 +382,18 @@
                <h1>${title}</h1>
                <div id="video${id}"></div>
                <p>${overview}</p>
+                
+               <form class="commentForm" action="/auth/comment" method="post">
+                  <label for="comment" class="form-label">Comment:</label>
+                  <input type="hidden" value="${id}" name="movieid"/>
+                  <input type="text" class="form-control" id="comment" aria-describedby="comment" name="comment"/>
+                  <button class="form-button"
+                type="submit"
+                name="submit">Send</button>
+               </form>
+
                
+
              </div>
            </div>
             <div class="overview">
@@ -416,6 +454,16 @@
                 <h1>${title}</h1>
                 <div id="video${id}"></div>
                 <p>${overview}</p>
+                
+                <form action="/auth/comment" method="post">
+                  <label for="comment" class="form-label">Comment:</label>
+                  <input type="hidden" value="${id}" name="movieid"/>
+                  <input type="text" class="form-control" id="comment" aria-describedby="comment" name="comment"/>
+                  <button class="form-button"
+                type="submit"
+                name="submit">Send</button>
+               </form>
+               {{/if}}
               </div>
             </div>
             <div class="overview">

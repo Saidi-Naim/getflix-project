@@ -431,3 +431,6 @@
 .pre-btn:hover{
     opacity: 1;
 }
+.commentForm{
+  display: block;
+}

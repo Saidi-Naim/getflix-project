@@ -224,14 +224,25 @@ function showMovies(data) {
              <i class="fa-solid fa-xmark"></i>
              <div class="comments">
                <h1>${title}</h1>
+
                <div id="video${id}"></div>
+
                <p>${overview}</p>
+
+               <form action="/auth/comment" method="post">
+                  <label for="comment" class="form-label">Comment:</label>
+                  <input type="text" class="form-control" id="comment" aria-describedby="comment" name="comment"/>
+                  <button class="form-button"
+                type="submit"
+                name="submit">Send</button>
+               </form>
              </div>
            </div>
             <div class="overview">
             <h3><b>${title}</b></h3>
                 <span class="scoreAverage">Rated: ${vote_average}</span>
                 <button class="know-more" id="${id}" title="${title}" description="${overview}">More Info</button>
+                <h3>Hello World</h3>
             </div>`;
 
         movieCard.appendChild(movieEl);

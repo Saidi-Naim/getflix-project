@@ -86,8 +86,36 @@ exports.login = (req, res) => {
   );
 };
 
+exports.comment = (req, res) => {
+  const comment = req.body.comment;
+  const user_id = req.cookies.loggedin;
+  const movieid = req.body.movieid;
+  const date = new Date();
+  
+
+
+  if (comment == ""){
+    return res.render("index", { message: "Fields is empty" });
+  }
+  db.query(
+              "INSERT INTO comments SET user_id=?, movie_id=?, created_at=?, comment=?",
+              [user_id, movieid,date, comment],
+              (err, results) => {
+                if (err) {
+                  console.log(err);
+                } else {
+                  console.log
+                  const str = 'Comment added successfully';
+                  return res.redirect("../../?comment=" + str);
+                }
+              }
+            );
+
+  }
+
 exports.logout = (req, res) => {
   res.clearCookie("loggedin");
   res.clearCookie("premium");
   return res.redirect("/login");
 };
+
