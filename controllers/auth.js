@@ -36,7 +36,7 @@ exports.register = (req, res) => {
           if (err) {
             console.log(err);
           } else {
-            return res.render("register", {
+            return res.render("login", {
               message: "account subscribed successfully",
             });
           }
