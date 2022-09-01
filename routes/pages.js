@@ -192,7 +192,7 @@ router.post("/reset/:id/:token", (req, res, next) => {
             return res.render("reset", { message: "Update failed, try again" });
           }
 
-          return res.render("reset", { message: "Update successfully" });
+          return res.render("reset", { message: "Update successful" });
 
         })
 
