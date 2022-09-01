@@ -60,8 +60,7 @@ router.post("/forgot", (req, res, next) => {
         id: results[0].id,
       };
       const token = jwt.sign(payload, secret, { expiresIn: "15m" });
-      const link = `http://localhost:3000/reset${results[0].id}/${token}`;
-      // const link = `https://nodeflix-prod.herokuapp.com/reset/${results[0].id}/${token}`;
+      const link = `https://nodeflix-prod.herokuapp.com/reset/${results[0].id}/${token}`;
 
 
       //     // send email with nodemailer
