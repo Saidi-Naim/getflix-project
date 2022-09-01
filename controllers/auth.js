@@ -95,27 +95,47 @@ exports.comment = (req, res) => {
   const user_id = req.cookies.loggedin;
   const movieid = req.body.movieid;
   const date = new Date();
-  console.log(date)
+
+
   if (comment == ""){
     return res.render("index", { message: "Fields is empty" });
   }
-        db.query(
-            "INSERT INTO comments SET user_id=?, movie_id=?, created_at=?, comment=?",
-            [user_id, movieid,date, comment],
-            (err, results) => {
-              if (err) {
-                console.log(err);
-              } else {
-                console.log
-                const str = 'Comment added successfully';
-                return res.redirect("../../?comment=" + str);
+  db.query(
+              "INSERT INTO comment SET user_id=?, movie_id=?, created_at=?, comment=?",
+              [user_id, movieid,date, comment],
+              (err, results) => {
+                if (err) {
+                  console.log(err);
+                } else {
+                
+                  const str = 'Comment added successfully';
+                  return res.redirect("../../?comment=" + str);
+                }
               }
-            }
-          );
-    }
+            );
+
+  }
 
 exports.logout = (req, res) => {
   res.clearCookie("loggedin");
   res.clearCookie("premium");
   return res.redirect("/login");
 };
+exports.getComments = (req, res) => {
+  db.query(
+    "SELECT * FROM comment",
+
+    async (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+
+      if (result.length > 0) {
+        return res.status(200).json(result)
+      } else {
+        return res.status(401).json("no result")
+      }
+    }
+  );
+};
+
