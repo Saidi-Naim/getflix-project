@@ -1,42 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Getflix</title>
-    <link rel="stylesheet" href="/styles/styleform.css" />
+    <title>NodeFlix</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="/public/Images/logoTab.png">
+    {{!-- <link rel="stylesheet" href="/styles/styleform.css" /> --}}
     <link rel="stylesheet" href="/styles/HeaderFooter.css" />
     <link rel="stylesheet" href="/styles/headerResponsive.css" />
+    <link rel="stylesheet" href="/styles/styleform.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js?ver=3.6.0'></script>
+</head>
   <body>
     <div class="container">
-      <div class="row-1">
-        <!--Header -->
-        <div class="header">
+   <header> 
+    <div class="header">
+      
           <!--Logo -->
+          <a href="login">
           <img
             class="logo"
-            src="/Images/Getflix.png"
+            src="/Images/logo.png"
             href="login"
             alt="logo getflix"
           />
+          </a>
         </div>
         <div class="navDiv" id="navDiv"> <!--Navbar -->
             <ul class="navbar">
                 
                 <li><a href="/login">Login</a></li>
-                <li class="home"><a href="/">Home</a></li>
+            
               </ul>
         </div>
       </div>
+   </header>
       {{#if message}}
           <div class="message">
             <h1>{{message}}</h1>
           </div>
       {{/if}}
-      <div class="HeroRow">
+
+      <div class="allForm">
+        <h1>Reset Password</h1>
         <form action="" method="post">
 
             <div class="forminput">
@@ -52,14 +62,14 @@
             <div class="forminput">
             <button
                 type="submit"
-                class="btn btn-outline-danger position-relative"
+                class="form-button"
                 name="submit">
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                </span>Reset password
+                Reset password
                 </button>
             </div>
         </form>
     </div>
+</div>
       
     </div>
 
@@ -97,3 +107,4 @@
     <script src="scripts/apifetch.js"></script>
   </body>
 </html>
+

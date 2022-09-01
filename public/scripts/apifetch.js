@@ -168,8 +168,10 @@
           });
       }
 
-      function showMovies(data) {
+      async function showMovies(data) {
         movieCard.innerHTML = "";
+
+        await fetch('http://localhost:3000/auth/getComments').then(res => res.json()).then(comments => {
 
         data.forEach(async (movie) => {
           const { title, poster_path,vote_average, overview, id } = movie;
@@ -192,13 +194,16 @@
                 <form action="/auth/comment" method="post">
                   <label for="comment" class="form-label">Comment:</label>
                   <input type="hidden" value="${id}" name="movieid"/>
-                  <input type="text" class="form-control" id="comment" aria-describedby="comment" name="younes"/>
+
+                  <input type="text" class="form-control" id="comment" aria-describedby="comment" name="comment"/>
+
+                  
                   <button class="form-button"
                 type="submit"
                 name="submit">Send</button>
                </form>
 
-
+                ${comments[0].comment}
               </div>
             </div>
             <div class="overview">
@@ -208,7 +213,7 @@
             </div>`;
 
           movieCard.appendChild(movieEl);
-          
+            });
         });
         [...document.querySelectorAll('.know-more')].forEach(el => {
           document.getElementById('comments'+el.getAttribute('id')).querySelector('.fa-xmark').addEventListener('click',()=>{
@@ -293,8 +298,9 @@
       });
   }
 // HERE I WORK NOW
-  function showPopularMovies(data) {
+  async function showPopularMovies(data) {
     trending.innerHTML = "";
+    await fetch('http://localhost:3000/auth/getComments').then(res => res.json()).then(comments => {
 
     data.forEach(async(movie) => {
       const { title, poster_path,vote_average, overview, id } = movie;
@@ -325,6 +331,8 @@
                 name="submit">Send</button>
                </form>
 
+              ${comments[0].comment}
+
               </div>
             </div>
             <div class="overview">
@@ -335,7 +343,7 @@
             trending.appendChild(movieEl);
 
       trending.appendChild(movieEl);
-      
+            });
     });
     [...document.querySelectorAll('.know-more')].forEach(el => {
       document.getElementById('comments'+el.getAttribute('id')).querySelector('.fa-xmark').addEventListener('click',()=>{
@@ -362,15 +370,22 @@
         showTopRatedMovies(data.results);
       });
   }
-  function showTopRatedMovies(data) {
+  // fetch('http://localhost:3000/auth/getComments').then(res => res.json()).then(comments => {
+        
+  //     })
+  
+  async function showTopRatedMovies(data) {
     movieTop10.innerHTML = "";
+    await fetch('http://localhost:3000/auth/getComments').then(res => res.json()).then(comments => {
 
-    data.forEach((movie) => {
+  
+    data.forEach( (movie) => {
+
       const { title, poster_path,vote_average, overview, id } = movie;
-
       const movieEl = document.createElement("div");
       movieEl.classList.add("movie");
-      movieEl.innerHTML = `
+      comments.forEach((elC) => console.log(elC.comment));
+        movieEl.innerHTML = `
              <img src="${
                poster_path
                  ? IMG_URL + poster_path
@@ -392,7 +407,7 @@
                 name="submit">Send</button>
                </form>
 
-               
+               ${comments[0].comment}        
 
              </div>
            </div>
@@ -401,12 +416,47 @@
                 <span class="scoreAverage">Rated: ${vote_average}</span>
                 <button class="know-more" id="${id}" title="${title}" description="${overview}">More Info</button>
             </div>`;
+            
+            movieTop10.appendChild(movieEl);
+      })
+  
+      // movieEl.innerHTML = `
+      // <img src="${
+      //          poster_path
+      //            ? IMG_URL + poster_path
+      //            : "http://via.placeholder.com/150x150"
+      //        }" alt="${title}">
+      //        <div class="modal-comments modal-comments-hidden" id="comments${id}">
+      //        <i class="fa-solid fa-xmark"></i>
+      //        <div class="comments">
+      //          <h1>${title}</h1>
+      //          <div id="video${id}"></div>
+      //          <p>${overview}</p>
+                
+      //          <form class="commentForm" action="/auth/comment" method="post">
+      //             <label for="comment" class="form-label">Comment:</label>
+      //             <input type="hidden" value="${id}" name="movieid"/>
+      //             <input type="text" class="form-control" id="comment" aria-describedby="comment" name="comment"/>
+      //             <button class="form-button"
+      //           type="submit"
+      //           name="submit">Send</button>
+      //          </form>
 
-      movieTop10.appendChild(movieEl);
+               
 
+      //        </div>
+      //      </div>
+      //       <div class="overview">
+      //       <h3><b>${title}</b></h3>
+      //           <span class="scoreAverage">Rated: ${vote_average}</span>
+      //           <button class="know-more" id="${id}" title="${title}" description="${overview}">More Info</button>
+      //       </div>`;
+
+            // movieTop10.appendChild(movieEl);
       
     });
     [...document.querySelectorAll('.know-more')].forEach(el => {
+
       document.getElementById('comments'+el.getAttribute('id')).querySelector('.fa-xmark').addEventListener('click',()=>{
         document.getElementById('comments'+el.getAttribute('id')).classList.add('modal-comments-hidden');
      
@@ -433,9 +483,9 @@
       });
   }
 
-  function showLatestMovies(data) {
+  async function showLatestMovies(data) {
     latestmovies.innerHTML = "";
-
+    await fetch('http://localhost:3000/auth/getComments').then(res => res.json()).then(comments => {
     data.forEach((movie) => {
       const { title, poster_path, vote_average,overview, id } = movie;
 
@@ -463,7 +513,7 @@
                 type="submit"
                 name="submit">Send</button>
                </form>
-               {{/if}}
+               ${comments[0].comment}
               </div>
             </div>
             <div class="overview">
@@ -475,7 +525,7 @@
           
             latestmovies.appendChild(movieEl);
 
-     
+            });
     });
 
     [...document.querySelectorAll('.know-more')].forEach(el => {
