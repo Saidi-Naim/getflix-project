@@ -258,7 +258,10 @@ function showMovies(data) {
         //console.log('r');
         
         document.getElementById('comments'+el.getAttribute('id')).classList.remove('modal-comments-hidden');
+        let div=document.getElementById("video"+el.getAttribute('id'));
+        if(div.innerHTML == ''){
         getVideos(data,el.getAttribute('id'));
+        }
       })
     })
     
@@ -279,7 +282,7 @@ function getVideos(data,idBTN) {
                   videoEl.classList.add("movieTrailer");
                  
                 videoEl.innerHTML = `
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" class="embed hide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <p><iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" title="${name}" class="embed hide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
                 `
                   trailer.appendChild(videoEl);
       })

@@ -26,12 +26,9 @@ router.get("/register", (req, res) => {
   res.render("register");
 });
 router.get("/search", (req, res) => {
-  res.render("search");
+  res.render("search",{ logged: req.cookies.loggedin, premium: req.cookies.premium });
 });
 
-router.get("/video", (req, res) => {
-  res.render("video");
-});
 router.get("/forgot", (req, res, next) => {
   res.render("forgot");
 });
@@ -63,7 +60,7 @@ router.post("/forgot", (req, res, next) => {
         id: results[0].id,
       };
       const token = jwt.sign(payload, secret, { expiresIn: "15m" });
-      const link = `https://nodeflix-staging.herokuapp.com/reset/${results[0].id}/${token}`;
+      const link = `https://nodeflix-prod.herokuapp.com/reset/${results[0].id}/${token}`;
 
 
       //     // send email with nodemailer

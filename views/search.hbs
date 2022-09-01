@@ -2,7 +2,9 @@
   <head>
     <title>Search...</title>
     <link rel="stylesheet" href="/styles/search.css" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    
+  <link rel="stylesheet" href="/styles/HeaderFooter.css" />
+  <link rel="stylesheet" href="/styles/headerResponsive.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -10,8 +12,54 @@
     
   </head>
   <body>
-    
-      <div class="row-1">
+    <!-- modal myprofile -->
+
+  <div class="modal-myprofile modal-myprofile-hidden">
+<div id="messageProfile"></div>
+    <div class="forms">
+      <form action="/myprofile/update" method="post" id="form-myprofile">
+      <input type="hidden" value="{{logged}}" name="token"/>
+        <div class="forminput">
+          
+          <label for="email" class="form-label">Username:</label></br>
+          <input type="email" class="form-control" id="username" aria-describedby="emailHelp" name="email" default-value="{{logged}}"
+            value="{{logged}}" required disabled /> <i class="fa-solid fa-pen-to-square" id="edit-username"></i>
+        </div>
+        <br />
+        <div class="forminput">
+          <label for="name" class="form-label">Password:</label></br>
+          <input type="password" class="form-control" id="pass" name="password" required disabled /> <i class="fa-solid fa-pen-to-square" id="edit-pass"></i>
+        </div>
+        <div class="forminput">
+          <label for="name" class="form-label">Confirm password:</label></br>
+          <input type="password" class="form-control" id="pass" name="confirmPassword" required disabled />
+        </div>
+        <div class="forminput">
+            <label>Update subscription plan:</label><br>
+              <select id="subscription" name="subscription">
+                <option disabled selected value=""> -- select an option -- </option>
+                <option value="free">Free</option>
+                <option value="premium">Premium</option>
+              </select>
+        </div>
+
+        <div id="form-save">
+          <div class="forminput">
+            <button>Update</button>
+          </div>
+          <button type="button" id="annulateMyprofile">Back</button>
+        </div>
+      </form>
+      <br>
+      <form action="/myprofile/delete" method="post">
+        <button>Close this account</button>
+      </form>
+
+
+    </div>
+  </div>
+
+      <header>
         <!--Header -->
         <div class="header">
           <!--Logo -->
@@ -49,13 +97,14 @@
             <li class="home"><a href="/">Home</a></li> 
             <li>
               <form  id="form">
-            <input type="search" placeholder="Search" id="search" class="search">
+            <input type="search" placeholder="Search" id="search" class="search" name="search">
         </form>
               <!-- <a href="#">Search</a> -->
             </li> 
             
           </ul>
         </div>
+      </header>
       </div>
       <div class="container">
       <div id="GenreBtn"></div>
@@ -68,7 +117,7 @@
     </div>
     </div <!-- Container -->>
     <div class="headerResponsive">
-      <ul>
+      <ul class="navbar">
         <li><a href="/"><i class="fa-solid fa-house"></i></a></li>
       <li><a href="/search"><i class="fa-solid fa-magnifying-glass"></i></a></li>
 {{#if logged}}
