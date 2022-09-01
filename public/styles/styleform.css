@@ -29,11 +29,16 @@ body{
 header{
   grid-area: header;
 }
+.container1{
+    display: grid;
+    grid-template-areas: 'header'
+                        'formulaire';
+}
 .allForm{
   grid-area: formulaire;
   position: relative;
   display: flex;
-  min-width: 300px;
+  max-width: 400px;
   flex-direction: column;
   justify-content: center;
   padding: 20px;
